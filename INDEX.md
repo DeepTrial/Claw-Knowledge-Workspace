@@ -40,7 +40,13 @@ KNOWLEDGE_BASE/
 
 | ID | 课题 | 领域 | 状态 | 更新时间 |
 |----|------|------|------|----------|
-| - | 暂无 | - | - | - |
+| KB-20250306-001 | CUDA 线程层次结构深度解析 | CUDA/GPU | done | 2026-03-06 |
+| KB-20250306-002 | CUDA 内存层次结构深度解析 | CUDA/GPU | done | 2026-03-06 |
+| KB-20250306-003 | Triton @triton.jit Decorator 原理深度解析 | Triton/Compiler | done | 2026-03-06 |
+| KB-20250306-004 | LLVM 架构设计深度解析 | LLVM/Compiler | done | 2026-03-06 |
+| KB-20250306-005 | Triton 编程语言深度调研 | Triton/GPU | done | 2026-03-06 |
+| KB-20260306-006 | Triton 编程语言深度调研 | Triton/GPU | done | 2026-03-06 |
+| KB-20260306-003 | 多 Agent 协作调研 | Collaboration | done | 2026-03-06 |
 
 ### SKILLS（技能文档）
 
@@ -76,7 +82,7 @@ KNOWLEDGE_BASE/
 
 ## 📊 统计
 
-- **课题总数**: 3
+- **课题总数**: 8
 - **技能总数**: 1
 - **最佳实践**: 1
 - **最后更新**: 2026-03-06
