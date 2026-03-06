@@ -43,8 +43,10 @@ echo "[INFO] 知识库路径：$KB_DIR"
 echo "[INFO] 远端仓库：$REMOTE_REPO"
 echo ""
 
-# 检查远端仓库是否存在
-if [ ! -d "$REMOTE_REPO" ]; then
+# 检查远端仓库（仅检查本地路径，GitHub URL 跳过检查）
+if [[ "$REMOTE_REPO" == http* ]]; then
+    echo "[INFO] 远端仓库：GitHub (URL 验证将在拉取时进行)"
+elif [ ! -d "$REMOTE_REPO" ]; then
     echo "[ERROR] 远端仓库不存在：$REMOTE_REPO"
     echo "[ERROR] 请先创建远端仓库："
     echo "  git init --bare ~/repos/knowledge-base.git"
