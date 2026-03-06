@@ -4,14 +4,14 @@
 #
 # 用法：./init-agent-kb.sh <agent-name> [workspace-path]
 # 示例：./init-agent-kb.sh bot-a
-#        ./init-agent-kb.sh bot-a /Users/laosan/.openclaw/workspace-bot-a
+#        ./init-agent-kb.sh bot-a $HOME/.openclaw/workspace-bot-a
 
 set -e
 
 # ==================== 参数 ====================
 AGENT_NAME="${1:-}"
-WORKSPACE_ROOT="${2:-/Users/laosan/.openclaw}"
-REMOTE_REPO="$HOME/repos/knowledge-base.git"
+WORKSPACE_ROOT="${2:-$HOME/.openclaw}"
+REMOTE_REPO="https://github.com/DeepTrial/Claw-Knowledge-Workspace.git"
 
 # ==================== 帮助信息 ====================
 if [ -z "$AGENT_NAME" ]; then
@@ -19,7 +19,7 @@ if [ -z "$AGENT_NAME" ]; then
     echo ""
     echo "示例:"
     echo "  $0 bot-a"
-    echo "  $0 bot-a /Users/laosan/.openclaw/workspace-bot-a"
+    echo "  $0 bot-a $HOME/.openclaw/workspace-bot-a"
     echo ""
     echo "当前配置:"
     echo "  工作区根目录：$WORKSPACE_ROOT"

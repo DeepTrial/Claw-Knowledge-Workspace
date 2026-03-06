@@ -40,7 +40,7 @@
 每个 Agent 工作区的 KNOWLEDGE_BASE 目录：
 
 ```
-/Users/laosan/.openclaw/workspace-<agent>/KNOWLEDGE_BASE/
+$HOME/.openclaw/workspace-<agent>/KNOWLEDGE_BASE/
 ├── .git/                          # Git 仓库（配置 GitHub 远端）
 ├── sync-knowledge.sh              # 同步封装脚本
 ├── generate-index.sh              # 索引生成脚本
@@ -72,10 +72,10 @@
 
 ```bash
 # 使用初始化脚本
-/Users/laosan/.openclaw/workspace/KNOWLEDGE_BASE/init-agent-kb.sh bot-c
+$HOME/.openclaw/workspace/KNOWLEDGE_BASE/init-agent-kb.sh bot-c
 
 # 这会：
-# 1. 创建 /Users/laosan/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
+# 1. 创建 $HOME/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
 # 2. 初始化 Git 仓库
 # 3. 配置 GitHub 远端
 # 4. 拉取所有知识内容
@@ -85,7 +85,7 @@
 
 ```bash
 # 进入工作区
-cd /Users/laosan/.openclaw/workspace-<agent>/KNOWLEDGE_BASE
+cd $HOME/.openclaw/workspace-<agent>/KNOWLEDGE_BASE
 
 # 推送本地变更
 ./sync-knowledge.sh push -m "新增 XXX 文档"

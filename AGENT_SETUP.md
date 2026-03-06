@@ -20,10 +20,10 @@ GitHub → 各 Agent 工作区
 
 | Agent | 工作区路径 |
 |-------|-----------|
-| main | `/Users/laosan/.openclaw/workspace/KNOWLEDGE_BASE` |
-| bot-a | `/Users/laosan/.openclaw/workspace-bot-a/KNOWLEDGE_BASE` |
-| bot-b | `/Users/laosan/.openclaw/workspace-bot-b/KNOWLEDGE_BASE` |
-| bot-c | `/Users/laosan/.openclaw/workspace-bot-c/KNOWLEDGE_BASE` |
+| main | `$HOME/.openclaw/workspace/KNOWLEDGE_BASE` |
+| bot-a | `$HOME/.openclaw/workspace-bot-a/KNOWLEDGE_BASE` |
+| bot-b | `$HOME/.openclaw/workspace-bot-b/KNOWLEDGE_BASE` |
+| bot-c | `$HOME/.openclaw/workspace-bot-c/KNOWLEDGE_BASE` |
 
 所有工作区都直接同步到 GitHub：
 `https://github.com/DeepTrial/Claw-Knowledge-Workspace.git`
@@ -36,10 +36,10 @@ GitHub → 各 Agent 工作区
 
 ```bash
 # 为 bot-c 初始化
-/Users/laosan/.openclaw/workspace/KNOWLEDGE_BASE/init-agent-kb.sh bot-c
+$HOME/.openclaw/workspace/KNOWLEDGE_BASE/init-agent-kb.sh bot-c
 
 # 这会：
-# 1. 创建 /Users/laosan/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
+# 1. 创建 $HOME/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
 # 2. 初始化 Git 仓库
 # 3. 配置 GitHub 远端
 # 4. 拉取所有知识内容
@@ -49,10 +49,10 @@ GitHub → 各 Agent 工作区
 
 ```bash
 # 1. 创建目录
-mkdir -p /Users/laosan/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
+mkdir -p $HOME/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
 
 # 2. 初始化 Git
-cd /Users/laosan/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
+cd $HOME/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
 git init
 
 # 3. 配置远端
@@ -67,7 +67,7 @@ git pull origin main
 ## 🔄 日常同步
 
 ```bash
-cd /Users/laosan/.openclaw/workspace-<agent>/KNOWLEDGE_BASE
+cd $HOME/.openclaw/workspace-<agent>/KNOWLEDGE_BASE
 
 # 拉取最新内容
 ./sync-knowledge.sh pull
