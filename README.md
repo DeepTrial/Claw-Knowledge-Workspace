@@ -10,59 +10,91 @@
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    远端仓库                              │
-│            ~/repos/knowledge-base.git                   │
-│              (Git Bare Repository)                      │
+│              GitHub 远端仓库                             │
+│   https://github.com/DeepTrial/Claw-Knowledge-Workspace │
 └─────────────────────────────────────────────────────────┘
-           ↑                       ↑
-           │ git push/pull         │ git push/pull
-           ↓                       ↓
-┌──────────────────────┐  ┌──────────────────────┐
-│   中央仓库            │  │    本地仓库           │
-│ /Documents/          │  │ /workspace/          │
-│ KnowledgeBase/       │  │ KNOWLEDGE_BASE/      │
-└──────────────────────┘  └──────────────────────┘
+           ↑                       ↑                       ↑
+           │ git push/pull         │ git push/pull         │ git push/pull
+           ↓                       ↓                       ↓
+┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
+│   main 工作区     │   │  bot-a 工作区    │   │  bot-b 工作区    │
+│ KNOWLEDGE_BASE   │   │ KNOWLEDGE_BASE   │   │ KNOWLEDGE_BASE   │
+└──────────────────┘   └──────────────────┘   └──────────────────┘
+
+每个 Agent 工作区都直接同步到 GitHub，无需中央仓库中转
 ```
 
-### 文件分层
+### 设计原则
 
-| 层级 | 文件 | 维护方式 | 说明 |
-|------|------|----------|------|
-| **入口层** | INDEX.md | 手动 | 精简版知识地图，很少修改 |
-| **索引层** | INDEX_TOPICS.md | 自动生成 | TOPICS 目录索引 |
-| **索引层** | INDEX_SKILLS.md | 自动生成 | SKILLS 目录索引 |
-| **索引层** | INDEX_BP.md | 自动生成 | BEST_PRACTICES 索引 |
-| **内容层** | TOPICS/*.md | 各贡献者创建 | 课题调研文档 |
-| **内容层** | SKILLS/*.md | 各贡献者创建 | 技能文档 |
-| **内容层** | BEST_PRACTICES/*.md | 各贡献者创建 | 最佳实践 |
-| **工具层** | generate-index.sh | 自动执行 | 索引生成脚本 |
-| **工具层** | sync-knowledge.sh | 手动调用 | 同步封装脚本 |
+| 原则 | 说明 |
+|------|------|
+| **分布式** | 每个 Agent 有完整的 Git 仓库和历史 |
+| **扁平化** | 直接与 GitHub 同步，无中间层 |
+| **对等协作** | 所有 Agent 地位平等，直接共享 |
+| **自动化** | 索引自动生成，减少手动维护 |
+
+---
+
+## 📁 知识库结构
+
+每个 Agent 工作区的 KNOWLEDGE_BASE 目录：
+
+```
+/Users/laosan/.openclaw/workspace-<agent>/KNOWLEDGE_BASE/
+├── .git/                          # Git 仓库（配置 GitHub 远端）
+├── sync-knowledge.sh              # 同步封装脚本
+├── generate-index.sh              # 索引生成脚本
+├── init-agent-kb.sh               # 初始化脚本
+├── README.md                      # 使用指南（本文件）
+├── AGENT_SETUP.md                 # Agent 配置文档
+├── MIGRATE_TO_GITHUB.md           # GitHub 配置说明
+├── INDEX.md                       # 知识地图（精简版）
+├── INDEX_TOPICS.md                # TOPICS 索引（自动生成）
+├── INDEX_SKILLS.md                # SKILLS 索引（自动生成）
+├── INDEX_BP.md                    # BEST_PRACTICES 索引（自动生成）
+├── FORMAT.md                      # 格式规范
+├── QUICK_START/
+│   └── GETTING_STARTED.md
+├── TOPICS/                        # 课题调研（内容文件）
+│   ├── *.md
+│   └── ...
+├── SKILLS/                        # 技能文档（内容文件）
+│   └── *.md
+└── BEST_PRACTICES/                # 最佳实践（内容文件）
+    └── *.md
+```
 
 ---
 
 ## 🚀 快速开始
 
-### 首次使用（已配置）
+### 新 Agent 初始化
 
-本地知识库和中央仓库已配置完成，远端为 `~/repos/knowledge-base.git`。
+```bash
+# 使用初始化脚本
+/Users/laosan/.openclaw/workspace/KNOWLEDGE_BASE/init-agent-kb.sh bot-c
+
+# 这会：
+# 1. 创建 /Users/laosan/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
+# 2. 初始化 Git 仓库
+# 3. 配置 GitHub 远端
+# 4. 拉取所有知识内容
+```
 
 ### 日常同步
 
 ```bash
-# 推送本地变更到远端
+# 进入工作区
+cd /Users/laosan/.openclaw/workspace-<agent>/KNOWLEDGE_BASE
+
+# 推送本地变更
 ./sync-knowledge.sh push -m "新增 XXX 文档"
 
-# 从远端拉取最新内容
+# 拉取最新内容
 ./sync-knowledge.sh pull
 
 # 双向同步（推荐）
 ./sync-knowledge.sh sync
-```
-
-### 查看状态
-
-```bash
-./sync-knowledge.sh status
 ```
 
 ---
@@ -101,82 +133,65 @@ status: done
 | `tags` | ✅ | 标签列表 | `[feishu, api]` |
 | `status` | ⚠️ | 状态 | `draft`, `done`, `deprecated` |
 
-### 示例
-
-```bash
-# 创建新的 TOPIC
-cat > TOPICS/my-topic.md << 'EOF'
----
-id: KB-20260306-002
-title: 我的研究课题
-contributor: main
-created: 2026-03-06
-updated: 2026-03-06
-tags: [research, topic]
-status: done
----
-
-# 我的研究课题
-
-## 概述
-
-...
-
-EOF
-
-# 同步到远端
-./sync-knowledge.sh push -m "新增我的研究课题"
-```
-
 ---
 
 ## 🔄 多 Agent 协作流程
 
-### 场景：多个智能体同时贡献
+### 典型工作流
 
 ```
 时间线:
 
-07:00  bot-a 完成 Feishu 调研
-       → 创建 TOPICS/feishu.md
-       → ./sync-knowledge.sh push
-       → 远端收到更新
-       → INDEX_TOPICS.md 自动更新
-
-07:15  bot-b 完成 GitHub 调研
-       → 创建 TOPICS/github.md
-       → ./sync-knowledge.sh push
-       → Git 自动合并（不同文件，无冲突）
-       → INDEX_TOPICS.md 自动更新
-
-07:30  main 完成天气技能
-       → 创建 SKILLS/weather.md
-       → ./sync-knowledge.sh push
-       → Git 自动合并（不同目录，无冲突）
-       → INDEX_SKILLS.md 自动更新
+07:00  bot-a 开始调研
+       → ./sync-knowledge.sh pull  (拉取最新内容)
+       
+07:30  bot-a 完成调研
+       → 创建 TOPICS/feishu-research.md
+       → ./sync-knowledge.sh push -m "bot-a: Feishu 调研"
+       → GitHub 收到提交
+       
+08:00  main 开始工作
+       → ./sync-knowledge.sh pull
+       → 看到 bot-a 的 Feishu 调研
+       → 基于此继续工作
+       
+08:30  main 完成整合
+       → 创建 TOPICS/feishu-integration.md
+       → ./sync-knowledge.sh push -m "main: Feishu 集成"
+       → GitHub 收到提交
+       
+09:00  bot-b 开始写作
+       → ./sync-knowledge.sh sync
+       → 看到 bot-a 和 main 的内容
+       → 基于所有资料创作文章
 ```
 
 ### 冲突处理
 
 **什么情况下会冲突？**
 
-- ❌ 两个 Agent 同时修改同一个文件
-- ✅ 不同文件不会冲突
-- ✅ 索引文件自动生成，不会冲突
+| 场景 | 冲突概率 | 说明 |
+|------|----------|------|
+| 不同 Agent 创建不同文件 | 🟢 无冲突 | Git 自动合并 |
+| 不同 Agent 修改同一文件 | 🔴 高冲突 | 需要手动解决 |
+| 索引文件自动生成 | 🟡 低冲突 | 重新生成覆盖 |
 
-**冲突解决流程:**
+**冲突解决流程**:
 
 ```bash
-# 1. 拉取时检测冲突
-./sync-knowledge.sh pull
-# [WARN] 冲突：TOPICS/xxx.md
+# 1. 检测冲突
+git status
 
-# 2. 手动解决冲突
-# 编辑文件，选择保留的内容
+# 2. 手动编辑冲突文件
+# 解决 <<<<<<< HEAD 和 >>>>>>> origin 之间的冲突
 
-# 3. 重新提交
-git add TOPICS/xxx.md
+# 3. 标记解决
+git add <file>
+
+# 4. 完成合并
 git commit -m "解决冲突"
+
+# 5. 重新推送
 ./sync-knowledge.sh push
 ```
 
@@ -224,7 +239,7 @@ grep -r "contributor: bot-a" TOPICS/ SKILLS/ BEST_PRACTICES/
 
 ### sync-knowledge.sh
 
-**命令:**
+**命令**:
 
 | 命令 | 说明 | 示例 |
 |------|------|------|
@@ -234,7 +249,7 @@ grep -r "contributor: bot-a" TOPICS/ SKILLS/ BEST_PRACTICES/
 | `status` | 查看状态 | `./sync-knowledge.sh status` |
 | `init` | 初始化 Git | `./sync-knowledge.sh init` |
 
-**选项:**
+**选项**:
 
 | 选项 | 说明 | 示例 |
 |------|------|------|
@@ -244,17 +259,31 @@ grep -r "contributor: bot-a" TOPICS/ SKILLS/ BEST_PRACTICES/
 
 ### generate-index.sh
 
-**功能:**
+**功能**:
 
 - 扫描 TOPICS、SKILLS、BEST_PRACTICES 目录
 - 提取 YAML 元数据
 - 生成索引表格
 - 更新 INDEX.md 统计信息
 
-**用法:**
+**用法**:
 
 ```bash
 ./generate-index.sh
+```
+
+### init-agent-kb.sh
+
+**功能**:
+
+- 为新 Agent 初始化知识库
+- 配置 GitHub 远端
+- 拉取所有内容
+
+**用法**:
+
+```bash
+./init-agent-kb.sh bot-c
 ```
 
 ---
@@ -329,6 +358,16 @@ git branch -a
 ./sync-knowledge.sh push
 ```
 
+### 问题：认证失败
+
+```bash
+# 清除缓存的凭证
+rm ~/.git-credentials
+
+# 重新推送，会提示输入
+./sync-knowledge.sh push
+```
+
 ### 问题：索引未更新
 
 ```bash
@@ -339,17 +378,16 @@ git branch -a
 chmod +x generate-index.sh sync-knowledge.sh
 ```
 
-### 问题：冲突无法解决
+### 问题：Git 冲突
 
 ```bash
-# 查看冲突文件
+# 查看冲突
 git status
 
-# 重置到远端版本（谨慎使用）
-git fetch origin
-git reset --hard origin/main
-
-# 重新应用本地修改
+# 解决冲突后
+git add <file>
+git commit -m "解决冲突"
+./sync-knowledge.sh push
 ```
 
 ---
@@ -358,8 +396,32 @@ git reset --hard origin/main
 
 - [INDEX.md](INDEX.md) - 知识库索引
 - [FORMAT.md](FORMAT.md) - 知识卡片格式规范
+- [AGENT_SETUP.md](AGENT_SETUP.md) - Agent 配置指南
+- [MIGRATE_TO_GITHUB.md](MIGRATE_TO_GITHUB.md) - GitHub 配置说明
 - [QUICK_START/GETTING_STARTED.md](QUICK_START/GETTING_STARTED.md) - 新 Agent 指南
 
 ---
 
-*最后更新：2026-03-06 | 维护者：ZIV-BOT*
+## 🏗️ 架构演进
+
+### v1.0 - 本地中央仓库（已废弃）
+
+```
+工作区 → 中央仓库 (~/Documents/KnowledgeBase)
+```
+
+### v2.0 - GitHub 直连（当前）
+
+```
+工作区 → GitHub
+```
+
+**优势**:
+- ✅ 架构简化
+- ✅ 减少维护
+- ✅ 直接协作
+- ✅ 云端备份
+
+---
+
+*最后更新：2026-03-06 | 维护者：ZIV-BOT | 架构版本：2.0*
