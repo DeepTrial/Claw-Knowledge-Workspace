@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-07T15:37:25.826617",
+  "updated": "2026-03-07T20:04:46.460930",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,

@@ -1,6 +1,21 @@
 # 知识库使用指南
 
-> 快速上手知识库同步和协作流程
+> 完整的使用指南，涵盖同步协作与知识检索 | **版本：v3.0** | 更新：2026-03-07
+
+---
+
+## ⚠️ 重要：请使用同步脚本
+
+**为避免多 Agent 协作时发生冲突，请务必使用 `sync-knowledge.sh` 脚本进行所有同步操作，不要直接使用 git 命令。**
+
+```bash
+# ✅ 正确做法
+./sync-knowledge.sh sync
+
+# ❌ 错误做法（可能导致冲突）
+git pull
+git push
+```
 
 ---
 
@@ -14,14 +29,14 @@
 │   https://github.com/DeepTrial/Claw-Knowledge-Workspace │
 └─────────────────────────────────────────────────────────┘
            ↑                       ↑                       ↑
-           │ git push/pull         │ git push/pull         │ git push/pull
+           │ sync-knowledge.sh     │ sync-knowledge.sh     │ sync-knowledge.sh
            ↓                       ↓                       ↓
 ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
 │   main 工作区     │   │  bot-a 工作区    │   │  bot-b 工作区    │
 │ KNOWLEDGE_BASE   │   │ KNOWLEDGE_BASE   │   │ KNOWLEDGE_BASE   │
 └──────────────────┘   └──────────────────┘   └──────────────────┘
 
-每个 Agent 工作区都直接同步到 GitHub，无需中央仓库中转
+每个 Agent 工作区都通过 sync-knowledge.sh 与 GitHub 同步
 ```
 
 ### 设计原则
@@ -32,396 +47,678 @@
 | **扁平化** | 直接与 GitHub 同步，无中间层 |
 | **对等协作** | 所有 Agent 地位平等，直接共享 |
 | **自动化** | 索引自动生成，减少手动维护 |
+| **统一同步** | 必须使用同步脚本，避免冲突 |
 
 ---
 
 ## 📁 知识库结构
 
-每个 Agent 工作区的 KNOWLEDGE_BASE 目录：
-
 ```
-$HOME/.openclaw/workspace-<agent>/KNOWLEDGE_BASE/
+KNOWLEDGE_BASE/
 ├── .git/                          # Git 仓库（配置 GitHub 远端）
-├── sync-knowledge.sh              # 同步封装脚本
-├── generate-index.sh              # 索引生成脚本
-├── init-agent-kb.sh               # 初始化脚本
+├── .kb/                           # 知识库工具目录
+│   ├── kb                         # 统一管理工具 (Python CLI)
+│   ├── config.yaml                # 分类体系配置
+│   ├── index.json                 # 检索索引
+│   └── indexes/                   # 辅助索引
+├── sync-knowledge.sh              # 同步脚本 v2.0（核心工具）
 ├── README.md                      # 使用指南（本文件）
-├── AGENT_SETUP.md                 # Agent 配置文档
-├── MIGRATE_TO_GITHUB.md           # GitHub 配置说明
-├── INDEX.md                       # 知识地图（精简版）
+├── FORMAT.md                      # 知识卡片格式规范
 ├── INDEX_TOPICS.md                # TOPICS 索引（自动生成）
-├── INDEX_SKILLS.md                # SKILLS 索引（自动生成）
-├── INDEX_BP.md                    # BEST_PRACTICES 索引（自动生成）
-├── FORMAT.md                      # 格式规范
-├── QUICK_START/
-│   └── GETTING_STARTED.md
-├── TOPICS/                        # 课题调研（内容文件）
-│   ├── *.md
+├── TOPICS/                        # 课题调研
+│   ├── topic-cuda-*.md
+│   ├── topic-triton-*.md
+│   ├── topic-llvm-*.md
 │   └── ...
-├── SKILLS/                        # 技能文档（内容文件）
-│   └── *.md
-└── BEST_PRACTICES/                # 最佳实践（内容文件）
-    └── *.md
+├── SKILLS/                        # 技能文档
+└── BEST_PRACTICES/                # 最佳实践
 ```
 
 ---
 
-## 🚀 快速开始
+## 🔄 同步脚本使用指南
 
-### 新 Agent 初始化
+### 命令概览
+
+| 命令 | 说明 | 推荐场景 |
+|------|------|----------|
+| `preview` | 预览本地与远端差异 | **同步前必用** |
+| `status` | 查看当前状态 | 检查工作区状态 |
+| `pull` | 拉取远端内容 | 获取最新内容 |
+| `push` | 推送本地变更 | 提交并推送 |
+| `sync` | 双向同步 | **日常推荐** |
+
+### 选项
+
+| 选项 | 说明 |
+|------|------|
+| `-m, --message <msg>` | 提交消息（push 时使用） |
+| `-s, --stash` | 自动 stash 本地变更 |
+| `-f, --force` | 强制覆盖本地变更（慎用） |
+| `-h, --help` | 显示帮助 |
+
+---
+
+### 1. 预览差异（同步前检查）
 
 ```bash
-# 使用初始化脚本
-$HOME/.openclaw/workspace/KNOWLEDGE_BASE/init-agent-kb.sh bot-c
-
-# 这会：
-# 1. 创建 $HOME/.openclaw/workspace-bot-c/KNOWLEDGE_BASE
-# 2. 初始化 Git 仓库
-# 3. 配置 GitHub 远端
-# 4. 拉取所有知识内容
+./sync-knowledge.sh preview
 ```
 
-### 日常同步
+**输出示例：**
+```
+📊 同步预览：
+  - 本地领先：2 个提交（待推送）
+  - 远端领先：1 个提交（待拉取）
+
+📥 远端新提交：
+  abc1234 [Karl-KimiClaw] Add new topic
+
+📤 本地新提交：
+  def5678 [bot-a] Update CUDA docs
+
+⚠️  双方都有更新，同步时可能产生冲突
+```
+
+---
+
+### 2. 日常同步（推荐）
 
 ```bash
-# 进入工作区
-cd $HOME/.openclaw/workspace-<agent>/KNOWLEDGE_BASE
+# 双向同步（先拉取后推送）
+./sync-knowledge.sh sync
 
-# 推送本地变更
-./sync-knowledge.sh push -m "新增 XXX 文档"
+# 如果本地有未提交的变更，使用 -s 自动暂存
+./sync-knowledge.sh sync -s
+```
 
-# 拉取最新内容
+---
+
+### 3. 推送本地变更
+
+```bash
+# 提交并推送
+./sync-knowledge.sh push -m "新增 CUDA 内存优化文档"
+
+# 如果远端有更新，脚本会自动 rebase
+```
+
+---
+
+### 4. 拉取远端内容
+
+```bash
+# 普通拉取
 ./sync-knowledge.sh pull
 
-# 双向同步（推荐）
-./sync-knowledge.sh sync
+# 如果本地有未提交的变更，使用 -s 自动暂存
+./sync-knowledge.sh pull -s
+
+# 强制覆盖本地（慎用！会丢失未提交的变更）
+./sync-knowledge.sh pull -f
 ```
 
 ---
 
-## 📝 创建知识卡片
+### 5. 查看状态
 
-### 标准格式
+```bash
+./sync-knowledge.sh status
+```
 
-每个知识卡片头部必须包含 YAML 元数据：
+**输出示例：**
+```
+📊 同步状态:
+  - 本地领先：0 个提交
+  - 远端领先：0 个提交
+
+最近提交:
+  27b0dc3 bot-a: 清理冗余文档，补充元数据
+  1872dd8 [Karl-KimiClaw] Add Day 007 study notes
+```
+
+---
+
+## 🛠️ 知识库工具指南
+
+### 快速开始
+
+```bash
+# 初始化
+.kb/kb init
+
+# 重建索引
+.kb/kb rebuild
+
+# 检索知识
+.kb/kb search "GPU 内存优化"
+```
+
+---
+
+### 命令详解
+
+#### kb init
+
+初始化知识库环境。
+
+```bash
+.kb/kb init
+```
+
+功能：
+- 检测 Python 版本和依赖
+- 创建目录结构
+- 生成配置文件
+- 扫描现有知识点
+
+---
+
+#### kb status
+
+查看知识库状态。
+
+```bash
+.kb/kb status
+```
+
+输出示例：
+```
+📊 知识库状态
+────────────────────────────────────────
+├─ 总知识点: 18
+├─ 分类数: 12
+├─ 索引版本: 4.0
+├─ 最后更新: 2026-03-07
+├─ 检索模式: BM25
+├─ 向量模型: 未启用
+└─ 相似对数: 0
+```
+
+---
+
+#### kb rebuild
+
+重建索引。
+
+```bash
+.kb/kb rebuild
+```
+
+功能：
+- 扫描所有知识点文件
+- 解析元数据
+- 执行去重检测
+- 生成辅助索引（INDEX_TOPICS.md）
+
+---
+
+#### kb search
+
+检索知识库。
+
+```bash
+# 基础检索
+.kb/kb search "查询语句"
+
+# 分类筛选
+.kb/kb search "内存" --category cuda
+
+# 等级筛选
+.kb/kb search "优化" --level 2
+
+# 组合筛选
+.kb/kb search "内存优化" --category cuda --level 2 --limit 10
+
+# ID 直接获取
+.kb/kb search --id KB-20260307-001
+```
+
+参数：
+| 参数 | 说明 |
+|------|------|
+| `query` | 查询语句（自然语言） |
+| `--category` | 分类筛选（如 `cuda`, `cuda.memory`） |
+| `--level` | 等级筛选（1-3） |
+| `--limit` | 返回数量（默认 5） |
+| `--id` | 通过 ID 直接获取 |
+
+---
+
+#### kb browse
+
+浏览知识库。
+
+```bash
+# 浏览所有领域
+.kb/kb browse
+
+# 按分类浏览
+.kb/kb browse --category cuda
+
+# 按层级浏览
+.kb/kb browse --level 2
+```
+
+输出示例：
+```
+📚 知识库浏览
+
+总计: 18 个知识点
+
+📁 cuda (10)
+   • [KB-20250306-001] CUDA 线程层次结构深度解析
+   • [KB-20250306-002] CUDA 内存层次结构深度解析
+   ...
+
+📁 triton (4)
+   • [KB-20250306-003] Triton @triton.jit Decorator 原理深度解析
+   ...
+```
+
+---
+
+#### kb context
+
+获取知识点的上下文信息。
+
+```bash
+.kb/kb context --id KB-20260307-001
+```
+
+---
+
+#### kb dedup
+
+检测重复或相似的知识点。
+
+```bash
+.kb/kb dedup
+```
+
+输出示例：
+```
+⚠️  检测到 2 组相似知识点:
+
+[tags] 相似度: 85%
+  • KB-20260306-005: CUDA 共享内存基础
+  • KB-20260307-012: CUDA Shared Memory 入门
+```
+
+---
+
+#### kb ingest
+
+入库新知识。
+
+```bash
+# 预览模式（不实际写入）
+.kb/kb ingest new_article.md --dry-run
+
+# 入库并指定分类
+.kb/kb ingest new_article.md --category cuda.memory --level 2
+
+# 正式入库
+.kb/kb ingest new_article.md
+```
+
+---
+
+#### kb merge
+
+合并重复的知识点。
+
+```bash
+# 预览合并
+.kb/kb merge KB-SOURCE-ID KB-TARGET-ID --preview
+
+# 执行合并
+.kb/kb merge KB-SOURCE-ID KB-TARGET-ID
+```
+
+---
+
+## 📝 知识卡片格式
+
+### 标准模板
 
 ```markdown
 ---
-id: KB-20260306-001
-title: 文档标题
-contributor: 贡献者名称
-created: 2026-03-06
-updated: 2026-03-06
-tags: [标签 1, 标签 2, 标签 3]
+id: KB-YYYYMMDD-XXX
+title: 知识标题
+category: domain.subdomain
+level: 1
+summary: "一句话摘要"
+contributor: main
+created: 2026-03-07
+updated: 2026-03-07
+tags: [tag1, tag2, tag3]
 status: done
 ---
 
-# 标题
+# 知识标题
 
-正文内容...
+## 摘要
+
+> 一句话总结
+
+## 核心内容
+
+...
+
+## 参考
+
+- [[KB-OTHER-ID]] 相关知识
 ```
 
-### 元数据字段说明
+### 必填字段
 
-| 字段 | 必填 | 说明 | 示例 |
-|------|------|------|------|
-| `id` | ✅ | 唯一标识符 | `KB-20260306-001` |
-| `title` | ✅ | 文档标题 | `Feishu 集成` |
-| `contributor` | ✅ | 贡献者 | `main`, `bot-a` |
-| `created` | ✅ | 创建日期 | `2026-03-06` |
-| `updated` | ✅ | 更新日期 | `2026-03-06` |
-| `tags` | ✅ | 标签列表 | `[feishu, api]` |
-| `status` | ⚠️ | 状态 | `draft`, `done`, `deprecated` |
+| 字段 | 说明 | 示例 |
+|------|------|------|
+| `id` | 唯一标识符 | `KB-20260307-001` |
+| `title` | 标题 | `CUDA 共享内存优化` |
+| `category` | 分类路径 | `cuda.memory` |
+| `level` | 深度等级 | `1`=基础, `2`=进阶, `3`=专家 |
+| `summary` | 摘要 | `"介绍 bank conflict 优化方法"` |
+| `contributor` | 贡献者 | `main`, `bot-a`, `DeepTrial` |
+| `created` | 创建日期 | `2026-03-07` |
+| `updated` | 更新日期 | `2026-03-07` |
+| `tags` | 标签列表 | `[cuda, memory, optimization]` |
+| `status` | 状态 | `done`, `draft`, `deprecated` |
+
+### 可选字段
+
+| 字段 | 说明 |
+|------|------|
+| `relations` | 知识关联 |
+| `keywords` | 关键词列表 |
+| `references` | 参考链接 |
+
+---
+
+## 📂 分类体系
+
+```
+cuda                    # CUDA 编程
+├── cuda.memory         # 内存管理
+├── cuda.kernel         # 核函数
+├── cuda.threads        # 线程层次
+├── cuda.compiler       # 编译器
+├── cuda.syntax         # 语法扩展
+├── cuda.sync           # 同步原语
+├── cuda.builtin        # 内建变量/函数
+└── cuda.optimization   # 性能优化
+
+triton                  # Triton 编程
+├── triton.basics       # 基础概念
+└── triton.optimization # 性能优化
+
+llvm                    # LLVM 编译器
+├── llvm.basics         # 基础架构
+└── llvm.optimization   # 优化 Pass
+
+system-design           # 系统设计
+├── system-design.knowledge-base  # 知识库
+└── system-design.multi-agent     # 多 Agent
+```
+
+---
+
+## 🔍 检索模式
+
+### BM25（当前）
+
+- **依赖**: rank-bm25（~50KB）
+- **特点**: 词频权重检索，支持中文
+- **效果**: 比关键词精准，召回率 ~80%
+
+### 语义检索（后续升级）
+
+- **依赖**: sentence-transformers（~90MB）
+- **特点**: 向量语义检索，理解同义词
+- **效果**: 召回率 ~90%
+
+### 切换方式
+
+编辑 `.kb/config.yaml`：
+
+```yaml
+retrieval:
+  mode: "bm25"      # 当前模式
+  # mode: "semantic"  # 升级后切换
+```
 
 ---
 
 ## 🔄 多 Agent 协作流程
 
-### 典型工作流
+### 推荐工作流
 
 ```
-时间线:
+1. 开始工作前
+   ./sync-knowledge.sh preview     # 检查远端状态
+   ./sync-knowledge.sh pull -s     # 拉取最新内容
 
-07:00  bot-a 开始调研
-       → ./sync-knowledge.sh pull  (拉取最新内容)
-       
-07:30  bot-a 完成调研
-       → 创建 TOPICS/feishu-research.md
-       → ./sync-knowledge.sh push -m "bot-a: Feishu 调研"
-       → GitHub 收到提交
-       
-08:00  main 开始工作
-       → ./sync-knowledge.sh pull
-       → 看到 bot-a 的 Feishu 调研
-       → 基于此继续工作
-       
-08:30  main 完成整合
-       → 创建 TOPICS/feishu-integration.md
-       → ./sync-knowledge.sh push -m "main: Feishu 集成"
-       → GitHub 收到提交
-       
-09:00  bot-b 开始写作
-       → ./sync-knowledge.sh sync
-       → 看到 bot-a 和 main 的内容
-       → 基于所有资料创作文章
+2. 创建/编辑知识卡片
+   # 编辑 TOPICS/topic-xxx.md
+
+3. 完成工作后
+   ./sync-knowledge.sh push -m "新增 XXX 文档"
+
+4. 或者使用一步同步
+   ./sync-knowledge.sh sync -s
 ```
 
 ### 冲突处理
 
-**什么情况下会冲突？**
+如果发生 Rebase 冲突，脚本会显示详细的解决指引：
 
-| 场景 | 冲突概率 | 说明 |
-|------|----------|------|
-| 不同 Agent 创建不同文件 | 🟢 无冲突 | Git 自动合并 |
-| 不同 Agent 修改同一文件 | 🔴 高冲突 | 需要手动解决 |
-| 索引文件自动生成 | 🟡 低冲突 | 重新生成覆盖 |
+```
+❌ Rebase 发生冲突！
 
-**冲突解决流程**:
+📋 冲突文件：
+  TOPICS/topic-cuda-memory.md
 
-```bash
-# 1. 检测冲突
-git status
-
-# 2. 手动编辑冲突文件
-# 解决 <<<<<<< HEAD 和 >>>>>>> origin 之间的冲突
-
-# 3. 标记解决
-git add <file>
-
-# 4. 完成合并
-git commit -m "解决冲突"
-
-# 5. 重新推送
-./sync-knowledge.sh push
+🔧 解决方法：
+  1. 查看冲突文件，手动编辑解决冲突标记（<<<<<<< / ======= / >>>>>>>）
+  2. 解决后执行：git add .
+  3. 继续 rebase：git rebase --continue
+  4. 放弃本次操作：git rebase --abort
 ```
 
 ---
 
-## 📊 索引系统
+## 📋 工作流示例
 
-### 自动生成
-
-索引文件由 `generate-index.sh` 自动扫描生成：
+### 1. 日常检索
 
 ```bash
-# 手动生成索引
-./generate-index.sh
+# 搜索相关知识
+.kb/kb search "CUDA 内存优化"
 
-# 推送时自动生成（sync-knowledge.sh 内部调用）
-./sync-knowledge.sh push
+# 按分类浏览
+.kb/kb browse --category cuda
+
+# 查看详情
+.kb/kb search --id KB-20260307-001
+.kb/kb context --id KB-20260307-001
 ```
 
-### 索引文件
-
-| 文件 | 内容 | 更新频率 |
-|------|------|----------|
-| `INDEX_TOPICS.md` | TOPICS 目录索引 | 每次推送 |
-| `INDEX_SKILLS.md` | SKILLS 目录索引 | 每次推送 |
-| `INDEX_BP.md` | BEST_PRACTICES 索引 | 每次推送 |
-| `INDEX.md` | 精简入口 + 统计 | 每次推送（仅统计） |
-
-### 索引查询
+### 2. 添加新知识
 
 ```bash
-# 查看 TOPICS 索引
-cat INDEX_TOPICS.md
+# 1. 创建知识文件（按格式规范）
+vim TOPICS/topic-new-knowledge.md
 
-# 搜索特定主题
-grep -r "Feishu" TOPICS/
+# 2. 重建索引
+.kb/kb rebuild
 
-# 查看某个贡献者的所有内容
-grep -r "contributor: bot-a" TOPICS/ SKILLS/ BEST_PRACTICES/
+# 3. 验证
+.kb/kb search --id KB-NEW-ID
+
+# 4. 同步到远端
+./sync-knowledge.sh push -m "新增 XXX 文档"
 ```
 
----
-
-## 🛠️ 脚本说明
-
-### sync-knowledge.sh
-
-**命令**:
-
-| 命令 | 说明 | 示例 |
-|------|------|------|
-| `push` | 推送本地变更 | `./sync-knowledge.sh push -m "消息"` |
-| `pull` | 拉取远端内容 | `./sync-knowledge.sh pull` |
-| `sync` | 双向同步 | `./sync-knowledge.sh sync` |
-| `status` | 查看状态 | `./sync-knowledge.sh status` |
-| `init` | 初始化 Git | `./sync-knowledge.sh init` |
-
-**选项**:
-
-| 选项 | 说明 | 示例 |
-|------|------|------|
-| `-m, --message` | 提交消息 | `push -m "新增文档"` |
-| `-f, --force` | 强制覆盖 | `pull -f` |
-| `-h, --help` | 显示帮助 | `--help` |
-
-### generate-index.sh
-
-**功能**:
-
-- 扫描 TOPICS、SKILLS、BEST_PRACTICES 目录
-- 提取 YAML 元数据
-- 生成索引表格
-- 更新 INDEX.md 统计信息
-
-**用法**:
+### 3. 处理重复知识
 
 ```bash
-./generate-index.sh
-```
+# 1. 检测重复
+.kb/kb dedup
 
-### init-agent-kb.sh
+# 2. 预览合并
+.kb/kb merge KB-SOURCE KB-TARGET --preview
 
-**功能**:
-
-- 为新 Agent 初始化知识库
-- 配置 GitHub 远端
-- 拉取所有内容
-
-**用法**:
-
-```bash
-./init-agent-kb.sh bot-c
+# 3. 执行合并
+.kb/kb merge KB-SOURCE KB-TARGET
 ```
 
 ---
 
 ## 📋 最佳实践
 
-### 1. 频繁同步
+### 1. 同步前先预览
+
+```bash
+# ✅ 好的习惯
+./sync-knowledge.sh preview
+./sync-knowledge.sh sync
+
+# ❌ 不好的习惯（可能遇到意外冲突）
+./sync-knowledge.sh sync
+```
+
+### 2. 频繁同步
 
 ```bash
 # 开始工作前
-./sync-knowledge.sh pull
+./sync-knowledge.sh pull -s
 
 # 完成工作后
 ./sync-knowledge.sh push -m "完成 XXX"
 ```
 
-### 2. 小步提交
+### 3. 小步提交
 
 ```bash
 # ✅ 好的提交
-./sync-knowledge.sh push -m "新增 Feishu 集成文档"
+./sync-knowledge.sh push -m "新增 CUDA 内存层次文档"
 
 # ❌ 不好的提交
 ./sync-knowledge.sh push -m "更新"
 ```
 
-### 3. 完整元数据
+### 4. 使用 -s 选项保护本地变更
 
-```markdown
-# ✅ 完整的元数据
----
-id: KB-20260306-001
-title: Feishu 集成
-contributor: main
-created: 2026-03-06
-updated: 2026-03-06
-tags: [feishu, api]
-status: done
----
-
-# ❌ 缺少元数据
-# Feishu 集成
-正文...
-```
-
-### 4. 有意义的标签
-
-```markdown
-# ✅ 好的标签
-tags: [feishu, integration, api, collaboration]
-
-# ❌ 不好的标签
-tags: [test, temp, aaa]
+```bash
+# 如果本地有未提交的变更，使用 -s 自动暂存
+./sync-knowledge.sh pull -s
+./sync-knowledge.sh sync -s
 ```
 
 ---
 
 ## 🔧 故障排除
 
-### 问题：推送失败
+### 同步问题
 
+**推送失败：**
 ```bash
-# 检查远端连接
-git remote -v
+# 先预览状态
+./sync-knowledge.sh preview
 
-# 检查分支状态
-git status
-git branch -a
-
-# 先拉取再推送
+# 拉取最新内容
 ./sync-knowledge.sh pull
-./sync-knowledge.sh push
+
+# 重新推送
+./sync-knowledge.sh push -m "提交消息"
 ```
 
-### 问题：认证失败
+**Rebase 冲突：**
+按照脚本提示解决冲突：
+1. 编辑冲突文件
+2. `git add .`
+3. `git rebase --continue`
+4. `./sync-knowledge.sh push`
 
+**想放弃当前操作：**
 ```bash
-# 清除缓存的凭证
-rm ~/.git-credentials
+# 放弃 rebase
+git rebase --abort
 
-# 重新推送，会提示输入
-./sync-knowledge.sh push
+# 恢复 stash
+git stash pop
 ```
 
-### 问题：索引未更新
+### 检索问题
 
+**检索结果为空：**
 ```bash
-# 手动生成索引
-./generate-index.sh
+# 检查索引
+.kb/kb status
 
-# 检查脚本权限
-chmod +x generate-index.sh sync-knowledge.sh
+# 重建索引
+.kb/kb rebuild
 ```
 
-### 问题：Git 冲突
+**分类显示 unknown：**
+知识点缺少 `category` 字段，在 frontmatter 中添加：
+```yaml
+category: cuda.memory
+```
+
+### 网络问题
 
 ```bash
-# 查看冲突
-git status
+# 检查网络连接
+curl -I https://github.com
 
-# 解决冲突后
-git add <file>
-git commit -m "解决冲突"
-./sync-knowledge.sh push
+# 检查代理配置
+git config --global --list | grep proxy
 ```
 
 ---
 
 ## 📚 相关文档
 
-- [INDEX.md](INDEX.md) - 知识库索引
 - [FORMAT.md](FORMAT.md) - 知识卡片格式规范
-- [AGENT_SETUP.md](AGENT_SETUP.md) - Agent 配置指南
-- [MIGRATE_TO_GITHUB.md](MIGRATE_TO_GITHUB.md) - GitHub 配置说明
-- [QUICK_START/GETTING_STARTED.md](QUICK_START/GETTING_STARTED.md) - 新 Agent 指南
+- [INDEX_TOPICS.md](INDEX_TOPICS.md) - TOPICS 索引
 
 ---
 
-## 🏗️ 架构演进
+## 🏗️ 版本历史
 
-### v1.0 - 本地中央仓库（已废弃）
+### v3.0 (2026-03-07)
 
-```
-工作区 → 中央仓库 (~/Documents/KnowledgeBase)
-```
+**文档整合：**
+- 合并 README.md 与 USAGE.md 为单一文档
+- 统一知识卡片格式说明
+- 统一分类体系说明
+- 合并故障排除章节
 
-### v2.0 - GitHub 直连（当前）
+**内容完善：**
+- 新增完整的 kb 命令详解
+- 新增检索模式说明
+- 新增工作流示例
 
-```
-工作区 → GitHub
-```
+### v2.0 (2026-03-07)
 
-**优势**:
-- ✅ 架构简化
-- ✅ 减少维护
-- ✅ 直接协作
-- ✅ 云端备份
+**同步脚本改进：**
+- 新增 `preview` 命令（预览差异）
+- 新增 `-s/--stash` 选项（自动暂存）
+- Rebase 冲突详细提示
+- Sync 原子性 + 回滚机制
+- 索引生成安全处理
+
+**目录结构更新：**
+- 新增 `.kb/` 工具目录
+- 移除冗余的索引脚本
+
+### v1.0 (2026-03-06)
+
+- 初始版本
+- GitHub 直连架构
 
 ---
 
-*最后更新：2026-03-06 | 维护者：ZIV-BOT | 架构版本：2.0*
+*最后更新：2026-03-07 | 维护者：冰美 (bot-a) | 版本：v3.0*
