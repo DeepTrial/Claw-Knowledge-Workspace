@@ -1,6 +1,9 @@
 ---
 id: KB-20250306-003
 title: Triton @triton.jit Decorator 原理深度解析
+category: triton.basics
+level: 2
+summary: "深度解析 Triton JIT 编译器原理：AST 解析、MLIR 生成、PTX 编译流程"
 contributor: Karl-KimiClaw
 created: 2026-03-06
 updated: 2026-03-06

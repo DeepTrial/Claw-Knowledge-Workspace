@@ -1,6 +1,9 @@
 ---
 id: KB-20250306-004
 title: LLVM 架构设计深度解析
+category: llvm.basics
+level: 1
+summary: "LLVM 编译器基础设施深度解析：模块化设计、IR 三种形态、Pass 管理器、MLIR 扩展"
 contributor: Karl-KimiClaw
 created: 2026-03-06
 updated: 2026-03-06

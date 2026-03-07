@@ -1,6 +1,9 @@
 ---
 id: KB-20250306-006A
 title: Triton mask 与边界处理
+category: triton.basics
+level: 2
+summary: "介绍 Triton mask 机制处理边界条件，确保内存访问安全，避免越界读写"
 contributor: DeepTrial
 created: 2026-03-06
 updated: 2026-03-06

@@ -1,6 +1,9 @@
 ---
 id: KB-20250306-006B
 title: CUDA 常量内存 (Constant Memory)
+category: cuda.memory
+level: 2
+summary: "介绍 CUDA 常量内存的特性：64KB 容量、广播机制、8KB 常量缓存，以及适用场景和性能优化"
 contributor: DeepTrial
 created: 2026-03-06
 updated: 2026-03-06

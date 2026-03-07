@@ -1,6 +1,9 @@
 ---
 id: KB-20250307-007B
 title: CUDA 全局内存与合并访问优化
+category: cuda.memory
+level: 2
+summary: "详解全局内存合并访问原理，当 warp 访问连续地址时可合并为最少事务，性能提升 2 倍以上"
 contributor: DeepTrial
 created: 2026-03-07
 updated: 2026-03-07

@@ -1,0 +1,1202 @@
+#!/usr/bin/env python3
+"""
+知识库统一管理工具 v4.0
+
+用法: kb <command> [options]
+
+命令:
+  search    检索知识库（语义 + 关键词 + LLM 增强）
+  context   获取节点上下文（父/子/兄弟）
+  browse    按领域/层级浏览
+  ingest    入库新知识（强制去重）
+  merge     合并重复知识
+  rebuild   重建索引
+  dedup     去重检测
+  status    查看状态
+  init      初始化环境
+"""
+
+import os
+import sys
+import json
+import yaml
+import hashlib
+import argparse
+import re
+from pathlib import Path
+from datetime import datetime
+from collections import defaultdict
+from difflib import SequenceMatcher
+
+# ============================================
+# 全局配置
+# ============================================
+
+KB_ROOT = Path(__file__).parent.parent.resolve()
+KB_DIR = KB_ROOT / ".kb"
+INDEX_FILE = KB_DIR / "index.json"
+EMBEDDINGS_FILE = KB_DIR / "embeddings.npy"
+CONFIG_FILE = KB_DIR / "config.yaml"
+INDEXES_DIR = KB_DIR / "indexes"
+
+# ============================================
+# 工具函数
+# ============================================
+
+def load_config() -> dict:
+    """加载配置文件"""
+    if not CONFIG_FILE.exists():
+        return {
+            "kb": {"version": "4.0", "root": "."},
+            "embedding": {"enabled": True, "model": "all-MiniLM-L6-v2"},
+            "dedup": {"exact_threshold": 1.0, "tag_threshold": 0.8, "semantic_threshold": 0.90},
+            "search": {"default_limit": 5, "weights": {"semantic": 0.6, "category": 0.25, "relation": 0.15}},
+            "llm": {"enabled": False}
+        }
+    
+    with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
+        return yaml.safe_load(f)
+
+def save_config(config: dict):
+    """保存配置文件"""
+    with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
+        yaml.dump(config, f, default_flow_style=False, allow_unicode=True)
+
+def load_index() -> dict:
+    """加载索引文件"""
+    if not INDEX_FILE.exists():
+        return None
+    with open(INDEX_FILE, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def save_index(index: dict):
+    """保存索引文件"""
+    INDEXES_DIR.mkdir(parents=True, exist_ok=True)
+    index["updated"] = datetime.now().isoformat()
+    with open(INDEX_FILE, 'w', encoding='utf-8') as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+
+def compute_hash(content: str) -> str:
+    """计算内容哈希"""
+    return hashlib.sha256(content.encode('utf-8')).hexdigest()[:16]
+
+def parse_frontmatter(content: str) -> dict:
+    """解析 YAML frontmatter"""
+    if not content.startswith('---'):
+        return {}
+    
+    parts = content.split('---', 2)
+    if len(parts) < 3:
+        return {}
+    
+    yaml_content = parts[1].strip()
+    result = {}
+    current_key = None
+    current_list = []
+    in_list = False
+    
+    for line in yaml_content.split('\n'):
+        stripped = line.strip()
+        if not stripped or stripped.startswith('#'):
+            continue
+        
+        # 处理列表项
+        if stripped.startswith('- '):
+            if current_key and in_list:
+                value = stripped[2:].strip().strip('"\'')
+                current_list.append(value)
+            continue
+        
+        # 处理键值对
+        if ':' in line:
+            if current_key and in_list and current_list:
+                result[current_key] = current_list
+                current_list = []
+            
+            key_part, _, value_part = line.partition(':')
+            key = key_part.strip()
+            value = value_part.strip()
+            
+            if value:
+                # 处理内联列表
+                if value.startswith('[') and value.endswith(']'):
+                    items = value[1:-1].split(',')
+                    result[key] = [item.strip().strip('"\'') for item in items if item.strip()]
+                else:
+                    result[key] = value.strip('"\'')
+                in_list = False
+            else:
+                current_key = key
+                current_list = []
+                in_list = True
+    
+    # 处理最后一个列表
+    if current_key and in_list and current_list:
+        result[current_key] = current_list
+    
+    return result
+
+def extract_content(filepath: Path) -> dict:
+    """从文件提取内容和元数据"""
+    content = filepath.read_text(encoding='utf-8')
+    frontmatter = parse_frontmatter(content)
+    
+    # 提取正文（去除 frontmatter）
+    body = content
+    if content.startswith('---'):
+        parts = content.split('---', 2)
+        if len(parts) >= 3:
+            body = parts[2]
+    
+    # 生成摘要（取前 500 字符）
+    summary = frontmatter.get('summary', body.strip()[:500])
+    
+    return {
+        'id': frontmatter.get('id'),
+        'title': frontmatter.get('title', filepath.stem),
+        'category': frontmatter.get('category', 'unknown'),
+        'level': int(frontmatter.get('level', 2)),
+        'tags': frontmatter.get('tags', []),
+        'summary': summary,
+        'keywords': frontmatter.get('keywords', []),
+        'relations': frontmatter.get('relations', {'supersedes': [], 'relates': [], 'cited_by': []}),
+        'content': body,
+        'hash': compute_hash(body),
+        'created': frontmatter.get('created'),
+        'updated': frontmatter.get('updated')
+    }
+
+def scan_knowledge_base() -> list:
+    """扫描知识库中的所有知识点"""
+    units = []
+    
+    # 扫描 TOPICS, SKILLS, BEST_PRACTICES 目录
+    for subdir in ['TOPICS', 'SKILLS', 'BEST_PRACTICES']:
+        dir_path = KB_ROOT / subdir
+        if not dir_path.exists():
+            continue
+        
+        for md_file in dir_path.rglob("*.md"):
+            if md_file.name in ['INDEX.md', 'README.md']:
+                continue
+            
+            try:
+                data = extract_content(md_file)
+                if data.get('id'):
+                    data['file'] = str(md_file.relative_to(KB_ROOT))
+                    units.append(data)
+            except Exception as e:
+                print(f"⚠️  解析失败: {md_file.name} - {e}")
+    
+    return units
+
+# ============================================
+# 命令实现
+# ============================================
+
+def cmd_init(args):
+    """初始化环境"""
+    print("🔍 检测环境...")
+    
+    # 检查 Python 版本
+    py_version = sys.version_info
+    print(f"✅ Python {py_version.major}.{py_version.minor}.{py_version.micro}")
+    
+    # 检查依赖
+    deps = []
+    
+    try:
+        import numpy
+        print(f"✅ numpy {numpy.__version__}")
+        deps.append('numpy')
+    except ImportError:
+        print("⚠️  numpy 未安装")
+    
+    try:
+        import yaml
+        print(f"✅ pyyaml")
+        deps.append('pyyaml')
+    except ImportError:
+        print("⚠️  pyyaml 未安装")
+    
+    # 检查语义检索依赖
+    embedding_enabled = False
+    try:
+        from sentence_transformers import SentenceTransformer
+        print(f"✅ sentence-transformers")
+        deps.append('sentence-transformers')
+        embedding_enabled = True
+    except ImportError:
+        print("⚠️  sentence-transformers 未安装（语义检索需要）")
+    
+    print()
+    
+    # 创建目录结构
+    print("📁 创建目录结构...")
+    KB_DIR.mkdir(parents=True, exist_ok=True)
+    INDEXES_DIR.mkdir(parents=True, exist_ok=True)
+    (KB_DIR / "llm-cache").mkdir(parents=True, exist_ok=True)
+    print("✅ 目录结构已创建")
+    
+    # 创建配置文件
+    if not CONFIG_FILE.exists():
+        config = {
+            "kb": {"version": "4.0", "root": "."},
+            "embedding": {"enabled": embedding_enabled, "model": "all-MiniLM-L6-v2"},
+            "dedup": {"exact_threshold": 1.0, "tag_threshold": 0.8, "semantic_threshold": 0.90},
+            "search": {"default_limit": 5, "weights": {"semantic": 0.6, "category": 0.25, "relation": 0.15}},
+            "llm": {"enabled": False}
+        }
+        save_config(config)
+        print("✅ 配置文件已创建")
+    else:
+        print("✅ 配置文件已存在")
+    
+    print()
+    
+    # 扫描知识点
+    print("🔧 扫描知识点...")
+    units = scan_knowledge_base()
+    print(f"✅ 发现 {len(units)} 个知识点")
+    
+    print()
+    
+    if embedding_enabled:
+        print("✅ 初始化完成！")
+        print()
+        print("使用方式：")
+        print("  .kb/kb rebuild          # 重建索引")
+        print("  .kb/kb search \"query\"  # 检索知识")
+        print("  .kb/kb status           # 查看状态")
+    else:
+        print("⚠️  初始化完成（语义检索不可用）")
+        print()
+        print("启用语义检索：")
+        print("  pip install sentence-transformers")
+        print()
+        print("使用方式：")
+        print("  .kb/kb rebuild          # 重建索引")
+        print("  .kb/kb search \"query\"  # 检索知识（仅关键词）")
+
+def cmd_status(args):
+    """查看状态"""
+    index = load_index()
+    config = load_config()
+    
+    print("📊 知识库状态")
+    print("─" * 40)
+    
+    if index:
+        stats = index.get('stats', {})
+        print(f"├─ 总知识点: {stats.get('total_units', 0)}")
+        print(f"├─ 分类数: {len(index.get('categories', {}))}")
+        print(f"├─ 索引版本: {index.get('version', 'unknown')}")
+        print(f"├─ 最后更新: {index.get('updated', 'unknown')[:19]}")
+        
+        # 检索模式
+        retrieval_mode = config.get('retrieval', {}).get('mode', 'bm25')
+        print(f"├─ 检索模式: {retrieval_mode.upper()}")
+        
+        embedding_config = config.get('embedding', {})
+        if embedding_config.get('enabled'):
+            print(f"├─ 向量模型: {embedding_config.get('model', 'unknown')}")
+        else:
+            print(f"├─ 向量模型: 未启用")
+        
+        llm_config = config.get('llm', {})
+        if llm_config.get('enabled'):
+            print(f"├─ LLM 增强: 已启用 ({llm_config.get('provider', 'unknown')})")
+        else:
+            print(f"├─ LLM 增强: 未启用")
+        
+        # 去重统计
+        dedup = index.get('dedup', {})
+        similar_count = len(dedup.get('similar_pairs', []))
+        print(f"└─ 相似对数: {similar_count}")
+    else:
+        print("├─ 索引状态: 未初始化")
+        print("└─ 运行 .kb/kb init 初始化")
+
+def cmd_rebuild(args):
+    """重建索引"""
+    print("🔧 重建索引...")
+    
+    # 扫描知识点
+    print("  📦 扫描知识点...")
+    units = scan_knowledge_base()
+    
+    if not units:
+        print("❌ 未发现任何知识点")
+        return
+    
+    print(f"  ✅ 发现 {len(units)} 个知识点")
+    
+    # 构建索引
+    index = {
+        "version": "4.0",
+        "updated": datetime.now().isoformat(),
+        "config": {
+            "embedding_model": "all-MiniLM-L6-v2",
+            "semantic_threshold": 0.85,
+            "dedup_threshold": 0.90,
+            "llm_enabled": False
+        },
+        "stats": {
+            "total_units": len(units),
+            "by_category": defaultdict(int),
+            "by_level": defaultdict(int)
+        },
+        "categories": {},
+        "units": [],
+        "dedup": {
+            "hash_index": {},
+            "similar_pairs": []
+        }
+    }
+    
+    # 处理每个知识点
+    embedding_idx = 0
+    for unit in units:
+        # 更新分类统计
+        category = unit.get('category', 'unknown')
+        index["stats"]["by_category"][category.split('.')[0]] += 1
+        index["stats"]["by_level"][str(unit.get('level', 2))] += 1
+        
+        # 更新分类树
+        parts = category.split('.')
+        for i, part in enumerate(parts):
+            cat_path = '.'.join(parts[:i+1])
+            if cat_path not in index["categories"]:
+                index["categories"][cat_path] = {
+                    "description": part,
+                    "parent": '.'.join(parts[:i]) if i > 0 else None,
+                    "count": 0
+                }
+            index["categories"][cat_path]["count"] += 1
+        
+        # 添加到哈希索引
+        index["dedup"]["hash_index"][unit["hash"]] = unit["id"]
+        
+        # 添加到 units
+        index["units"].append({
+            "id": unit["id"],
+            "file": unit["file"],
+            "title": unit["title"],
+            "summary": unit["summary"][:200] if unit["summary"] else "",
+            "category": unit["category"],
+            "level": unit["level"],
+            "tags": unit["tags"],
+            "hash": unit["hash"],
+            "embedding_idx": embedding_idx,
+            "relations": unit.get("relations", {"supersedes": [], "relates": [], "cited_by": []}),
+            "created": unit.get("created"),
+            "updated": unit.get("updated")
+        })
+        embedding_idx += 1
+    
+    # 转换 defaultdict 为 dict
+    index["stats"]["by_category"] = dict(index["stats"]["by_category"])
+    index["stats"]["by_level"] = dict(index["stats"]["by_level"])
+    
+    # 去重检测
+    print("  🔍 去重检测...")
+    similar_pairs = detect_similar_pairs(units)
+    index["dedup"]["similar_pairs"] = similar_pairs
+    print(f"  ✅ 发现 {len(similar_pairs)} 组相似知识点")
+    
+    # 保存索引
+    save_index(index)
+    print(f"  ✅ 索引已保存: {INDEX_FILE}")
+    
+    # 生成辅助索引
+    print("  📁 生成辅助索引...")
+    generate_auxiliary_indexes(index)
+    
+    print()
+    print("✅ 索引重建完成！")
+    
+    # 语义向量（可选）
+    if not args.no_embeddings:
+        try:
+            build_embeddings(units, index)
+        except ImportError:
+            print()
+            print("⚠️  语义向量未生成（需要 sentence-transformers）")
+            print("   安装: pip install sentence-transformers")
+
+def detect_similar_pairs(units: list) -> list:
+    """检测相似的知识点"""
+    similar_pairs = []
+    
+    for i, u1 in enumerate(units):
+        for u2 in units[i+1:]:
+            # 标签相似度
+            tags1 = set(u1.get('tags', []))
+            tags2 = set(u2.get('tags', []))
+            if tags1 and tags2:
+                jaccard = len(tags1 & tags2) / len(tags1 | tags2)
+                if jaccard >= 0.8:
+                    similar_pairs.append({
+                        "id1": u1["id"],
+                        "id2": u2["id"],
+                        "similarity": round(jaccard, 2),
+                        "type": "tags",
+                        "action": "suggest_merge"
+                    })
+                    continue
+            
+            # 内容相似度（简单版）
+            content1 = u1.get('content', '')[:1000]
+            content2 = u2.get('content', '')[:1000]
+            if content1 and content2:
+                ratio = SequenceMatcher(None, content1, content2).ratio()
+                if ratio >= 0.85:
+                    similar_pairs.append({
+                        "id1": u1["id"],
+                        "id2": u2["id"],
+                        "similarity": round(ratio, 2),
+                        "type": "content",
+                        "action": "suggest_merge"
+                    })
+    
+    return similar_pairs
+
+def generate_auxiliary_indexes(index: dict):
+    """生成辅助索引"""
+    INDEXES_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # 按领域分组
+    by_domain = defaultdict(list)
+    for unit in index["units"]:
+        domain = unit["category"].split('.')[0]
+        by_domain[domain].append({
+            "id": unit["id"],
+            "title": unit["title"],
+            "file": unit["file"]
+        })
+    
+    with open(INDEXES_DIR / "by-domain.json", 'w', encoding='utf-8') as f:
+        json.dump(dict(by_domain), f, ensure_ascii=False, indent=2)
+    
+    # 按标签分组
+    by_tags = defaultdict(list)
+    for unit in index["units"]:
+        for tag in unit.get("tags", []):
+            by_tags[tag].append({
+                "id": unit["id"],
+                "title": unit["title"],
+                "file": unit["file"]
+            })
+    
+    with open(INDEXES_DIR / "by-tags.json", 'w', encoding='utf-8') as f:
+        json.dump(dict(by_tags), f, ensure_ascii=False, indent=2)
+    
+    # 生成人类可读的 INDEX_TOPICS.md
+    generate_human_readable_index(index)
+
+def generate_human_readable_index(index: dict):
+    """生成人类可读的知识库索引"""
+    # INDEX_TOPICS.md
+    topics_path = KB_ROOT / "INDEX_TOPICS.md"
+    
+    content = f"""# 知识库索引
+
+> 自动生成于：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
+> 知识点总数：{index['stats']['total_units']}
+
+---
+
+## 按领域分类
+
+"""
+    
+    # 按领域分组
+    by_domain = defaultdict(list)
+    for unit in index["units"]:
+        domain = unit["category"].split('.')[0]
+        by_domain[domain].append(unit)
+    
+    for domain in sorted(by_domain.keys()):
+        units = by_domain[domain]
+        content += f"### {domain.upper()} ({len(units)})\n\n"
+        
+        for unit in sorted(units, key=lambda x: x.get('id', '')):
+            content += f"- **[{unit['id']}]** {unit['title']}\n"
+            content += f"  - 分类: `{unit['category']}` | 等级: {unit.get('level', '-')}\n"
+            if unit.get('summary'):
+                summary = unit['summary'][:80] + "..." if len(unit['summary']) > 80 else unit['summary']
+                content += f"  - 摘要: {summary}\n"
+            content += "\n"
+    
+    content += """---
+
+## 快速检索
+
+使用 `.kb/kb search "关键词"` 进行检索。
+
+例如：
+- `.kb/kb search "CUDA 内存"`
+- `.kb/kb search "优化" --category cuda`
+
+---
+
+*此文件由 `.kb/kb rebuild` 自动生成，请勿手动编辑*
+"""
+    
+    with open(topics_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print(f"  ✅ 生成人类可读索引: {topics_path.name}")
+
+def build_embeddings(units: list, index: dict):
+    """构建语义向量"""
+    try:
+        from sentence_transformers import SentenceTransformer
+        import numpy as np
+    except ImportError:
+        raise
+    
+    print("  🔧 生成语义向量...")
+    
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+    texts = [f"{u['title']} {u.get('summary', '')}" for u in units]
+    embeddings = model.encode(texts, show_progress_bar=True)
+    
+    # 保存向量
+    np.save(EMBEDDINGS_FILE, embeddings)
+    print(f"  ✅ 语义向量已保存: {EMBEDDINGS_FILE}")
+    
+    # 更新索引中的向量模型信息
+    index["config"]["embedding_model"] = "all-MiniLM-L6-v2"
+    save_index(index)
+
+def cmd_search(args):
+    """检索知识库"""
+    index = load_index()
+    
+    if not index:
+        print("❌ 索引未初始化，请先运行 .kb/kb rebuild")
+        return
+    
+    if args.id:
+        # ID 直接获取
+        unit = next((u for u in index["units"] if u["id"] == args.id), None)
+        if unit:
+            print(f"\n📌 {unit['id']}: {unit['title']}")
+            print(f"   分类: {unit['category']}")
+            print(f"   等级: {unit['level']}")
+            print(f"   标签: {', '.join(unit['tags'])}")
+            print(f"   文件: {unit['file']}")
+            if unit.get('summary'):
+                print(f"   摘要: {unit['summary'][:200]}...")
+        else:
+            print(f"❌ 未找到: {args.id}")
+        return
+    
+    if not args.query:
+        print("❌ 请提供查询语句或 --id")
+        return
+    
+    # 检索
+    results = search_knowledge(args.query, index, args)
+    
+    if not results:
+        print(f"\n❌ 未找到相关知识点")
+        return
+    
+    print(f"\n🔍 找到 {len(results)} 个结果:\n")
+    for r in results:
+        u = r['unit']
+        print(f"📌 [{u['id']}] {u['title']}")
+        print(f"   分类: {u['category']} | 等级: {u['level']}")
+        print(f"   得分: {r['score']:.2f}")
+        if u.get('summary'):
+            print(f"   摘要: {u['summary'][:100]}...")
+        print()
+
+def search_knowledge(query: str, index: dict, args) -> list:
+    """执行检索 - 支持 BM25 / 关键词 / 语义三种模式"""
+    config = load_config()
+    retrieval_mode = config.get("retrieval", {}).get("mode", "bm25")
+    
+    # 先进行分类筛选
+    filtered_units = []
+    for unit in index["units"]:
+        if args.category and not unit["category"].startswith(args.category):
+            continue
+        if args.level and unit["level"] != args.level:
+            continue
+        filtered_units.append(unit)
+    
+    if not filtered_units:
+        return []
+    
+    # 根据检索模式选择算法
+    if retrieval_mode == "bm25":
+        return search_bm25(query, filtered_units, args)
+    elif retrieval_mode == "semantic":
+        return search_semantic(query, filtered_units, index, args)
+    else:
+        return search_keyword(query, filtered_units, args)
+
+def tokenize(text: str) -> list:
+    """分词 - 支持中英文混合"""
+    tokens = []
+    # 简单分词：按空格和标点分割
+    import re
+    # 匹配中文字符、英文单词、数字
+    pattern = r'[\u4e00-\u9fa5]+|[a-zA-Z0-9]+'
+    matches = re.findall(pattern, text.lower())
+    
+    # 对中文进行字符级分割（简单方案）
+    for m in matches:
+        if re.match(r'[\u4e00-\u9fa5]+', m):
+            # 中文：按字符分割（也可以按 2-gram）
+            if len(m) > 1:
+                # 2-gram 分词
+                for i in range(len(m) - 1):
+                    tokens.append(m[i:i+2])
+            tokens.append(m)
+        else:
+            tokens.append(m)
+    
+    return tokens
+
+def search_bm25(query: str, units: list, args) -> list:
+    """BM25 检索"""
+    try:
+        from rank_bm25 import BM25Okapi
+    except ImportError:
+        print("⚠️  rank-bm25 未安装，降级到关键词检索")
+        return search_keyword(query, units, args)
+    
+    # 构建文档语料库
+    corpus = []
+    for unit in units:
+        doc = f"{unit['title']} {unit.get('summary', '')} {' '.join(unit.get('tags', []))}"
+        tokens = tokenize(doc)
+        corpus.append(tokens)
+    
+    # 构建 BM25 索引
+    bm25 = BM25Okapi(corpus)
+    
+    # 查询
+    query_tokens = tokenize(query)
+    
+    if not query_tokens:
+        return []
+    
+    scores = bm25.get_scores(query_tokens)
+    
+    # 组合结果
+    results = []
+    for i, score in enumerate(scores):
+        if score > 0:
+            results.append({"unit": units[i], "score": float(score)})
+    
+    # 排序
+    results.sort(key=lambda x: x["score"], reverse=True)
+    
+    # 限制数量
+    limit = args.limit or 5
+    return results[:limit]
+
+def search_keyword(query: str, units: list, args) -> list:
+    """关键词检索（降级模式）"""
+    results = []
+    query_lower = query.lower()
+    query_words = set(query_lower.split())
+    
+    for unit in units:
+        score = 0
+        
+        title_lower = unit["title"].lower()
+        summary_lower = unit.get("summary", "").lower()
+        tags_lower = " ".join(unit.get("tags", [])).lower()
+        
+        for word in query_words:
+            if word in title_lower:
+                score += 10
+            if word in summary_lower:
+                score += 5
+            if word in tags_lower:
+                score += 3
+        
+        if score > 0:
+            results.append({"unit": unit, "score": float(score)})
+    
+    # 排序
+    results.sort(key=lambda x: x["score"], reverse=True)
+    
+    # 限制数量
+    limit = args.limit or 5
+    return results[:limit]
+
+def search_semantic(query: str, units: list, index: dict, args) -> list:
+    """语义检索（需要向量索引）"""
+    if not EMBEDDINGS_FILE.exists():
+        print("⚠️  向量索引不存在，降级到 BM25 检索")
+        return search_bm25(query, units, args)
+    
+    try:
+        from sentence_transformers import SentenceTransformer
+        import numpy as np
+    except ImportError:
+        print("⚠️  sentence-transformers 未安装，降级到 BM25 检索")
+        return search_bm25(query, units, args)
+    
+    # 加载向量
+    embeddings = np.load(EMBEDDINGS_FILE)
+    
+    # 加载模型
+    config = load_config()
+    model_name = config.get("embedding", {}).get("model", "all-MiniLM-L6-v2")
+    model = SentenceTransformer(model_name)
+    
+    # 计算查询向量
+    query_vector = model.encode([query])[0]
+    
+    # 计算相似度
+    similarities = np.dot(embeddings, query_vector)
+    
+    # 组合结果
+    results = []
+    for i, unit in enumerate(units):
+        if i < len(similarities) and similarities[i] > 0.3:
+            results.append({"unit": unit, "score": float(similarities[i])})
+    
+    # 排序
+    results.sort(key=lambda x: x["score"], reverse=True)
+    
+    # 限制数量
+    limit = args.limit or 5
+    return results[:limit]
+
+def cmd_browse(args):
+    """浏览知识库"""
+    index = load_index()
+    
+    if not index:
+        print("❌ 索引未初始化，请先运行 .kb/kb rebuild")
+        return
+    
+    print(f"\n📚 知识库浏览\n")
+    
+    if args.category:
+        # 按分类浏览
+        units = [u for u in index["units"] if u["category"].startswith(args.category)]
+        print(f"分类: {args.category} ({len(units)} 个)\n")
+        for u in units[:20]:
+            print(f"  • [{u['id']}] {u['title']}")
+    else:
+        # 按领域浏览
+        stats = index.get("stats", {})
+        print(f"总计: {stats.get('total_units', 0)} 个知识点\n")
+        
+        for domain, count in stats.get("by_category", {}).items():
+            print(f"📁 {domain} ({count})")
+            units = [u for u in index["units"] if u["category"].startswith(domain)]
+            for u in units[:5]:
+                print(f"   • [{u['id']}] {u['title']}")
+            if len(units) > 5:
+                print(f"   ... 还有 {len(units) - 5} 个")
+            print()
+
+def cmd_dedup(args):
+    """去重检测"""
+    index = load_index()
+    
+    if not index:
+        print("❌ 索引未初始化，请先运行 .kb/kb rebuild")
+        return
+    
+    similar_pairs = index.get("dedup", {}).get("similar_pairs", [])
+    
+    if not similar_pairs:
+        print("✅ 未检测到相似知识点")
+        return
+    
+    print(f"⚠️  检测到 {len(similar_pairs)} 组相似知识点:\n")
+    
+    for pair in similar_pairs[:10]:
+        print(f"[{pair['type']}] 相似度: {pair['similarity']:.0%}")
+        u1 = next((u for u in index["units"] if u["id"] == pair["id1"]), None)
+        u2 = next((u for u in index["units"] if u["id"] == pair["id2"]), None)
+        if u1:
+            print(f"  • {u1['id']}: {u1['title']}")
+        if u2:
+            print(f"  • {u2['id']}: {u2['title']}")
+        print()
+
+def cmd_context(args):
+    """获取节点上下文"""
+    index = load_index()
+    
+    if not index:
+        print("❌ 索引未初始化")
+        return
+    
+    if not args.id:
+        print("❌ 请提供 --id")
+        return
+    
+    unit = next((u for u in index["units"] if u["id"] == args.id), None)
+    if not unit:
+        print(f"❌ 未找到: {args.id}")
+        return
+    
+    print(f"\n📍 {unit['title']}")
+    print(f"   分类: {unit['category']}")
+    print(f"   等级: {unit['level']}")
+    
+    # 查找相关知识点
+    relations = unit.get("relations", {})
+    if relations.get("relates"):
+        print(f"\n   相关知识点:")
+        for rid in relations["relates"]:
+            r = next((u for u in index["units"] if u["id"] == rid), None)
+            if r:
+                print(f"     • {r['title']}")
+    
+    if relations.get("cited_by"):
+        print(f"\n   被引用:")
+        for rid in relations["cited_by"]:
+            r = next((u for u in index["units"] if u["id"] == rid), None)
+            if r:
+                print(f"     • {r['title']}")
+
+def cmd_ingest(args):
+    """入库新知识"""
+    if not args.file:
+        print("❌ 请提供知识文件路径")
+        print("   用法: .kb/kb ingest <file.md>")
+        return
+    
+    filepath = Path(args.file)
+    if not filepath.exists():
+        print(f"❌ 文件不存在: {args.file}")
+        return
+    
+    # 提取内容
+    try:
+        data = extract_content(filepath)
+    except Exception as e:
+        print(f"❌ 解析文件失败: {e}")
+        return
+    
+    # 检查必填字段
+    if not data.get('id'):
+        print("❌ 缺少必填字段: id")
+        print("   请在文件开头添加 YAML frontmatter:")
+        print("   ---")
+        print("   id: KB-YYYYMMDD-XXX")
+        print("   title: 标题")
+        print("   category: 分类")
+        print("   level: 1-3")
+        print("   tags: [tag1, tag2]")
+        print("   summary: \"摘要\"")
+        print("   ---")
+        return
+    
+    if not data.get('category') or data.get('category') == 'unknown':
+        print("❌ 缺少必填字段: category")
+        if args.category:
+            data['category'] = args.category
+            print(f"   使用命令行指定分类: {args.category}")
+        else:
+            return
+    
+    if args.level:
+        data['level'] = args.level
+    
+    # 加载现有索引
+    index = load_index()
+    if not index:
+        print("❌ 索引未初始化，请先运行 .kb/kb init")
+        return
+    
+    # 去重检测
+    print("🔍 去重检测...")
+    
+    # 1. 哈希去重
+    existing = index["dedup"]["hash_index"].get(data["hash"])
+    if existing:
+        print(f"❌ 精确重复: 与 {existing} 内容完全相同")
+        return
+    
+    # 2. 标签相似度
+    for unit in index["units"]:
+        tags1 = set(data.get('tags', []))
+        tags2 = set(unit.get('tags', []))
+        if tags1 and tags2:
+            jaccard = len(tags1 & tags2) / len(tags1 | tags2)
+            if jaccard >= 0.8:
+                print(f"⚠️  标签相似度 {jaccard:.0%}: 与 {unit['id']} ({unit['title']})")
+                print(f"   建议使用 .kb/kb merge {unit['id']} {data['id']} 合并")
+    
+    # 3. 内容相似度
+    for unit in index["units"]:
+        content1 = data.get('content', '')[:1000]
+        content2 = ''
+        unit_file = KB_ROOT / unit['file']
+        if unit_file.exists():
+            try:
+                unit_data = extract_content(unit_file)
+                content2 = unit_data.get('content', '')[:1000]
+            except:
+                pass
+        
+        if content1 and content2:
+            ratio = SequenceMatcher(None, content1, content2).ratio()
+            if ratio >= 0.85:
+                print(f"⚠️  内容相似度 {ratio:.0%}: 与 {unit['id']} ({unit['title']})")
+                print(f"   建议使用 .kb/kb merge {unit['id']} {data['id']} 合并")
+    
+    if args.dry_run:
+        print("\n📋 预览模式（未写入）")
+        print(f"   ID: {data['id']}")
+        print(f"   标题: {data['title']}")
+        print(f"   分类: {data['category']}")
+        print(f"   等级: {data['level']}")
+        print(f"   标签: {', '.join(data['tags'])}")
+        print(f"   摘要: {data['summary'][:100]}...")
+        return
+    
+    # 添加到索引
+    print("\n📝 添加到索引...")
+    
+    # 计算新的 embedding_idx
+    max_idx = max([u.get('embedding_idx', -1) for u in index['units']], default=-1)
+    new_idx = max_idx + 1
+    
+    # 复制文件到知识库
+    if filepath.parent != KB_ROOT / "TOPICS" and not str(filepath).startswith(str(KB_ROOT)):
+        import shutil
+        dest_dir = KB_ROOT / "TOPICS"
+        dest_file = dest_dir / f"topic-{data['id'].lower()}.md"
+        shutil.copy(filepath, dest_file)
+        data['file'] = str(dest_file.relative_to(KB_ROOT))
+        print(f"   文件已复制到: {data['file']}")
+    else:
+        data['file'] = str(filepath.relative_to(KB_ROOT))
+    
+    # 更新索引
+    new_unit = {
+        "id": data['id'],
+        "file": data['file'],
+        "title": data['title'],
+        "summary": data['summary'][:200] if data['summary'] else "",
+        "category": data['category'],
+        "level": data['level'],
+        "tags": data['tags'],
+        "hash": data['hash'],
+        "embedding_idx": new_idx,
+        "relations": data.get('relations', {"supersedes": [], "relates": [], "cited_by": []}),
+        "created": data.get('created', datetime.now().strftime('%Y-%m-%d')),
+        "updated": data.get('updated', datetime.now().strftime('%Y-%m-%d'))
+    }
+    
+    index['units'].append(new_unit)
+    index['dedup']['hash_index'][data['hash']] = data['id']
+    
+    # 更新统计
+    index['stats']['total_units'] = len(index['units'])
+    category_root = data['category'].split('.')[0]
+    index['stats']['by_category'][category_root] = index['stats']['by_category'].get(category_root, 0) + 1
+    
+    # 更新分类树
+    parts = data['category'].split('.')
+    for i, part in enumerate(parts):
+        cat_path = '.'.join(parts[:i+1])
+        if cat_path not in index['categories']:
+            index['categories'][cat_path] = {
+                "description": part,
+                "parent": '.'.join(parts[:i]) if i > 0 else None,
+                "count": 0
+            }
+        index['categories'][cat_path]["count"] += 1
+    
+    # 保存索引
+    save_index(index)
+    generate_auxiliary_indexes(index)
+    
+    print(f"\n✅ 入库成功: {data['id']}")
+    print(f"   运行 .kb/kb search --id {data['id']} 查看详情")
+
+def cmd_merge(args):
+    """合并重复知识"""
+    if not args.source_id or not args.target_id:
+        print("❌ 请提供源 ID 和目标 ID")
+        print("   用法: .kb/kb merge <source_id> <target_id>")
+        print("   source_id: 将被合并的知识点（删除）")
+        print("   target_id: 保留的知识点")
+        return
+    
+    index = load_index()
+    if not index:
+        print("❌ 索引未初始化")
+        return
+    
+    # 查找知识点
+    source = next((u for u in index['units'] if u['id'] == args.source_id), None)
+    target = next((u for u in index['units'] if u['id'] == args.target_id), None)
+    
+    if not source:
+        print(f"❌ 未找到源知识点: {args.source_id}")
+        return
+    
+    if not target:
+        print(f"❌ 未找到目标知识点: {args.target_id}")
+        return
+    
+    print(f"📋 合并预览:")
+    print(f"   源: {source['id']} - {source['title']}")
+    print(f"   目标: {target['id']} - {target['title']}")
+    
+    if args.preview:
+        print("\n   预览模式，未执行合并")
+        return
+    
+    # 执行合并
+    print("\n🔄 执行合并...")
+    
+    # 1. 更新目标的关系
+    if 'relations' not in target:
+        target['relations'] = {"supersedes": [], "relates": [], "cited_by": []}
+    
+    # 添加 supersedes 关系
+    if args.source_id not in target['relations']['supersedes']:
+        target['relations']['supersedes'].append(args.source_id)
+    
+    # 合并 relates
+    for rel in source.get('relations', {}).get('relates', []):
+        if rel != args.target_id and rel not in target['relations']['relates']:
+            target['relations']['relates'].append(rel)
+    
+    # 2. 更新所有引用源的知识点
+    for unit in index['units']:
+        if 'relations' not in unit:
+            unit['relations'] = {"supersedes": [], "relates": [], "cited_by": []}
+        
+        # 更新 relates
+        if args.source_id in unit['relations'].get('relates', []):
+            unit['relations']['relates'].remove(args.source_id)
+            if args.target_id not in unit['relations']['relates']:
+                unit['relations']['relates'].append(args.target_id)
+    
+    # 3. 从索引中移除源
+    index['units'] = [u for u in index['units'] if u['id'] != args.source_id]
+    
+    # 4. 更新哈希索引
+    if source['hash'] in index['dedup']['hash_index']:
+        del index['dedup']['hash_index'][source['hash']]
+    
+    # 5. 更新统计
+    index['stats']['total_units'] = len(index['units'])
+    
+    # 6. 删除源文件（标记为 deprecated 或删除）
+    source_file = KB_ROOT / source['file']
+    if source_file.exists():
+        # 创建 deprecated 标记
+        deprecated_content = f"""---
+id: {source['id']}
+status: deprecated
+superseded_by: {args.target_id}
+---
+
+# 此文档已合并到 [[{args.target_id}]]
+
+请查看: {target['title']}
+"""
+        source_file.write_text(deprecated_content, encoding='utf-8')
+        print(f"   源文件已标记为 deprecated: {source['file']}")
+    
+    # 7. 保存索引
+    save_index(index)
+    generate_auxiliary_indexes(index)
+    
+    print(f"\n✅ 合并完成")
+    print(f"   保留: {target['id']} - {target['title']}")
+    print(f"   废弃: {source['id']} - {source['title']}")
+
+# ============================================
+# 主入口
+# ============================================
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="知识库统一管理工具 v4.0",
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    
+    subparsers = parser.add_subparsers(dest="command", help="命令")
+    
+    # init
+    subparsers.add_parser("init", help="初始化环境")
+    
+    # status
+    subparsers.add_parser("status", help="查看状态")
+    
+    # rebuild
+    rebuild_p = subparsers.add_parser("rebuild", help="重建索引")
+    rebuild_p.add_argument("--no-embeddings", action="store_true", help="跳过向量生成")
+    
+    # search
+    search_p = subparsers.add_parser("search", help="检索知识库")
+    search_p.add_argument("query", nargs="?", help="查询语句")
+    search_p.add_argument("--id", help="通过 ID 直接获取")
+    search_p.add_argument("--category", help="分类筛选")
+    search_p.add_argument("--level", type=int, help="等级筛选")
+    search_p.add_argument("--limit", type=int, default=5, help="返回数量")
+    search_p.add_argument("--llm", action="store_true", help="启用 LLM 增强")
+    
+    # browse
+    browse_p = subparsers.add_parser("browse", help="浏览知识库")
+    browse_p.add_argument("--category", help="按分类浏览")
+    browse_p.add_argument("--level", type=int, help="按层级浏览")
+    
+    # context
+    context_p = subparsers.add_parser("context", help="获取节点上下文")
+    context_p.add_argument("--id", required=True, help="节点 ID")
+    
+    # dedup
+    subparsers.add_parser("dedup", help="去重检测")
+    
+    # ingest
+    ingest_p = subparsers.add_parser("ingest", help="入库新知识")
+    ingest_p.add_argument("file", nargs="?", help="知识文件")
+    ingest_p.add_argument("--category", help="指定分类")
+    ingest_p.add_argument("--level", type=int, help="指定等级 (1-3)")
+    ingest_p.add_argument("--dry-run", action="store_true", help="预览模式")
+    
+    # merge
+    merge_p = subparsers.add_parser("merge", help="合并重复知识")
+    merge_p.add_argument("source_id", nargs="?", help="源 ID")
+    merge_p.add_argument("target_id", nargs="?", help="目标 ID")
+    merge_p.add_argument("--preview", action="store_true", help="预览模式")
+    
+    args = parser.parse_args()
+    
+    if args.command == "init":
+        cmd_init(args)
+    elif args.command == "status":
+        cmd_status(args)
+    elif args.command == "rebuild":
+        cmd_rebuild(args)
+    elif args.command == "search":
+        cmd_search(args)
+    elif args.command == "browse":
+        cmd_browse(args)
+    elif args.command == "context":
+        cmd_context(args)
+    elif args.command == "dedup":
+        cmd_dedup(args)
+    elif args.command == "ingest":
+        cmd_ingest(args)
+    elif args.command == "merge":
+        cmd_merge(args)
+    else:
+        parser.print_help()
+
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,9 @@
 ---
 id: KB-20260306-003
 title: 多 Agent 协作调研
+category: system-design.multi-agent
+level: 2
+summary: "多 Agent 协作最佳实践：分工调研、结果合并、冲突解决机制"
 contributor: bot-a
 created: 2026-03-06
 updated: 2026-03-06

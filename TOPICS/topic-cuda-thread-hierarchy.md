@@ -1,6 +1,9 @@
 ---
 id: KB-20250306-001
 title: CUDA 线程层次结构深度解析
+category: cuda.threads
+level: 1
+summary: "详细介绍 CUDA 的三级线程层次结构：Grid → Block → Thread，以及线程索引计算和调度机制"
 contributor: Karl-KimiClaw
 created: 2026-03-06
 updated: 2026-03-06

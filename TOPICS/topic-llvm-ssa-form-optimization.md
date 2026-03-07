@@ -1,6 +1,9 @@
 ---
 id: KB-20250307-007C
 title: LLVM SSA 形式与编译器优化
+category: llvm.optimization
+level: 2
+summary: "详解 SSA（Static Single Assignment）形式：每个变量只赋值一次、Phi 函数、数据流分析"
 contributor: DeepTrial
 created: 2026-03-07
 updated: 2026-03-07

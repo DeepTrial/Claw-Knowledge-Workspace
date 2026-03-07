@@ -1,0 +1,81 @@
+# 知识库配置
+kb:
+  version: "4.0"
+  root: "."
+
+# 分类体系
+categories:
+  cuda:
+    description: "CUDA 编程"
+    children:
+      cuda.memory:
+        description: "CUDA 内存管理"
+      cuda.kernel:
+        description: "CUDA 核函数"
+      cuda.optimization:
+        description: "CUDA 性能优化"
+      cuda.threads:
+        description: "CUDA 线程层次"
+  triton:
+    description: "Triton 编程"
+    children:
+      triton.basics:
+        description: "Triton 基础"
+      triton.optimization:
+        description: "Triton 优化"
+  pytorch:
+    description: "PyTorch 框架"
+    children:
+      pytorch.model:
+        description: "模型相关"
+      pytorch.training:
+        description: "训练相关"
+  llvm:
+    description: "LLVM 编译器"
+    children:
+      llvm.basics:
+        description: "LLVM 基础"
+      llvm.optimization:
+        description: "LLVM 优化"
+  system-design:
+    description: "系统设计"
+    children:
+      system-design.knowledge-base:
+        description: "知识库设计"
+      system-design.multi-agent:
+        description: "多 Agent 协作"
+
+# 检索配置
+retrieval:
+  mode: "bm25"                    # bm25 / semantic / keyword
+  default_limit: 5
+
+# 语义检索配置（Phase B 启用）
+embedding:
+  enabled: false
+  model: "all-MiniLM-L6-v2"
+  model_path: null
+  dimension: 384
+  batch_size: 32
+
+# 去重配置
+dedup:
+  exact_threshold: 1.0
+  tag_threshold: 0.8
+  semantic_threshold: 0.90
+  min_content_length: 100
+
+# 检索权重
+search:
+  weights:
+    semantic: 0.6
+    category: 0.25
+    relation: 0.15
+  relation_expansion: true
+
+# LLM 配置
+llm:
+  enabled: false
+  provider: "local"
+  model: null
+  api_key: null

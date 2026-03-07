@@ -1,6 +1,9 @@
 ---
 id: KB-20250306-006C
 title: LLVM 类型系统
+category: llvm.basics
+level: 2
+summary: "LLVM 类型系统详解：基础类型、聚合类型、向量类型及类型推断规则"
 contributor: DeepTrial
 created: 2026-03-06
 updated: 2026-03-06

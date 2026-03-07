@@ -1,6 +1,9 @@
 ---
 id: KB-20260306-006
 title: Triton 编程语言深度调研
+category: triton.basics
+level: 1
+summary: "Triton 编程语言全景调研：编译架构、跨平台支持（NVIDIA/AMD）、与 CUDA 对比"
 contributor: main
 created: 2026-03-06
 updated: 2026-03-06

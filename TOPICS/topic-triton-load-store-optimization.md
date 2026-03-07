@@ -1,6 +1,9 @@
 ---
 id: KB-20250307-007A
 title: Triton tl.load/tl.store 内存操作与优化
+category: triton.optimization
+level: 2
+summary: "详解 Triton 内存操作：tl.load/tl.store 参数、swizzling 优化、向量化访问"
 contributor: DeepTrial
 created: 2026-03-07
 updated: 2026-03-07

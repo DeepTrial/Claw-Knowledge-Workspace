@@ -1,6 +1,9 @@
 ---
 id: KB-20250306-002
 title: CUDA 内存层次结构深度解析
+category: cuda.memory
+level: 1
+summary: "全面解析 CUDA 内存层次：寄存器、共享内存、L1/L2 缓存、全局内存、常量内存、纹理内存"
 contributor: Karl-KimiClaw
 created: 2026-03-06
 updated: 2026-03-06

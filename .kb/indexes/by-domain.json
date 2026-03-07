@@ -1,0 +1,100 @@
+{
+  "cuda": [
+    {
+      "id": "KB-20250306-006B",
+      "title": "CUDA 常量内存 (Constant Memory)",
+      "file": "TOPICS/topic-cuda-constant-memory.md"
+    },
+    {
+      "id": "KB-20260307-006",
+      "title": "CUDA C++ 语言扩展完整框架",
+      "file": "TOPICS/topic-cuda-cpp-language-extensions.md"
+    },
+    {
+      "id": "KB-20260307-004",
+      "title": "CUDA 同步与内存屏障函数",
+      "file": "TOPICS/topic-cuda-sync-functions.md"
+    },
+    {
+      "id": "KB-20260307-003",
+      "title": "CUDA 内存空间限定符详解",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+    },
+    {
+      "id": "KB-20260307-002",
+      "title": "NVCC 编译流程与分离编译",
+      "file": "TOPICS/topic-nvcc-compilation-flow.md"
+    },
+    {
+      "id": "KB-20260307-001",
+      "title": "CUDA Device Code C++ 特性支持与限制",
+      "file": "TOPICS/topic-cuda-device-code-features.md"
+    },
+    {
+      "id": "KB-20250306-001",
+      "title": "CUDA 线程层次结构深度解析",
+      "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    },
+    {
+      "id": "KB-20260307-005",
+      "title": "CUDA 内建变量与函数速查",
+      "file": "TOPICS/topic-cuda-builtin-functions.md"
+    },
+    {
+      "id": "KB-20250306-002",
+      "title": "CUDA 内存层次结构深度解析",
+      "file": "TOPICS/topic-cuda-memory-hierarchy.md"
+    },
+    {
+      "id": "KB-20250307-007B",
+      "title": "CUDA 全局内存与合并访问优化",
+      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
+    }
+  ],
+  "triton": [
+    {
+      "id": "KB-20250306-003",
+      "title": "Triton @triton.jit Decorator 原理深度解析",
+      "file": "TOPICS/topic-triton-jit-decorator.md"
+    },
+    {
+      "id": "KB-20250306-006A",
+      "title": "Triton mask 与边界处理",
+      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
+    },
+    {
+      "id": "KB-20250307-007A",
+      "title": "Triton tl.load/tl.store 内存操作与优化",
+      "file": "TOPICS/topic-triton-load-store-optimization.md"
+    },
+    {
+      "id": "KB-20260306-006",
+      "title": "Triton 编程语言深度调研",
+      "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "llvm": [
+    {
+      "id": "KB-20250306-004",
+      "title": "LLVM 架构设计深度解析",
+      "file": "TOPICS/topic-llvm-architecture.md"
+    },
+    {
+      "id": "KB-20250307-007C",
+      "title": "LLVM SSA 形式与编译器优化",
+      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
+    },
+    {
+      "id": "KB-20250306-006C",
+      "title": "LLVM 类型系统",
+      "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
+  "system-design": [
+    {
+      "id": "KB-20260306-003",
+      "title": "多 Agent 协作调研",
+      "file": "TOPICS/topic-multi-agent-collaboration.md"
+    }
+  ]
+}

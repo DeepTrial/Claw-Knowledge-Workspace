@@ -1,0 +1,560 @@
+{
+  "version": "4.0",
+  "updated": "2026-03-07T15:37:25.826617",
+  "config": {
+    "embedding_model": "all-MiniLM-L6-v2",
+    "semantic_threshold": 0.85,
+    "dedup_threshold": 0.9,
+    "llm_enabled": false
+  },
+  "stats": {
+    "total_units": 18,
+    "by_category": {
+      "cuda": 10,
+      "triton": 4,
+      "llvm": 3,
+      "system-design": 1
+    },
+    "by_level": {
+      "2": 12,
+      "1": 6
+    }
+  },
+  "categories": {
+    "cuda": {
+      "description": "cuda",
+      "parent": null,
+      "count": 10
+    },
+    "cuda.memory": {
+      "description": "memory",
+      "parent": "cuda",
+      "count": 4
+    },
+    "cuda.syntax": {
+      "description": "syntax",
+      "parent": "cuda",
+      "count": 2
+    },
+    "cuda.sync": {
+      "description": "sync",
+      "parent": "cuda",
+      "count": 1
+    },
+    "cuda.compiler": {
+      "description": "compiler",
+      "parent": "cuda",
+      "count": 1
+    },
+    "triton": {
+      "description": "triton",
+      "parent": null,
+      "count": 4
+    },
+    "triton.basics": {
+      "description": "basics",
+      "parent": "triton",
+      "count": 3
+    },
+    "cuda.threads": {
+      "description": "threads",
+      "parent": "cuda",
+      "count": 1
+    },
+    "cuda.builtin": {
+      "description": "builtin",
+      "parent": "cuda",
+      "count": 1
+    },
+    "llvm": {
+      "description": "llvm",
+      "parent": null,
+      "count": 3
+    },
+    "llvm.basics": {
+      "description": "basics",
+      "parent": "llvm",
+      "count": 2
+    },
+    "system-design": {
+      "description": "system-design",
+      "parent": null,
+      "count": 1
+    },
+    "system-design.multi-agent": {
+      "description": "multi-agent",
+      "parent": "system-design",
+      "count": 1
+    },
+    "llvm.optimization": {
+      "description": "optimization",
+      "parent": "llvm",
+      "count": 1
+    },
+    "triton.optimization": {
+      "description": "optimization",
+      "parent": "triton",
+      "count": 1
+    }
+  },
+  "units": [
+    {
+      "id": "KB-20250306-006B",
+      "file": "TOPICS/topic-cuda-constant-memory.md",
+      "title": "CUDA 常量内存 (Constant Memory)",
+      "summary": "介绍 CUDA 常量内存的特性：64KB 容量、广播机制、8KB 常量缓存，以及适用场景和性能优化",
+      "category": "cuda.memory",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "constant-memory",
+        "broadcast",
+        "cache",
+        "optimization"
+      ],
+      "hash": "023e1ac77c359589",
+      "embedding_idx": 0,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20260307-006",
+      "file": "TOPICS/topic-cuda-cpp-language-extensions.md",
+      "title": "CUDA C++ 语言扩展完整框架",
+      "summary": "基于 NVIDIA 官方文档的 CUDA C++ 语言扩展完整框架，涵盖函数/变量限定符、内建类型、同步原语等",
+      "category": "cuda.syntax",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "cpp",
+        "language-extensions",
+        "nvcc",
+        "reference"
+      ],
+      "hash": "b75b14982c592a13",
+      "embedding_idx": 1,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20260307-004",
+      "file": "TOPICS/topic-cuda-sync-functions.md",
+      "title": "CUDA 同步与内存屏障函数",
+      "summary": "CUDA 同步原语：syncthreads、内存屏障、原子操作与协作组",
+      "category": "cuda.sync",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "synchronization",
+        "barrier",
+        "fence",
+        "atomic"
+      ],
+      "hash": "b3d2ab88c2bc343a",
+      "embedding_idx": 2,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20260307-003",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md",
+      "title": "CUDA 内存空间限定符详解",
+      "summary": "CUDA 变量内存空间限定符的使用方法、性能特点与最佳实践",
+      "category": "cuda.memory",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "memory",
+        "qualifiers",
+        "shared",
+        "constant",
+        "managed"
+      ],
+      "hash": "23fc1c01fddbc4d1",
+      "embedding_idx": 3,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20260307-002",
+      "file": "TOPICS/topic-nvcc-compilation-flow.md",
+      "title": "NVCC 编译流程与分离编译",
+      "summary": "NVCC 编译器驱动的工作流程、分离编译模式与 whole-program 编译",
+      "category": "cuda.compiler",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "nvcc",
+        "compilation",
+        "rdc",
+        "separate-compilation"
+      ],
+      "hash": "e2bfc55e16fc47e6",
+      "embedding_idx": 4,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20250306-003",
+      "file": "TOPICS/topic-triton-jit-decorator.md",
+      "title": "Triton @triton.jit Decorator 原理深度解析",
+      "summary": "深度解析 Triton JIT 编译器原理：AST 解析、MLIR 生成、PTX 编译流程",
+      "category": "triton.basics",
+      "level": 2,
+      "tags": [
+        "triton",
+        "jit",
+        "compiler",
+        "gpu",
+        "mlir",
+        "python"
+      ],
+      "hash": "0941c6806a5bbe6b",
+      "embedding_idx": 5,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20260307-001",
+      "file": "TOPICS/topic-cuda-device-code-features.md",
+      "title": "CUDA Device Code C++ 特性支持与限制",
+      "summary": "基于 NVIDIA 官方文档的 CUDA Device Code C++ 特性支持列表与限制详解",
+      "category": "cuda.syntax",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "cpp",
+        "restrictions",
+        "device-code",
+        "feature-support"
+      ],
+      "hash": "861db3647e816a9c",
+      "embedding_idx": 6,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20250306-006A",
+      "file": "TOPICS/topic-triton-mask-boundary-handling.md",
+      "title": "Triton mask 与边界处理",
+      "summary": "介绍 Triton mask 机制处理边界条件，确保内存访问安全，避免越界读写",
+      "category": "triton.basics",
+      "level": 2,
+      "tags": [
+        "triton",
+        "mask",
+        "boundary-handling",
+        "memory-safety",
+        "padding"
+      ],
+      "hash": "d452c1c43e5e0de6",
+      "embedding_idx": 7,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250306-001",
+      "file": "TOPICS/topic-cuda-thread-hierarchy.md",
+      "title": "CUDA 线程层次结构深度解析",
+      "summary": "详细介绍 CUDA 的三级线程层次结构：Grid → Block → Thread，以及线程索引计算和调度机制",
+      "category": "cuda.threads",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "gpu",
+        "thread-hierarchy",
+        "parallel-computing",
+        "nvidia"
+      ],
+      "hash": "dbc34cb0301f9c96",
+      "embedding_idx": 8,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20260307-005",
+      "file": "TOPICS/topic-cuda-builtin-functions.md",
+      "title": "CUDA 内建变量与函数速查",
+      "summary": "CUDA 内建变量（threadIdx, blockIdx 等）与常用内建函数速查表",
+      "category": "cuda.builtin",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "builtin",
+        "functions",
+        "variables",
+        "reference"
+      ],
+      "hash": "8ab3bef1c2fd5efd",
+      "embedding_idx": 9,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20250306-004",
+      "file": "TOPICS/topic-llvm-architecture.md",
+      "title": "LLVM 架构设计深度解析",
+      "summary": "LLVM 编译器基础设施深度解析：模块化设计、IR 三种形态、Pass 管理器、MLIR 扩展",
+      "category": "llvm.basics",
+      "level": 1,
+      "tags": [
+        "llvm",
+        "compiler",
+        "architecture",
+        "ir",
+        "mlir",
+        "ssa"
+      ],
+      "hash": "cdd4f890ada77c36",
+      "embedding_idx": 10,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20260306-003",
+      "file": "TOPICS/topic-multi-agent-collaboration.md",
+      "title": "多 Agent 协作调研",
+      "summary": "多 Agent 协作最佳实践：分工调研、结果合并、冲突解决机制",
+      "category": "system-design.multi-agent",
+      "level": 2,
+      "tags": [
+        "collaboration",
+        "multi-agent",
+        "research"
+      ],
+      "hash": "471be1a0d0255472",
+      "embedding_idx": 11,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250307-007C",
+      "file": "TOPICS/topic-llvm-ssa-form-optimization.md",
+      "title": "LLVM SSA 形式与编译器优化",
+      "summary": "详解 SSA（Static Single Assignment）形式：每个变量只赋值一次、Phi 函数、数据流分析",
+      "category": "llvm.optimization",
+      "level": 2,
+      "tags": [
+        "llvm",
+        "ssa",
+        "compiler-optimization",
+        "phi-function",
+        "ir"
+      ],
+      "hash": "87d60d70a8d64ca3",
+      "embedding_idx": 12,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20250306-002",
+      "file": "TOPICS/topic-cuda-memory-hierarchy.md",
+      "title": "CUDA 内存层次结构深度解析",
+      "summary": "全面解析 CUDA 内存层次：寄存器、共享内存、L1/L2 缓存、全局内存、常量内存、纹理内存",
+      "category": "cuda.memory",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "gpu",
+        "memory-hierarchy",
+        "optimization",
+        "shared-memory"
+      ],
+      "hash": "c4a552b5d557efc1",
+      "embedding_idx": 13,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250306-006C",
+      "file": "TOPICS/topic-llvm-type-system.md",
+      "title": "LLVM 类型系统",
+      "summary": "LLVM 类型系统详解：基础类型、聚合类型、向量类型及类型推断规则",
+      "category": "llvm.basics",
+      "level": 2,
+      "tags": [
+        "llvm",
+        "type-system",
+        "ir",
+        "aggregate-types",
+        "vector"
+      ],
+      "hash": "1b3f08303c5483c8",
+      "embedding_idx": 14,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250307-007A",
+      "file": "TOPICS/topic-triton-load-store-optimization.md",
+      "title": "Triton tl.load/tl.store 内存操作与优化",
+      "summary": "详解 Triton 内存操作：tl.load/tl.store 参数、swizzling 优化、向量化访问",
+      "category": "triton.optimization",
+      "level": 2,
+      "tags": [
+        "triton",
+        "memory",
+        "load-store",
+        "swizzling",
+        "optimization"
+      ],
+      "hash": "ea995ab76f2b9191",
+      "embedding_idx": 15,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20260306-006",
+      "file": "TOPICS/topic-triton-programming-language.md",
+      "title": "Triton 编程语言深度调研",
+      "summary": "Triton 编程语言全景调研：编译架构、跨平台支持（NVIDIA/AMD）、与 CUDA 对比",
+      "category": "triton.basics",
+      "level": 1,
+      "tags": [
+        "triton",
+        "compiler",
+        "gpu",
+        "mlir",
+        "nvidia",
+        "amd",
+        "deep-learning"
+      ],
+      "hash": "af8c5a79a96ed874",
+      "embedding_idx": 16,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250307-007B",
+      "file": "TOPICS/topic-cuda-global-memory-coalesced.md",
+      "title": "CUDA 全局内存与合并访问优化",
+      "summary": "详解全局内存合并访问原理，当 warp 访问连续地址时可合并为最少事务，性能提升 2 倍以上",
+      "category": "cuda.memory",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "global-memory",
+        "coalesced-access",
+        "shared-memory",
+        "optimization"
+      ],
+      "hash": "770a3f2138b3daaa",
+      "embedding_idx": 17,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-07",
+      "updated": "2026-03-07"
+    }
+  ],
+  "dedup": {
+    "hash_index": {
+      "023e1ac77c359589": "KB-20250306-006B",
+      "b75b14982c592a13": "KB-20260307-006",
+      "b3d2ab88c2bc343a": "KB-20260307-004",
+      "23fc1c01fddbc4d1": "KB-20260307-003",
+      "e2bfc55e16fc47e6": "KB-20260307-002",
+      "0941c6806a5bbe6b": "KB-20250306-003",
+      "861db3647e816a9c": "KB-20260307-001",
+      "d452c1c43e5e0de6": "KB-20250306-006A",
+      "dbc34cb0301f9c96": "KB-20250306-001",
+      "8ab3bef1c2fd5efd": "KB-20260307-005",
+      "cdd4f890ada77c36": "KB-20250306-004",
+      "471be1a0d0255472": "KB-20260306-003",
+      "87d60d70a8d64ca3": "KB-20250307-007C",
+      "c4a552b5d557efc1": "KB-20250306-002",
+      "1b3f08303c5483c8": "KB-20250306-006C",
+      "ea995ab76f2b9191": "KB-20250307-007A",
+      "af8c5a79a96ed874": "KB-20260306-006",
+      "770a3f2138b3daaa": "KB-20250307-007B"
+    },
+    "similar_pairs": []
+  }
+}
