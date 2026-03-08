@@ -170,6 +170,11 @@
       "id": "KB-20260308-001",
       "title": "MLIR 技术领域全景图谱",
       "file": "TOPICS/MLIR-Technical-Landscape.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
   "编译器基础设施": [
@@ -212,6 +217,11 @@
       "id": "KB-20260308-001",
       "title": "MLIR 技术领域全景图谱",
       "file": "TOPICS/MLIR-Technical-Landscape.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
   "memory": [
@@ -386,6 +396,34 @@
       "id": "KB-20260307-001",
       "title": "CUDA Device Code C++ 特性支持与限制",
       "file": "TOPICS/topic-cuda-device-code-features.md"
+    }
+  ],
+  "Triton": [
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    }
+  ],
+  "编译器": [
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    }
+  ],
+  "Dialect": [
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    }
+  ],
+  "后端架构": [
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
   "mask": [

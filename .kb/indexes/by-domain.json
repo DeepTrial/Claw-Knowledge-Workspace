@@ -56,6 +56,11 @@
       "id": "KB-20260308-001",
       "title": "MLIR 技术领域全景图谱",
       "file": "TOPICS/MLIR-Technical-Landscape.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
   "triton": [

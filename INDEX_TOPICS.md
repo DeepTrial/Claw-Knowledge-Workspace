@@ -1,7 +1,7 @@
 # 知识库索引
 
-> 自动生成于：2026-03-08 14:25:00  
-> 知识点总数：19
+> 自动生成于：2026-03-08 15:17:27  
+> 知识点总数：20
 
 ---
 
@@ -87,13 +87,19 @@
   - 分类: `triton.basics` | 等级: 1
   - 摘要: Triton 编程语言全景调研：编译架构、跨平台支持（NVIDIA/AMD）、与 CUDA 对比
 
-### UNKNOWN (1)
+### UNKNOWN (2)
 
 - **[KB-20260308-001]** MLIR 技术领域全景图谱
   - 分类: `unknown` | 等级: 2
   - 摘要: # MLIR 技术领域全景图谱
 
 > 本文档是对 MLIR (Multi-Level Intermediate Representation) 技术领域的全面调...
+
+- **[KB-20260308-002]** Triton MLIR 架构深度调研
+  - 分类: `unknown` | 等级: 2
+  - 摘要: # Triton MLIR 架构深度调研
+
+> 本文档是对 Triton 编程语言和编译器的 MLIR 架构的深度技术调研，旨在为自定义 LLVM 后端对接提供...
 
 ---
 
