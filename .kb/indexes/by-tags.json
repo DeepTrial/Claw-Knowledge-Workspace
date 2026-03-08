@@ -172,6 +172,11 @@
       "file": "TOPICS/MLIR-Technical-Landscape.md"
     },
     {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    },
+    {
       "id": "KB-20260308-002",
       "title": "Triton MLIR 架构深度调研",
       "file": "TOPICS/Triton-MLIR-Architecture.md"
@@ -398,14 +403,47 @@
       "file": "TOPICS/topic-cuda-device-code-features.md"
     }
   ],
-  "Triton": [
+  "LLVM IR": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "编译器": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    },
     {
       "id": "KB-20260308-002",
       "title": "Triton MLIR 架构深度调研",
       "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
-  "编译器": [
+  "Target": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "Dialect转换": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "数据布局": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "Triton": [
     {
       "id": "KB-20260308-002",
       "title": "Triton MLIR 架构深度调研",

@@ -58,6 +58,11 @@
       "file": "TOPICS/MLIR-Technical-Landscape.md"
     },
     {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    },
+    {
       "id": "KB-20260308-002",
       "title": "Triton MLIR 架构深度调研",
       "file": "TOPICS/Triton-MLIR-Architecture.md"

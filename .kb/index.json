@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-08T15:17:27.099305",
+  "updated": "2026-03-08T15:58:53.454540",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,16 +8,16 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 20,
+    "total_units": 21,
     "by_category": {
       "cuda": 10,
-      "unknown": 2,
+      "unknown": 3,
       "triton": 4,
       "llvm": 3,
       "system-design": 1
     },
     "by_level": {
-      "2": 14,
+      "2": 15,
       "1": 6
     }
   },
@@ -45,7 +45,7 @@
     "unknown": {
       "description": "unknown",
       "parent": null,
-      "count": 2
+      "count": 3
     },
     "cuda.compiler": {
       "description": "compiler",
@@ -301,6 +301,31 @@
       "updated": "2026-03-07"
     },
     {
+      "id": "KB-20260308-003",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "summary": "# MLIR LLVM IR Target 深度调研\n\n> 本文档是对 MLIR LLVM IR Target 机制的深度技术调研，重点关注 MLIR → LLVM IR 的转换流程和与自定义 LLVM 后端的对接。\n\n---\n\n## 📋 目录\n\n1. [核心概念与架构](#1-核心概念与架构)\n2. [LLVM Dialect 类型系统](#2-llvm-dialect-类型系统)\n3. [转换",
+      "category": "unknown",
+      "level": 2,
+      "tags": [
+        "MLIR",
+        "LLVM IR",
+        "编译器",
+        "Target",
+        "Dialect转换",
+        "数据布局"
+      ],
+      "hash": "d6346e30a11b4812",
+      "embedding_idx": 8,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
       "id": "KB-20260308-002",
       "file": "TOPICS/Triton-MLIR-Architecture.md",
       "title": "Triton MLIR 架构深度调研",
@@ -316,7 +341,7 @@
         "GPU编译"
       ],
       "hash": "35336687c018ea4b",
-      "embedding_idx": 8,
+      "embedding_idx": 9,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -340,7 +365,7 @@
         "padding"
       ],
       "hash": "d452c1c43e5e0de6",
-      "embedding_idx": 9,
+      "embedding_idx": 10,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -364,7 +389,7 @@
         "nvidia"
       ],
       "hash": "dbc34cb0301f9c96",
-      "embedding_idx": 10,
+      "embedding_idx": 11,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -388,7 +413,7 @@
         "reference"
       ],
       "hash": "8ab3bef1c2fd5efd",
-      "embedding_idx": 11,
+      "embedding_idx": 12,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -413,7 +438,7 @@
         "ssa"
       ],
       "hash": "cdd4f890ada77c36",
-      "embedding_idx": 12,
+      "embedding_idx": 13,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -435,7 +460,7 @@
         "research"
       ],
       "hash": "471be1a0d0255472",
-      "embedding_idx": 13,
+      "embedding_idx": 14,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -459,7 +484,7 @@
         "ir"
       ],
       "hash": "87d60d70a8d64ca3",
-      "embedding_idx": 14,
+      "embedding_idx": 15,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -483,7 +508,7 @@
         "shared-memory"
       ],
       "hash": "c4a552b5d557efc1",
-      "embedding_idx": 15,
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -507,7 +532,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 16,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -531,7 +556,7 @@
         "optimization"
       ],
       "hash": "ea995ab76f2b9191",
-      "embedding_idx": 17,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -557,7 +582,7 @@
         "deep-learning"
       ],
       "hash": "af8c5a79a96ed874",
-      "embedding_idx": 18,
+      "embedding_idx": 19,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -581,7 +606,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 19,
+      "embedding_idx": 20,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -601,6 +626,7 @@
       "e2bfc55e16fc47e6": "KB-20260307-002",
       "0941c6806a5bbe6b": "KB-20250306-003",
       "861db3647e816a9c": "KB-20260307-001",
+      "d6346e30a11b4812": "KB-20260308-003",
       "35336687c018ea4b": "KB-20260308-002",
       "d452c1c43e5e0de6": "KB-20250306-006A",
       "dbc34cb0301f9c96": "KB-20250306-001",
