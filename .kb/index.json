@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-07T20:49:12.379226",
+  "updated": "2026-03-08T14:25:00.344427",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,15 +8,16 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 18,
+    "total_units": 19,
     "by_category": {
       "cuda": 10,
+      "unknown": 1,
       "triton": 4,
       "llvm": 3,
       "system-design": 1
     },
     "by_level": {
-      "2": 12,
+      "2": 13,
       "1": 6
     }
   },
@@ -39,6 +40,11 @@
     "cuda.sync": {
       "description": "sync",
       "parent": "cuda",
+      "count": 1
+    },
+    "unknown": {
+      "description": "unknown",
+      "parent": null,
       "count": 1
     },
     "cuda.compiler": {
@@ -171,6 +177,32 @@
       "updated": "2026-03-07"
     },
     {
+      "id": "KB-20260308-001",
+      "file": "TOPICS/MLIR-Technical-Landscape.md",
+      "title": "MLIR 技术领域全景图谱",
+      "summary": "# MLIR 技术领域全景图谱\n\n> 本文档是对 MLIR (Multi-Level Intermediate Representation) 技术领域的全面调研成果，作为后续深入研究的参考图谱。\n\n---\n\n## 📊 核心定位\n\n**MLIR 是什么？**\n- **Multi-Level IR** - 多层次中间表示\n- **编译器基础设施** - 可扩展、可重用的编译器框架\n- **统一 IR",
+      "category": "unknown",
+      "level": 2,
+      "tags": [
+        "MLIR",
+        "编译器基础设施",
+        "Dialect系统",
+        "深度学习编译",
+        "硬件综合",
+        "多面体优化",
+        "GPU编译"
+      ],
+      "hash": "6000d141b0a2d2b1",
+      "embedding_idx": 3,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
       "id": "KB-20260307-003",
       "file": "TOPICS/topic-cuda-memory-qualifiers.md",
       "title": "CUDA 内存空间限定符详解",
@@ -186,7 +218,7 @@
         "managed"
       ],
       "hash": "23fc1c01fddbc4d1",
-      "embedding_idx": 3,
+      "embedding_idx": 4,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -210,7 +242,7 @@
         "separate-compilation"
       ],
       "hash": "e2bfc55e16fc47e6",
-      "embedding_idx": 4,
+      "embedding_idx": 5,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -235,7 +267,7 @@
         "python"
       ],
       "hash": "0941c6806a5bbe6b",
-      "embedding_idx": 5,
+      "embedding_idx": 6,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -259,7 +291,7 @@
         "feature-support"
       ],
       "hash": "861db3647e816a9c",
-      "embedding_idx": 6,
+      "embedding_idx": 7,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -283,7 +315,7 @@
         "padding"
       ],
       "hash": "d452c1c43e5e0de6",
-      "embedding_idx": 7,
+      "embedding_idx": 8,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -307,7 +339,7 @@
         "nvidia"
       ],
       "hash": "dbc34cb0301f9c96",
-      "embedding_idx": 8,
+      "embedding_idx": 9,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -331,7 +363,7 @@
         "reference"
       ],
       "hash": "8ab3bef1c2fd5efd",
-      "embedding_idx": 9,
+      "embedding_idx": 10,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -356,7 +388,7 @@
         "ssa"
       ],
       "hash": "cdd4f890ada77c36",
-      "embedding_idx": 10,
+      "embedding_idx": 11,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -378,7 +410,7 @@
         "research"
       ],
       "hash": "471be1a0d0255472",
-      "embedding_idx": 11,
+      "embedding_idx": 12,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -402,7 +434,7 @@
         "ir"
       ],
       "hash": "87d60d70a8d64ca3",
-      "embedding_idx": 12,
+      "embedding_idx": 13,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -426,7 +458,7 @@
         "shared-memory"
       ],
       "hash": "c4a552b5d557efc1",
-      "embedding_idx": 13,
+      "embedding_idx": 14,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -450,7 +482,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 14,
+      "embedding_idx": 15,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -474,7 +506,7 @@
         "optimization"
       ],
       "hash": "ea995ab76f2b9191",
-      "embedding_idx": 15,
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -500,7 +532,7 @@
         "deep-learning"
       ],
       "hash": "af8c5a79a96ed874",
-      "embedding_idx": 16,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -524,7 +556,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 17,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -539,6 +571,7 @@
       "023e1ac77c359589": "KB-20250306-006B",
       "b75b14982c592a13": "KB-20260307-006",
       "b3d2ab88c2bc343a": "KB-20260307-004",
+      "6000d141b0a2d2b1": "KB-20260308-001",
       "23fc1c01fddbc4d1": "KB-20260307-003",
       "e2bfc55e16fc47e6": "KB-20260307-002",
       "0941c6806a5bbe6b": "KB-20250306-003",

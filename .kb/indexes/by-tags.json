@@ -165,6 +165,55 @@
       "file": "TOPICS/topic-cuda-sync-functions.md"
     }
   ],
+  "MLIR": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "编译器基础设施": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "Dialect系统": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "深度学习编译": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "硬件综合": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "多面体优化": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "GPU编译": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
   "memory": [
     {
       "id": "KB-20260307-003",

@@ -51,6 +51,13 @@
       "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
     }
   ],
+  "unknown": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
   "triton": [
     {
       "id": "KB-20250306-003",
