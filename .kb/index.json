@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-08T15:58:53.454540",
+  "updated": "2026-03-08T16:30:44.223755",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,16 +8,16 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 21,
+    "total_units": 22,
     "by_category": {
       "cuda": 10,
-      "unknown": 3,
+      "unknown": 4,
       "triton": 4,
       "llvm": 3,
       "system-design": 1
     },
     "by_level": {
-      "2": 15,
+      "2": 16,
       "1": 6
     }
   },
@@ -45,7 +45,7 @@
     "unknown": {
       "description": "unknown",
       "parent": null,
-      "count": 3
+      "count": 4
     },
     "cuda.compiler": {
       "description": "compiler",
@@ -448,6 +448,31 @@
       "updated": "2026-03-06"
     },
     {
+      "id": "KB-20260308-004",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "summary": "# 自定义 LLVM Backend 集成深度调研\n\n> 本文档是对自定义 LLVM Backend 集成的深度技术调研，重点是如何让现有的自定义 LLVM backend 与 MLIR/Triton 对接。\n\n---\n\n## 📋 目录\n\n1. [LLVM Backend 架构概览](#1-llvm-backend-架构概览)\n2. [TargetMachine 核心类](#2-targetmac",
+      "category": "unknown",
+      "level": 2,
+      "tags": [
+        "LLVM",
+        "Backend",
+        "TargetMachine",
+        "代码生成",
+        "寄存器分配",
+        "汇编生成"
+      ],
+      "hash": "8d9e495921b5eab0",
+      "embedding_idx": 14,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
       "id": "KB-20260306-003",
       "file": "TOPICS/topic-multi-agent-collaboration.md",
       "title": "多 Agent 协作调研",
@@ -460,7 +485,7 @@
         "research"
       ],
       "hash": "471be1a0d0255472",
-      "embedding_idx": 14,
+      "embedding_idx": 15,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -484,7 +509,7 @@
         "ir"
       ],
       "hash": "87d60d70a8d64ca3",
-      "embedding_idx": 15,
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -508,7 +533,7 @@
         "shared-memory"
       ],
       "hash": "c4a552b5d557efc1",
-      "embedding_idx": 16,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -532,7 +557,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 17,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -556,7 +581,7 @@
         "optimization"
       ],
       "hash": "ea995ab76f2b9191",
-      "embedding_idx": 18,
+      "embedding_idx": 19,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -582,7 +607,7 @@
         "deep-learning"
       ],
       "hash": "af8c5a79a96ed874",
-      "embedding_idx": 19,
+      "embedding_idx": 20,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -606,7 +631,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 20,
+      "embedding_idx": 21,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -632,6 +657,7 @@
       "dbc34cb0301f9c96": "KB-20250306-001",
       "8ab3bef1c2fd5efd": "KB-20260307-005",
       "cdd4f890ada77c36": "KB-20250306-004",
+      "8d9e495921b5eab0": "KB-20260308-004",
       "471be1a0d0255472": "KB-20260306-003",
       "87d60d70a8d64ca3": "KB-20250307-007C",
       "c4a552b5d557efc1": "KB-20250306-002",

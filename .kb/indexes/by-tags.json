@@ -592,6 +592,48 @@
       "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
     }
   ],
+  "LLVM": [
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
+    }
+  ],
+  "Backend": [
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
+    }
+  ],
+  "TargetMachine": [
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
+    }
+  ],
+  "代码生成": [
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
+    }
+  ],
+  "寄存器分配": [
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
+    }
+  ],
+  "汇编生成": [
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
+    }
+  ],
   "collaboration": [
     {
       "id": "KB-20260306-003",

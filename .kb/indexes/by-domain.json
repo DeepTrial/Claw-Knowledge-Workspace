@@ -66,6 +66,11 @@
       "id": "KB-20260308-002",
       "title": "Triton MLIR 架构深度调研",
       "file": "TOPICS/Triton-MLIR-Architecture.md"
+    },
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
     }
   ],
   "triton": [
