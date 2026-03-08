@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-08T16:30:44.223755",
+  "updated": "2026-03-08T17:43:17.825438",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,17 +8,19 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 22,
+    "total_units": 24,
     "by_category": {
       "cuda": 10,
+      "llvm": 4,
       "unknown": 4,
       "triton": 4,
-      "llvm": 3,
-      "system-design": 1
+      "system-design": 1,
+      "mlir": 1
     },
     "by_level": {
       "2": 16,
-      "1": 6
+      "1": 6,
+      "3": 2
     }
   },
   "categories": {
@@ -40,6 +42,16 @@
     "cuda.sync": {
       "description": "sync",
       "parent": "cuda",
+      "count": 1
+    },
+    "llvm": {
+      "description": "llvm",
+      "parent": null,
+      "count": 4
+    },
+    "llvm.backend": {
+      "description": "backend",
+      "parent": "llvm",
       "count": 1
     },
     "unknown": {
@@ -72,11 +84,6 @@
       "parent": "cuda",
       "count": 1
     },
-    "llvm": {
-      "description": "llvm",
-      "parent": null,
-      "count": 3
-    },
     "llvm.basics": {
       "description": "basics",
       "parent": "llvm",
@@ -95,6 +102,16 @@
     "llvm.optimization": {
       "description": "optimization",
       "parent": "llvm",
+      "count": 1
+    },
+    "mlir": {
+      "description": "mlir",
+      "parent": null,
+      "count": 1
+    },
+    "mlir.bufferization": {
+      "description": "bufferization",
+      "parent": "mlir",
       "count": 1
     },
     "triton.optimization": {
@@ -178,6 +195,29 @@
     },
     {
       "id": "KB-20260308-001",
+      "file": "TOPICS/topic-llvm-backend-registration.md",
+      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
+      "summary": "深入解析 LLVM 后端注册机制与 TargetMachine 创建流程，包括 TargetRegistry、TargetInfo、TargetLowering 等核心组件",
+      "category": "llvm.backend",
+      "level": 3,
+      "tags": [
+        "llvm",
+        "backend",
+        "target-machine",
+        "registration",
+        "codegen"
+      ],
+      "hash": "d078fcc194396a9e",
+      "embedding_idx": 3,
+      "relations": [
+        "KB-20260306-007  # LLVM IR 基础",
+        "KB-20260308-002  # Bufferization 一致性"
+      ],
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20260308-001",
       "file": "TOPICS/MLIR-Technical-Landscape.md",
       "title": "MLIR 技术领域全景图谱",
       "summary": "# MLIR 技术领域全景图谱\n\n> 本文档是对 MLIR (Multi-Level Intermediate Representation) 技术领域的全面调研成果，作为后续深入研究的参考图谱。\n\n---\n\n## 📊 核心定位\n\n**MLIR 是什么？**\n- **Multi-Level IR** - 多层次中间表示\n- **编译器基础设施** - 可扩展、可重用的编译器框架\n- **统一 IR",
@@ -193,7 +233,7 @@
         "GPU编译"
       ],
       "hash": "6000d141b0a2d2b1",
-      "embedding_idx": 3,
+      "embedding_idx": 4,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -218,7 +258,7 @@
         "managed"
       ],
       "hash": "23fc1c01fddbc4d1",
-      "embedding_idx": 4,
+      "embedding_idx": 5,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -242,7 +282,7 @@
         "separate-compilation"
       ],
       "hash": "e2bfc55e16fc47e6",
-      "embedding_idx": 5,
+      "embedding_idx": 6,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -267,7 +307,7 @@
         "python"
       ],
       "hash": "0941c6806a5bbe6b",
-      "embedding_idx": 6,
+      "embedding_idx": 7,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -291,7 +331,7 @@
         "feature-support"
       ],
       "hash": "861db3647e816a9c",
-      "embedding_idx": 7,
+      "embedding_idx": 8,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -316,7 +356,7 @@
         "数据布局"
       ],
       "hash": "d6346e30a11b4812",
-      "embedding_idx": 8,
+      "embedding_idx": 9,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -341,7 +381,7 @@
         "GPU编译"
       ],
       "hash": "35336687c018ea4b",
-      "embedding_idx": 9,
+      "embedding_idx": 10,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -365,7 +405,7 @@
         "padding"
       ],
       "hash": "d452c1c43e5e0de6",
-      "embedding_idx": 10,
+      "embedding_idx": 11,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -389,7 +429,7 @@
         "nvidia"
       ],
       "hash": "dbc34cb0301f9c96",
-      "embedding_idx": 11,
+      "embedding_idx": 12,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -413,7 +453,7 @@
         "reference"
       ],
       "hash": "8ab3bef1c2fd5efd",
-      "embedding_idx": 12,
+      "embedding_idx": 13,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -438,7 +478,7 @@
         "ssa"
       ],
       "hash": "cdd4f890ada77c36",
-      "embedding_idx": 13,
+      "embedding_idx": 14,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -463,7 +503,7 @@
         "汇编生成"
       ],
       "hash": "8d9e495921b5eab0",
-      "embedding_idx": 14,
+      "embedding_idx": 15,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -485,7 +525,7 @@
         "research"
       ],
       "hash": "471be1a0d0255472",
-      "embedding_idx": 15,
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -509,7 +549,7 @@
         "ir"
       ],
       "hash": "87d60d70a8d64ca3",
-      "embedding_idx": 16,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -533,7 +573,7 @@
         "shared-memory"
       ],
       "hash": "c4a552b5d557efc1",
-      "embedding_idx": 17,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -557,7 +597,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 18,
+      "embedding_idx": 19,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -565,6 +605,29 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20260308-002",
+      "file": "TOPICS/topic-mlir-bufferization-consistency.md",
+      "title": "MLIR Bufferization 一致性保证深度解析",
+      "summary": "深入解析 MLIR One-Shot Bufferize 的正确性保证机制，包括 RaW 冲突检测、内存别名分析、所有权管理",
+      "category": "mlir.bufferization",
+      "level": 3,
+      "tags": [
+        "mlir",
+        "bufferization",
+        "memory-safety",
+        "alias-analysis",
+        "in-place"
+      ],
+      "hash": "e960034cb1063f5b",
+      "embedding_idx": 20,
+      "relations": [
+        "KB-20260308-001  # LLVM Backend 注册",
+        "KB-20260306-006  # MLIR 基础架构"
+      ],
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20250307-007A",
@@ -581,7 +644,7 @@
         "optimization"
       ],
       "hash": "ea995ab76f2b9191",
-      "embedding_idx": 19,
+      "embedding_idx": 21,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -607,7 +670,7 @@
         "deep-learning"
       ],
       "hash": "af8c5a79a96ed874",
-      "embedding_idx": 20,
+      "embedding_idx": 22,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -631,7 +694,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 21,
+      "embedding_idx": 23,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -646,6 +709,7 @@
       "023e1ac77c359589": "KB-20250306-006B",
       "b75b14982c592a13": "KB-20260307-006",
       "b3d2ab88c2bc343a": "KB-20260307-004",
+      "d078fcc194396a9e": "KB-20260308-001",
       "6000d141b0a2d2b1": "KB-20260308-001",
       "23fc1c01fddbc4d1": "KB-20260307-003",
       "e2bfc55e16fc47e6": "KB-20260307-002",
@@ -662,6 +726,7 @@
       "87d60d70a8d64ca3": "KB-20250307-007C",
       "c4a552b5d557efc1": "KB-20250306-002",
       "1b3f08303c5483c8": "KB-20250306-006C",
+      "e960034cb1063f5b": "KB-20260308-002",
       "ea995ab76f2b9191": "KB-20250307-007A",
       "af8c5a79a96ed874": "KB-20260306-006",
       "770a3f2138b3daaa": "KB-20250307-007B"

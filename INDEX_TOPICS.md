@@ -1,7 +1,7 @@
 # 知识库索引
 
-> 自动生成于：2026-03-08 16:30:44  
-> 知识点总数：22
+> 自动生成于：2026-03-08 17:43:17  
+> 知识点总数：24
 
 ---
 
@@ -49,7 +49,7 @@
   - 分类: `cuda.syntax` | 等级: 1
   - 摘要: 基于 NVIDIA 官方文档的 CUDA C++ 语言扩展完整框架，涵盖函数/变量限定符、内建类型、同步原语等
 
-### LLVM (3)
+### LLVM (4)
 
 - **[KB-20250306-004]** LLVM 架构设计深度解析
   - 分类: `llvm.basics` | 等级: 1
@@ -62,6 +62,16 @@
 - **[KB-20250307-007C]** LLVM SSA 形式与编译器优化
   - 分类: `llvm.optimization` | 等级: 2
   - 摘要: 详解 SSA（Static Single Assignment）形式：每个变量只赋值一次、Phi 函数、数据流分析
+
+- **[KB-20260308-001]** LLVM Backend 注册与 TargetMachine 创建深度解析
+  - 分类: `llvm.backend` | 等级: 3
+  - 摘要: 深入解析 LLVM 后端注册机制与 TargetMachine 创建流程，包括 TargetRegistry、TargetInfo、TargetLowering...
+
+### MLIR (1)
+
+- **[KB-20260308-002]** MLIR Bufferization 一致性保证深度解析
+  - 分类: `mlir.bufferization` | 等级: 3
+  - 摘要: 深入解析 MLIR One-Shot Bufferize 的正确性保证机制，包括 RaW 冲突检测、内存别名分析、所有权管理
 
 ### SYSTEM-DESIGN (1)
 

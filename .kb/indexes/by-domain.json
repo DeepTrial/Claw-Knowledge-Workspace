@@ -51,6 +51,28 @@
       "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
     }
   ],
+  "llvm": [
+    {
+      "id": "KB-20260308-001",
+      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
+      "file": "TOPICS/topic-llvm-backend-registration.md"
+    },
+    {
+      "id": "KB-20250306-004",
+      "title": "LLVM 架构设计深度解析",
+      "file": "TOPICS/topic-llvm-architecture.md"
+    },
+    {
+      "id": "KB-20250307-007C",
+      "title": "LLVM SSA 形式与编译器优化",
+      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
+    },
+    {
+      "id": "KB-20250306-006C",
+      "title": "LLVM 类型系统",
+      "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
   "unknown": [
     {
       "id": "KB-20260308-001",
@@ -95,28 +117,18 @@
       "file": "TOPICS/topic-triton-programming-language.md"
     }
   ],
-  "llvm": [
-    {
-      "id": "KB-20250306-004",
-      "title": "LLVM 架构设计深度解析",
-      "file": "TOPICS/topic-llvm-architecture.md"
-    },
-    {
-      "id": "KB-20250307-007C",
-      "title": "LLVM SSA 形式与编译器优化",
-      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
-    },
-    {
-      "id": "KB-20250306-006C",
-      "title": "LLVM 类型系统",
-      "file": "TOPICS/topic-llvm-type-system.md"
-    }
-  ],
   "system-design": [
     {
       "id": "KB-20260306-003",
       "title": "多 Agent 协作调研",
       "file": "TOPICS/topic-multi-agent-collaboration.md"
+    }
+  ],
+  "mlir": [
+    {
+      "id": "KB-20260308-002",
+      "title": "MLIR Bufferization 一致性保证深度解析",
+      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
     }
   ]
 }
