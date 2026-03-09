@@ -1,13 +1,13 @@
 # 知识库索引
 
-> 自动生成于：2026-03-09 10:00:07  
-> 知识点总数：24
+> 自动生成于：2026-03-09 10:22:28  
+> 知识点总数：30
 
 ---
 
 ## 按领域分类
 
-### CUDA (10)
+### CUDA (16)
 
 - **[KB-20250306-001]** CUDA 线程层次结构深度解析
   - 分类: `cuda.threads` | 等级: 1
@@ -24,6 +24,30 @@
 - **[KB-20250307-007B]** CUDA 全局内存与合并访问优化
   - 分类: `cuda.memory` | 等级: 2
   - 摘要: 详解全局内存合并访问原理，当 warp 访问连续地址时可合并为最少事务，性能提升 2 倍以上
+
+- **[KB-20250309-001]** CUTLASS CuTe 系统性学习计划
+  - 分类: `cuda.optimization` | 等级: 2
+  - 摘要: CUTLASS和CuTe的完整学习路线，包含Tile基础、CuTe抽象、CUTLASS架构、Gemm实现原理和实战调优五个阶段
+
+- **[KB-20250309-002]** CUDA Tile 基础概念与编程模型
+  - 分类: `cuda.optimization` | 等级: 2
+  - 摘要: Tile-based programming核心概念，包含Tile分块原理、计算强度、CTA/Warp/Thread三级分块、bank conflict与Swi...
+
+- **[KB-20250309-003]** CuTe 核心抽象详解
+  - 分类: `cuda.optimization` | 等级: 3
+  - 摘要: CuTe库的核心概念：Shape多维形状、Layout内存布局映射、Tensor数据封装，以及布局代数Composition和Tiled Division
+
+- **[KB-20250309-004]** CUTLASS 架构设计详解
+  - 分类: `cuda.optimization` | 等级: 3
+  - 摘要: CUTLASS分层架构：Kernel层全局协调、Block层CTA管理、Warp级MMA抽象、Thread级寄存器操作，以及TileIterator和Epilo...
+
+- **[KB-20250309-005]** Gemm 实现原理与优化
+  - 分类: `cuda.optimization` | 等级: 3
+  - 摘要: 从v0到v4的Gemm实现演进：基础实现、Shared Memory分块、寄存器分块、Tensor Core使用、异步拷贝与多阶段流水线优化
+
+- **[KB-20250309-006]** CUTLASS 性能调优实战
+  - 分类: `cuda.optimization` | 等级: 3
+  - 摘要: CUTLASS Profiler使用、Tile Size选择、Nsight Compute分析、常见性能问题排查与优化技巧
 
 - **[KB-20260307-001]** CUDA Device Code C++ 特性支持与限制
   - 分类: `cuda.syntax` | 等级: 2

@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-09T10:00:07.580154",
+  "updated": "2026-03-09T10:22:28.306870",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,19 +8,19 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 24,
+    "total_units": 30,
     "by_category": {
       "llvm": 4,
-      "cuda": 10,
+      "cuda": 16,
       "unknown": 4,
       "system-design": 1,
       "mlir": 1,
       "triton": 4
     },
     "by_level": {
-      "3": 2,
+      "3": 6,
       "1": 6,
-      "2": 16
+      "2": 18
     }
   },
   "categories": {
@@ -37,7 +37,7 @@
     "cuda": {
       "description": "cuda",
       "parent": null,
-      "count": 10
+      "count": 16
     },
     "cuda.memory": {
       "description": "memory",
@@ -78,6 +78,11 @@
       "description": "bufferization",
       "parent": "mlir",
       "count": 1
+    },
+    "cuda.optimization": {
+      "description": "optimization",
+      "parent": "cuda",
+      "count": 6
     },
     "triton": {
       "description": "triton",
@@ -287,6 +292,32 @@
       "updated": "2026-03-08"
     },
     {
+      "id": "KB-20250309-003",
+      "file": "TOPICS/topic-cute-core-abstraction.md",
+      "title": "CuTe 核心抽象详解",
+      "summary": "CuTe库的核心概念：Shape多维形状、Layout内存布局映射、Tensor数据封装，以及布局代数Composition和Tiled Division",
+      "category": "cuda.optimization",
+      "level": 3,
+      "tags": [
+        "cute",
+        "cutlass",
+        "cuda",
+        "layout",
+        "tensor",
+        "shape",
+        "abstraction"
+      ],
+      "hash": "bde9fb42a9769465",
+      "embedding_idx": 7,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
+    },
+    {
       "id": "KB-20250307-007A",
       "file": "TOPICS/topic-triton-load-store-optimization.md",
       "title": "Triton tl.load/tl.store 内存操作与优化",
@@ -301,7 +332,7 @@
         "optimization"
       ],
       "hash": "ea995ab76f2b9191",
-      "embedding_idx": 7,
+      "embedding_idx": 8,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -325,7 +356,7 @@
         "separate-compilation"
       ],
       "hash": "e2bfc55e16fc47e6",
-      "embedding_idx": 8,
+      "embedding_idx": 9,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -350,7 +381,7 @@
         "数据布局"
       ],
       "hash": "d6346e30a11b4812",
-      "embedding_idx": 9,
+      "embedding_idx": 10,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -375,7 +406,7 @@
         "汇编生成"
       ],
       "hash": "8d9e495921b5eab0",
-      "embedding_idx": 10,
+      "embedding_idx": 11,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -383,6 +414,31 @@
       },
       "created": "2026-03-08",
       "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20250309-006",
+      "file": "TOPICS/topic-cutlass-tuning.md",
+      "title": "CUTLASS 性能调优实战",
+      "summary": "CUTLASS Profiler使用、Tile Size选择、Nsight Compute分析、常见性能问题排查与优化技巧",
+      "category": "cuda.optimization",
+      "level": 3,
+      "tags": [
+        "cutlass",
+        "cuda",
+        "profiling",
+        "tuning",
+        "nsight-compute",
+        "optimization"
+      ],
+      "hash": "22f526afecfc79d0",
+      "embedding_idx": 12,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20260307-001",
@@ -399,7 +455,7 @@
         "feature-support"
       ],
       "hash": "861db3647e816a9c",
-      "embedding_idx": 11,
+      "embedding_idx": 13,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -423,7 +479,7 @@
         "reference"
       ],
       "hash": "8ab3bef1c2fd5efd",
-      "embedding_idx": 12,
+      "embedding_idx": 14,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -431,6 +487,31 @@
       },
       "created": "2026-03-07",
       "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20250309-001",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "summary": "CUTLASS和CuTe的完整学习路线，包含Tile基础、CuTe抽象、CUTLASS架构、Gemm实现原理和实战调优五个阶段",
+      "category": "cuda.optimization",
+      "level": 2,
+      "tags": [
+        "cutlass",
+        "cute",
+        "cuda",
+        "gemm",
+        "tensor-core",
+        "optimization"
+      ],
+      "hash": "85226ffa4eb98ff5",
+      "embedding_idx": 15,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20260307-004",
@@ -447,7 +528,7 @@
         "atomic"
       ],
       "hash": "b3d2ab88c2bc343a",
-      "embedding_idx": 13,
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -472,7 +553,7 @@
         "managed"
       ],
       "hash": "23fc1c01fddbc4d1",
-      "embedding_idx": 14,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -497,7 +578,7 @@
         "python"
       ],
       "hash": "0941c6806a5bbe6b",
-      "embedding_idx": 15,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -521,7 +602,7 @@
         "optimization"
       ],
       "hash": "023e1ac77c359589",
-      "embedding_idx": 16,
+      "embedding_idx": 19,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -529,6 +610,31 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250309-005",
+      "file": "TOPICS/topic-gemm-implementation.md",
+      "title": "Gemm 实现原理与优化",
+      "summary": "从v0到v4的Gemm实现演进：基础实现、Shared Memory分块、寄存器分块、Tensor Core使用、异步拷贝与多阶段流水线优化",
+      "category": "cuda.optimization",
+      "level": 3,
+      "tags": [
+        "cuda",
+        "gemm",
+        "implementation",
+        "optimization",
+        "tensor-core",
+        "pipeline"
+      ],
+      "hash": "3bb5bd50f4f3009f",
+      "embedding_idx": 20,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20250307-007B",
@@ -545,7 +651,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 17,
+      "embedding_idx": 21,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -570,7 +676,7 @@
         "ssa"
       ],
       "hash": "cdd4f890ada77c36",
-      "embedding_idx": 18,
+      "embedding_idx": 22,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -596,7 +702,7 @@
         "GPU编译"
       ],
       "hash": "6000d141b0a2d2b1",
-      "embedding_idx": 19,
+      "embedding_idx": 23,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -604,6 +710,32 @@
       },
       "created": "2026-03-08",
       "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20250309-002",
+      "file": "TOPICS/topic-cuda-tile-basics.md",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "summary": "Tile-based programming核心概念，包含Tile分块原理、计算强度、CTA/Warp/Thread三级分块、bank conflict与Swizzle技术",
+      "category": "cuda.optimization",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "tile",
+        "gemm",
+        "shared-memory",
+        "bank-conflict",
+        "swizzle",
+        "optimization"
+      ],
+      "hash": "2f2107f5c869f068",
+      "embedding_idx": 24,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20260306-006",
@@ -622,7 +754,7 @@
         "deep-learning"
       ],
       "hash": "af8c5a79a96ed874",
-      "embedding_idx": 20,
+      "embedding_idx": 25,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -646,7 +778,7 @@
         "nvidia"
       ],
       "hash": "dbc34cb0301f9c96",
-      "embedding_idx": 21,
+      "embedding_idx": 26,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -670,7 +802,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 22,
+      "embedding_idx": 27,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -678,6 +810,32 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250309-004",
+      "file": "TOPICS/topic-cutlass-architecture.md",
+      "title": "CUTLASS 架构设计详解",
+      "summary": "CUTLASS分层架构：Kernel层全局协调、Block层CTA管理、Warp级MMA抽象、Thread级寄存器操作，以及TileIterator和Epilogue设计",
+      "category": "cuda.optimization",
+      "level": 3,
+      "tags": [
+        "cutlass",
+        "cuda",
+        "gemm",
+        "architecture",
+        "tensor-core",
+        "mma",
+        "epilogue"
+      ],
+      "hash": "f43cf220811b9623",
+      "embedding_idx": 28,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20250306-006A",
@@ -694,7 +852,7 @@
         "padding"
       ],
       "hash": "d452c1c43e5e0de6",
-      "embedding_idx": 23,
+      "embedding_idx": 29,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -713,22 +871,28 @@
       "35336687c018ea4b": "KB-20260308-002",
       "471be1a0d0255472": "KB-20260306-003",
       "e960034cb1063f5b": "KB-20260308-002",
+      "bde9fb42a9769465": "KB-20250309-003",
       "ea995ab76f2b9191": "KB-20250307-007A",
       "e2bfc55e16fc47e6": "KB-20260307-002",
       "d6346e30a11b4812": "KB-20260308-003",
       "8d9e495921b5eab0": "KB-20260308-004",
+      "22f526afecfc79d0": "KB-20250309-006",
       "861db3647e816a9c": "KB-20260307-001",
       "8ab3bef1c2fd5efd": "KB-20260307-005",
+      "85226ffa4eb98ff5": "KB-20250309-001",
       "b3d2ab88c2bc343a": "KB-20260307-004",
       "23fc1c01fddbc4d1": "KB-20260307-003",
       "0941c6806a5bbe6b": "KB-20250306-003",
       "023e1ac77c359589": "KB-20250306-006B",
+      "3bb5bd50f4f3009f": "KB-20250309-005",
       "770a3f2138b3daaa": "KB-20250307-007B",
       "cdd4f890ada77c36": "KB-20250306-004",
       "6000d141b0a2d2b1": "KB-20260308-001",
+      "2f2107f5c869f068": "KB-20250309-002",
       "af8c5a79a96ed874": "KB-20260306-006",
       "dbc34cb0301f9c96": "KB-20250306-001",
       "1b3f08303c5483c8": "KB-20250306-006C",
+      "f43cf220811b9623": "KB-20250309-004",
       "d452c1c43e5e0de6": "KB-20250306-006A"
     },
     "similar_pairs": []

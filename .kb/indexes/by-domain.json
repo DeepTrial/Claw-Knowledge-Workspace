@@ -33,9 +33,19 @@
       "file": "TOPICS/topic-cuda-cpp-language-extensions.md"
     },
     {
+      "id": "KB-20250309-003",
+      "title": "CuTe 核心抽象详解",
+      "file": "TOPICS/topic-cute-core-abstraction.md"
+    },
+    {
       "id": "KB-20260307-002",
       "title": "NVCC 编译流程与分离编译",
       "file": "TOPICS/topic-nvcc-compilation-flow.md"
+    },
+    {
+      "id": "KB-20250309-006",
+      "title": "CUTLASS 性能调优实战",
+      "file": "TOPICS/topic-cutlass-tuning.md"
     },
     {
       "id": "KB-20260307-001",
@@ -46,6 +56,11 @@
       "id": "KB-20260307-005",
       "title": "CUDA 内建变量与函数速查",
       "file": "TOPICS/topic-cuda-builtin-functions.md"
+    },
+    {
+      "id": "KB-20250309-001",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
     },
     {
       "id": "KB-20260307-004",
@@ -63,14 +78,29 @@
       "file": "TOPICS/topic-cuda-constant-memory.md"
     },
     {
+      "id": "KB-20250309-005",
+      "title": "Gemm 实现原理与优化",
+      "file": "TOPICS/topic-gemm-implementation.md"
+    },
+    {
       "id": "KB-20250307-007B",
       "title": "CUDA 全局内存与合并访问优化",
       "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
     },
     {
+      "id": "KB-20250309-002",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "file": "TOPICS/topic-cuda-tile-basics.md"
+    },
+    {
       "id": "KB-20250306-001",
       "title": "CUDA 线程层次结构深度解析",
       "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    },
+    {
+      "id": "KB-20250309-004",
+      "title": "CUTLASS 架构设计详解",
+      "file": "TOPICS/topic-cutlass-architecture.md"
     }
   ],
   "unknown": [
