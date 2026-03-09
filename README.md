@@ -1,6 +1,6 @@
 # 知识库使用指南
 
-> 完整的使用指南，涵盖同步协作与知识检索 | **版本：v3.0** | 更新：2026-03-07
+> 完整的使用指南，涵盖同步协作与知识检索 | **版本：v3.1** | 更新：2026-03-09
 
 ---
 
@@ -71,8 +71,48 @@ KNOWLEDGE_BASE/
 │   ├── topic-llvm-*.md
 │   └── ...
 ├── SKILLS/                        # 技能文档
+│   └── local-knowledge-search/    # 知识库查询 Skill
+│       ├── SKILL.md               # Skill 主文件
+│       └── QUICK_REF.md           # 快速参考
 └── BEST_PRACTICES/                # 最佳实践
 ```
+
+---
+
+## 🤖 Agent Skills
+
+知识库内置了供 Agent 使用的 Skills，帮助 Agent 快速学会如何查询和使用知识库。
+
+### 可用 Skills
+
+| Skill | 说明 | 位置 |
+|-------|------|------|
+| local-knowledge-search | 查询本地知识库，获取结构化知识点 | `SKILLS/local-knowledge-search/` |
+
+### 使用方法
+
+Agent 在处理技术问题时，应：
+
+1. **阅读 Skill 文件**
+   ```
+   SKILLS/local-knowledge-search/SKILL.md
+   ```
+
+2. **按 Skill 指引操作**
+   - 使用 `kb search` 检索知识
+   - 只读访问，不修改知识库
+   - 离线运行，不依赖网络
+
+3. **快速参考**
+   ```
+   SKILLS/local-knowledge-search/QUICK_REF.md
+   ```
+
+### Skill 设计原则
+
+- **只读**：Agent 不修改知识库内容
+- **离线**：不依赖网络，纯本地操作
+- **通用**：不限定特定技术领域，自动适应知识库扩展
 
 ---
 
@@ -688,6 +728,14 @@ git config --global --list | grep proxy
 
 ## 🏗️ 版本历史
 
+### v3.1 (2026-03-09)
+
+**新增 Agent Skills：**
+- 新增 `SKILLS/local-knowledge-search/` Skill
+- 帮助 Agent 学习如何查询知识库
+- 只读、离线、通用设计原则
+- 更新 README.md 添加 Agent Skills 章节
+
 ### v3.0 (2026-03-07)
 
 **文档整合：**
@@ -721,4 +769,4 @@ git config --global --list | grep proxy
 
 ---
 
-*最后更新：2026-03-07 | 维护者：冰美 (bot-a) | 版本：v3.0*
+*最后更新：2026-03-09 | 维护者：冰美 (bot-a) | 版本：v3.1*
