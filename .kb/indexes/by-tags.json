@@ -96,9 +96,19 @@
       "file": "TOPICS/topic-nvcc-compilation-flow.md"
     },
     {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    },
+    {
       "id": "KB-20250309-006",
       "title": "CUTLASS 性能调优实战",
       "file": "TOPICS/topic-cutlass-tuning.md"
+    },
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
     },
     {
       "id": "KB-20260307-001",
@@ -116,6 +126,26 @@
       "file": "TOPICS/topic-cutlass-cute-study-plan.md"
     },
     {
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    },
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    },
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    },
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    },
+    {
       "id": "KB-20260307-004",
       "title": "CUDA 同步与内存屏障函数",
       "file": "TOPICS/topic-cuda-sync-functions.md"
@@ -126,9 +156,19 @@
       "file": "TOPICS/topic-cuda-memory-qualifiers.md"
     },
     {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    },
+    {
       "id": "KB-20250306-006B",
       "title": "CUDA 常量内存 (Constant Memory)",
       "file": "TOPICS/topic-cuda-constant-memory.md"
+    },
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
     },
     {
       "id": "KB-20250309-005",
@@ -141,14 +181,39 @@
       "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
     },
     {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    },
+    {
       "id": "KB-20250309-002",
       "title": "CUDA Tile 基础概念与编程模型",
       "file": "TOPICS/topic-cuda-tile-basics.md"
     },
     {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
+    },
+    {
       "id": "KB-20250306-001",
       "title": "CUDA 线程层次结构深度解析",
       "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    },
+    {
+      "id": "KB-20250308-023",
+      "title": "CUDA动态并行CDP",
+      "file": "TOPICS/topic-cuda-dynamic-parallelism.md"
+    },
+    {
+      "id": "KB-20250308-018",
+      "title": "CUDA流有序内存分配器",
+      "file": "TOPICS/topic-cuda-stream-ordered-allocator.md"
+    },
+    {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
     },
     {
       "id": "KB-20250309-004",
@@ -168,6 +233,16 @@
       "file": "TOPICS/topic-cuda-memory-hierarchy.md"
     },
     {
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    },
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    },
+    {
       "id": "KB-20250306-003",
       "title": "Triton @triton.jit Decorator 原理深度解析",
       "file": "TOPICS/topic-triton-jit-decorator.md"
@@ -181,6 +256,11 @@
       "id": "KB-20250306-001",
       "title": "CUDA 线程层次结构深度解析",
       "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    },
+    {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
     },
     {
       "id": "KB-20250309-011",
@@ -220,6 +300,11 @@
       "id": "KB-20250306-006B",
       "title": "CUDA 常量内存 (Constant Memory)",
       "file": "TOPICS/topic-cuda-constant-memory.md"
+    },
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
     },
     {
       "id": "KB-20250309-005",
@@ -307,6 +392,11 @@
       "id": "KB-20260307-001",
       "title": "CUDA Device Code C++ 特性支持与限制",
       "file": "TOPICS/topic-cuda-device-code-features.md"
+    },
+    {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
     }
   ],
   "language-extensions": [
@@ -326,6 +416,11 @@
       "id": "KB-20260307-002",
       "title": "NVCC 编译流程与分离编译",
       "file": "TOPICS/topic-nvcc-compilation-flow.md"
+    },
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
     }
   ],
   "reference": [
@@ -572,6 +667,16 @@
       "id": "KB-20260307-003",
       "title": "CUDA 内存空间限定符详解",
       "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+    },
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
+    },
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
     }
   ],
   "load-store": [
@@ -762,14 +867,67 @@
       "file": "TOPICS/topic-clang-frontend-architecture.md"
     },
     {
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    },
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    },
+    {
       "id": "KB-20250306-004",
       "title": "LLVM 架构设计深度解析",
       "file": "TOPICS/topic-llvm-architecture.md"
     },
     {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
+    },
+    {
       "id": "KB-20250309-004",
       "title": "CUTLASS 架构设计详解",
       "file": "TOPICS/topic-cutlass-architecture.md"
+    }
+  ],
+  "graph": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    },
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    }
+  ],
+  "memory-node": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    }
+  ],
+  "cuda-graph": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    }
+  ],
+  "memory-management": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    },
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
     }
   ],
   "profiling": [
@@ -791,6 +949,34 @@
       "id": "KB-20250309-006",
       "title": "CUTLASS 性能调优实战",
       "file": "TOPICS/topic-cutlass-tuning.md"
+    }
+  ],
+  "cluster": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    }
+  ],
+  "hopper": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    }
+  ],
+  "launch-control": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    }
+  ],
+  "block-cancellation": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
     }
   ],
   "restrictions": [
@@ -819,6 +1005,11 @@
       "id": "KB-20260307-005",
       "title": "CUDA 内建变量与函数速查",
       "file": "TOPICS/topic-cuda-builtin-functions.md"
+    },
+    {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
     }
   ],
   "functions": [
@@ -872,6 +1063,121 @@
       "id": "KB-20250309-004",
       "title": "CUTLASS 架构设计详解",
       "file": "TOPICS/topic-cutlass-architecture.md"
+    }
+  ],
+  "compute-capability": [
+    {
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    },
+    {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
+    }
+  ],
+  "query": [
+    {
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    }
+  ],
+  "vmm": [
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "virtual-memory": [
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "fabric": [
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "multicast": [
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "hardware": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    }
+  ],
+  "simt": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    }
+  ],
+  "warp": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    }
+  ],
+  "sm": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    },
+    {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
+    }
+  ],
+  "multithreading": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    }
+  ],
+  "cooperative-groups": [
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    }
+  ],
+  "sync": [
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    }
+  ],
+  "thread-group": [
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    }
+  ],
+  "collective": [
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
     }
   ],
   "synchronization": [
@@ -930,6 +1236,20 @@
       "file": "TOPICS/topic-cuda-memory-qualifiers.md"
     }
   ],
+  "overview": [
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    }
+  ],
+  "introduction": [
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    }
+  ],
   "jit": [
     {
       "id": "KB-20250306-003",
@@ -963,6 +1283,27 @@
       "id": "KB-20250306-006B",
       "title": "CUDA 常量内存 (Constant Memory)",
       "file": "TOPICS/topic-cuda-constant-memory.md"
+    }
+  ],
+  "performance": [
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
+    }
+  ],
+  "throughput": [
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
+    }
+  ],
+  "occupancy": [
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
     }
   ],
   "implementation": [
@@ -1012,6 +1353,27 @@
       "id": "KB-20250309-010",
       "title": "Clang Sema语义分析详解",
       "file": "TOPICS/topic-clang-sema.md"
+    }
+  ],
+  "runtime": [
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    }
+  ],
+  "api": [
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    }
+  ],
+  "stream": [
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
     }
   ],
   "编译器基础设施": [
@@ -1117,6 +1479,20 @@
       "file": "TOPICS/topic-clang-lexer.md"
     }
   ],
+  "language-extension": [
+    {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
+    }
+  ],
+  "specifier": [
+    {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
+    }
+  ],
   "thread-hierarchy": [
     {
       "id": "KB-20250306-001",
@@ -1129,6 +1505,34 @@
       "id": "KB-20250306-001",
       "title": "CUDA 线程层次结构深度解析",
       "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    }
+  ],
+  "cdp": [
+    {
+      "id": "KB-20250308-023",
+      "title": "CUDA动态并行CDP",
+      "file": "TOPICS/topic-cuda-dynamic-parallelism.md"
+    }
+  ],
+  "dynamic-parallelism": [
+    {
+      "id": "KB-20250308-023",
+      "title": "CUDA动态并行CDP",
+      "file": "TOPICS/topic-cuda-dynamic-parallelism.md"
+    }
+  ],
+  "device-launch": [
+    {
+      "id": "KB-20250308-023",
+      "title": "CUDA动态并行CDP",
+      "file": "TOPICS/topic-cuda-dynamic-parallelism.md"
+    }
+  ],
+  "nested": [
+    {
+      "id": "KB-20250308-023",
+      "title": "CUDA动态并行CDP",
+      "file": "TOPICS/topic-cuda-dynamic-parallelism.md"
     }
   ],
   "type-system": [
@@ -1150,6 +1554,34 @@
       "id": "KB-20250306-006C",
       "title": "LLVM 类型系统",
       "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
+  "memory-allocator": [
+    {
+      "id": "KB-20250308-018",
+      "title": "CUDA流有序内存分配器",
+      "file": "TOPICS/topic-cuda-stream-ordered-allocator.md"
+    }
+  ],
+  "stream-ordered": [
+    {
+      "id": "KB-20250308-018",
+      "title": "CUDA流有序内存分配器",
+      "file": "TOPICS/topic-cuda-stream-ordered-allocator.md"
+    }
+  ],
+  "mempool": [
+    {
+      "id": "KB-20250308-018",
+      "title": "CUDA流有序内存分配器",
+      "file": "TOPICS/topic-cuda-stream-ordered-allocator.md"
+    }
+  ],
+  "async": [
+    {
+      "id": "KB-20250308-018",
+      "title": "CUDA流有序内存分配器",
+      "file": "TOPICS/topic-cuda-stream-ordered-allocator.md"
     }
   ],
   "parser": [

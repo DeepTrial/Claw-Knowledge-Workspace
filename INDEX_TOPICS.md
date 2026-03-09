@@ -1,13 +1,13 @@
 # 知识库索引
 
-> 自动生成于：2026-03-09 10:36:40  
-> 知识点总数：35
+> 自动生成于：2026-03-09 11:15:00  
+> 知识点总数：48
 
 ---
 
 ## 按领域分类
 
-### CUDA (16)
+### CUDA (29)
 
 - **[KB-20250306-001]** CUDA 线程层次结构深度解析
   - 分类: `cuda.threads` | 等级: 1
@@ -24,6 +24,58 @@
 - **[KB-20250307-007B]** CUDA 全局内存与合并访问优化
   - 分类: `cuda.memory` | 等级: 2
   - 摘要: 详解全局内存合并访问原理，当 warp 访问连续地址时可合并为最少事务，性能提升 2 倍以上
+
+- **[KB-20250308-012]** CUDA编程指南概述与GPU优势
+  - 分类: `cuda.basics` | 等级: 1
+  - 摘要: CUDA官方编程指南介绍，GPU vs CPU架构对比，CUDA可扩展编程模型
+
+- **[KB-20250308-013]** CUDA编程接口详解
+  - 分类: `cuda.basics` | 等级: 2
+  - 摘要: NVCC编译流程、CUDA Runtime API、设备内存管理、Stream和Event、CUDA Graphs
+
+- **[KB-20250308-014]** CUDA硬件实现与SIMT架构
+  - 分类: `cuda.basics` | 等级: 2
+  - 摘要: SIMT架构详解、Warp执行模型、分支发散、独立线程调度、SM硬件多线程
+
+- **[KB-20250308-015]** CUDA性能优化指南
+  - 分类: `cuda.optimization` | 等级: 2
+  - 摘要: 三大优化方向：最大化利用率、最大化内存吞吐量、最大化指令吞吐量
+
+- **[KB-20250308-016]** CUDA Cooperative Groups协作组
+  - 分类: `cuda.basics` | 等级: 2
+  - 摘要: 灵活的线程分组和同步机制，支持隐式/显式分组、组分割、集合操作和网格同步
+
+- **[KB-20250308-017]** CUDA虚拟内存管理VMM
+  - 分类: `cuda.basics` | 等级: 3
+  - 摘要: 细粒度虚拟内存控制API：物理内存分配、虚拟地址预留、内存映射、访问权限控制、Fabric多GPU内存
+
+- **[KB-20250308-018]** CUDA流有序内存分配器
+  - 分类: `cuda.basics` | 等级: 2
+  - 摘要: cudaMallocAsync/cudaFreeAsync流有序内存分配，内存池管理，多GPU和IPC支持
+
+- **[KB-20250308-019]** CUDA Graph内存节点
+  - 分类: `cuda.basics` | 等级: 2
+  - 摘要: CUDA Graph中管理内存生命周期，支持内存分配/释放节点、自动释放、内存复用优化
+
+- **[KB-20250308-020]** CUDA C++语言扩展
+  - 分类: `cuda.basics` | 等级: 1
+  - 摘要: CUDA C++扩展：执行空间限定符、内存空间限定符、内置向量类型、内建变量、内存和同步函数
+
+- **[KB-20250308-021]** CUDA计算能力与架构特性
+  - 分类: `cuda.basics` | 等级: 1
+  - 摘要: 各代GPU计算能力对比、架构特性可用性、编译目标选择、技术规格
+
+- **[KB-20250308-022]** CUDA Cluster Launch Control
+  - 分类: `cuda.basics` | 等级: 2
+  - 摘要: Hopper+动态Block调度，Thread Block取消机制，cudaLaunchKernelEx API
+
+- **[KB-20250308-023]** CUDA动态并行CDP
+  - 分类: `cuda.basics` | 等级: 2
+  - 摘要: 设备端启动Kernel，递归和嵌套并行，CDP2改进，内存模型和同步
+
+- **[KB-20250308-024]** CUDA支持GPU架构与查询
+  - 分类: `cuda.basics` | 等级: 1
+  - 摘要: 消费级和数据中心GPU架构演进、计算能力、GPU信息查询API
 
 - **[KB-20250309-001]** CUTLASS CuTe 系统性学习计划
   - 分类: `cuda.optimization` | 等级: 2

@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-09T10:36:40.422726",
+  "updated": "2026-03-09T11:15:00.058572",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,19 +8,19 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 35,
+    "total_units": 48,
     "by_category": {
       "llvm": 9,
-      "cuda": 16,
+      "cuda": 29,
       "unknown": 4,
       "system-design": 1,
       "mlir": 1,
       "triton": 4
     },
     "by_level": {
-      "3": 8,
-      "1": 6,
-      "2": 21
+      "3": 9,
+      "1": 10,
+      "2": 29
     }
   },
   "categories": {
@@ -37,7 +37,7 @@
     "cuda": {
       "description": "cuda",
       "parent": null,
-      "count": 16
+      "count": 29
     },
     "cuda.memory": {
       "description": "memory",
@@ -82,7 +82,7 @@
     "cuda.optimization": {
       "description": "optimization",
       "parent": "cuda",
-      "count": 6
+      "count": 7
     },
     "triton": {
       "description": "triton",
@@ -103,6 +103,11 @@
       "description": "frontend",
       "parent": "llvm",
       "count": 5
+    },
+    "cuda.basics": {
+      "description": "basics",
+      "parent": "cuda",
+      "count": 12
     },
     "cuda.builtin": {
       "description": "builtin",
@@ -444,6 +449,30 @@
       "updated": "2026-03-09"
     },
     {
+      "id": "KB-20250308-019",
+      "file": "TOPICS/topic-cuda-graph-memory.md",
+      "title": "CUDA Graph内存节点",
+      "summary": "CUDA Graph中管理内存生命周期，支持内存分配/释放节点、自动释放、内存复用优化",
+      "category": "cuda.basics",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "graph",
+        "memory-node",
+        "cuda-graph",
+        "memory-management"
+      ],
+      "hash": "9222cb24b04fdb62",
+      "embedding_idx": 13,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
       "id": "KB-20250309-006",
       "file": "TOPICS/topic-cutlass-tuning.md",
       "title": "CUTLASS 性能调优实战",
@@ -459,7 +488,7 @@
         "optimization"
       ],
       "hash": "22f526afecfc79d0",
-      "embedding_idx": 13,
+      "embedding_idx": 14,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -467,6 +496,30 @@
       },
       "created": "2026-03-09",
       "updated": "2026-03-09"
+    },
+    {
+      "id": "KB-20250308-022",
+      "file": "TOPICS/topic-cuda-cluster-launch.md",
+      "title": "CUDA Cluster Launch Control",
+      "summary": "Hopper+动态Block调度，Thread Block取消机制，cudaLaunchKernelEx API",
+      "category": "cuda.basics",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "cluster",
+        "hopper",
+        "launch-control",
+        "block-cancellation"
+      ],
+      "hash": "d3e66036f3af0120",
+      "embedding_idx": 15,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20260307-001",
@@ -483,7 +536,7 @@
         "feature-support"
       ],
       "hash": "861db3647e816a9c",
-      "embedding_idx": 14,
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -507,7 +560,7 @@
         "reference"
       ],
       "hash": "8ab3bef1c2fd5efd",
-      "embedding_idx": 15,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -532,7 +585,7 @@
         "optimization"
       ],
       "hash": "85226ffa4eb98ff5",
-      "embedding_idx": 16,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -540,6 +593,104 @@
       },
       "created": "2026-03-09",
       "updated": "2026-03-09"
+    },
+    {
+      "id": "KB-20250308-024",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md",
+      "title": "CUDA支持GPU架构与查询",
+      "summary": "消费级和数据中心GPU架构演进、计算能力、GPU信息查询API",
+      "category": "cuda.basics",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "gpu",
+        "architecture",
+        "compute-capability",
+        "query"
+      ],
+      "hash": "dac856e6fb922bfd",
+      "embedding_idx": 19,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20250308-017",
+      "file": "TOPICS/topic-cuda-virtual-memory.md",
+      "title": "CUDA虚拟内存管理VMM",
+      "summary": "细粒度虚拟内存控制API：物理内存分配、虚拟地址预留、内存映射、访问权限控制、Fabric多GPU内存",
+      "category": "cuda.basics",
+      "level": 3,
+      "tags": [
+        "cuda",
+        "vmm",
+        "virtual-memory",
+        "memory-management",
+        "fabric",
+        "multicast"
+      ],
+      "hash": "fc5f64035cb7df5d",
+      "embedding_idx": 20,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20250308-014",
+      "file": "TOPICS/topic-cuda-hardware-simt.md",
+      "title": "CUDA硬件实现与SIMT架构",
+      "summary": "SIMT架构详解、Warp执行模型、分支发散、独立线程调度、SM硬件多线程",
+      "category": "cuda.basics",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "hardware",
+        "simt",
+        "warp",
+        "sm",
+        "multithreading"
+      ],
+      "hash": "289c595ee8d43234",
+      "embedding_idx": 21,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20250308-016",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md",
+      "title": "CUDA Cooperative Groups协作组",
+      "summary": "灵活的线程分组和同步机制，支持隐式/显式分组、组分割、集合操作和网格同步",
+      "category": "cuda.basics",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "cooperative-groups",
+        "sync",
+        "thread-group",
+        "collective"
+      ],
+      "hash": "56a741ac985406f0",
+      "embedding_idx": 22,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20260307-004",
@@ -556,7 +707,7 @@
         "atomic"
       ],
       "hash": "b3d2ab88c2bc343a",
-      "embedding_idx": 17,
+      "embedding_idx": 23,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -581,7 +732,7 @@
         "managed"
       ],
       "hash": "23fc1c01fddbc4d1",
-      "embedding_idx": 18,
+      "embedding_idx": 24,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -589,6 +740,30 @@
       },
       "created": "2026-03-07",
       "updated": "2026-03-07"
+    },
+    {
+      "id": "KB-20250308-012",
+      "file": "TOPICS/topic-cuda-overview.md",
+      "title": "CUDA编程指南概述与GPU优势",
+      "summary": "CUDA官方编程指南介绍，GPU vs CPU架构对比，CUDA可扩展编程模型",
+      "category": "cuda.basics",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "overview",
+        "gpu",
+        "architecture",
+        "introduction"
+      ],
+      "hash": "a0fe0c9ffbd36069",
+      "embedding_idx": 25,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20250306-003",
@@ -606,7 +781,7 @@
         "python"
       ],
       "hash": "0941c6806a5bbe6b",
-      "embedding_idx": 19,
+      "embedding_idx": 26,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -630,7 +805,7 @@
         "optimization"
       ],
       "hash": "023e1ac77c359589",
-      "embedding_idx": 20,
+      "embedding_idx": 27,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -638,6 +813,31 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250308-015",
+      "file": "TOPICS/topic-cuda-performance-guide.md",
+      "title": "CUDA性能优化指南",
+      "summary": "三大优化方向：最大化利用率、最大化内存吞吐量、最大化指令吞吐量",
+      "category": "cuda.optimization",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "optimization",
+        "performance",
+        "memory",
+        "throughput",
+        "occupancy"
+      ],
+      "hash": "bbb6f05de955d79a",
+      "embedding_idx": 28,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20250309-005",
@@ -655,7 +855,7 @@
         "pipeline"
       ],
       "hash": "3bb5bd50f4f3009f",
-      "embedding_idx": 21,
+      "embedding_idx": 29,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -679,7 +879,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 22,
+      "embedding_idx": 30,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -704,7 +904,7 @@
         "ssa"
       ],
       "hash": "cdd4f890ada77c36",
-      "embedding_idx": 23,
+      "embedding_idx": 31,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -729,13 +929,39 @@
         "scope"
       ],
       "hash": "7641534f6440d4fb",
-      "embedding_idx": 24,
+      "embedding_idx": 32,
       "relations": [
         "KB-20250309-007",
         "KB-20250309-009"
       ],
       "created": "2026-03-09",
       "updated": "2026-03-09"
+    },
+    {
+      "id": "KB-20250308-013",
+      "file": "TOPICS/topic-cuda-programming-interface.md",
+      "title": "CUDA编程接口详解",
+      "summary": "NVCC编译流程、CUDA Runtime API、设备内存管理、Stream和Event、CUDA Graphs",
+      "category": "cuda.basics",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "nvcc",
+        "runtime",
+        "api",
+        "memory",
+        "stream",
+        "graph"
+      ],
+      "hash": "5581aceba22be4fa",
+      "embedding_idx": 33,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20260308-001",
@@ -754,7 +980,7 @@
         "GPU编译"
       ],
       "hash": "6000d141b0a2d2b1",
-      "embedding_idx": 25,
+      "embedding_idx": 34,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -780,7 +1006,7 @@
         "optimization"
       ],
       "hash": "2f2107f5c869f068",
-      "embedding_idx": 26,
+      "embedding_idx": 35,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -806,7 +1032,7 @@
         "deep-learning"
       ],
       "hash": "af8c5a79a96ed874",
-      "embedding_idx": 27,
+      "embedding_idx": 36,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -831,13 +1057,37 @@
         "preprocessor"
       ],
       "hash": "e733528603b4ab43",
-      "embedding_idx": 28,
+      "embedding_idx": 37,
       "relations": [
         "KB-20250309-007",
         "KB-20250309-009"
       ],
       "created": "2026-03-09",
       "updated": "2026-03-09"
+    },
+    {
+      "id": "KB-20250308-020",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md",
+      "title": "CUDA C++语言扩展",
+      "summary": "CUDA C++扩展：执行空间限定符、内存空间限定符、内置向量类型、内建变量、内存和同步函数",
+      "category": "cuda.basics",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "cpp",
+        "language-extension",
+        "specifier",
+        "builtin"
+      ],
+      "hash": "b3dcf7aa3c7089b0",
+      "embedding_idx": 38,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20250306-001",
@@ -854,7 +1104,7 @@
         "nvidia"
       ],
       "hash": "dbc34cb0301f9c96",
-      "embedding_idx": 29,
+      "embedding_idx": 39,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -862,6 +1112,30 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250308-023",
+      "file": "TOPICS/topic-cuda-dynamic-parallelism.md",
+      "title": "CUDA动态并行CDP",
+      "summary": "设备端启动Kernel，递归和嵌套并行，CDP2改进，内存模型和同步",
+      "category": "cuda.basics",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "cdp",
+        "dynamic-parallelism",
+        "device-launch",
+        "nested"
+      ],
+      "hash": "02c429f098dae0c6",
+      "embedding_idx": 40,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20250306-006C",
@@ -878,7 +1152,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 30,
+      "embedding_idx": 41,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -886,6 +1160,54 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250308-018",
+      "file": "TOPICS/topic-cuda-stream-ordered-allocator.md",
+      "title": "CUDA流有序内存分配器",
+      "summary": "cudaMallocAsync/cudaFreeAsync流有序内存分配，内存池管理，多GPU和IPC支持",
+      "category": "cuda.basics",
+      "level": 2,
+      "tags": [
+        "cuda",
+        "memory-allocator",
+        "stream-ordered",
+        "mempool",
+        "async"
+      ],
+      "hash": "c1f66ae3f04339b9",
+      "embedding_idx": 42,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20250308-021",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md",
+      "title": "CUDA计算能力与架构特性",
+      "summary": "各代GPU计算能力对比、架构特性可用性、编译目标选择、技术规格",
+      "category": "cuda.basics",
+      "level": 1,
+      "tags": [
+        "cuda",
+        "compute-capability",
+        "architecture",
+        "sm",
+        "gpu"
+      ],
+      "hash": "bdb64fdbadccd3b8",
+      "embedding_idx": 43,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20250309-009",
@@ -903,7 +1225,7 @@
         "parsing"
       ],
       "hash": "0f80e5c19d8ab58f",
-      "embedding_idx": 31,
+      "embedding_idx": 44,
       "relations": [
         "KB-20250309-007",
         "KB-20250309-008",
@@ -929,7 +1251,7 @@
         "epilogue"
       ],
       "hash": "f43cf220811b9623",
-      "embedding_idx": 32,
+      "embedding_idx": 45,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -953,7 +1275,7 @@
         "padding"
       ],
       "hash": "d452c1c43e5e0de6",
-      "embedding_idx": 33,
+      "embedding_idx": 46,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -980,7 +1302,7 @@
         "amdgpu"
       ],
       "hash": "248b674dcfcc5f05",
-      "embedding_idx": 34,
+      "embedding_idx": 47,
       "relations": [
         "KB-20250309-007"
       ],
@@ -1003,24 +1325,37 @@
       "d6346e30a11b4812": "KB-20260308-003",
       "8d9e495921b5eab0": "KB-20260308-004",
       "7875667e7acfdedf": "KB-20250309-007",
+      "9222cb24b04fdb62": "KB-20250308-019",
       "22f526afecfc79d0": "KB-20250309-006",
+      "d3e66036f3af0120": "KB-20250308-022",
       "861db3647e816a9c": "KB-20260307-001",
       "8ab3bef1c2fd5efd": "KB-20260307-005",
       "85226ffa4eb98ff5": "KB-20250309-001",
+      "dac856e6fb922bfd": "KB-20250308-024",
+      "fc5f64035cb7df5d": "KB-20250308-017",
+      "289c595ee8d43234": "KB-20250308-014",
+      "56a741ac985406f0": "KB-20250308-016",
       "b3d2ab88c2bc343a": "KB-20260307-004",
       "23fc1c01fddbc4d1": "KB-20260307-003",
+      "a0fe0c9ffbd36069": "KB-20250308-012",
       "0941c6806a5bbe6b": "KB-20250306-003",
       "023e1ac77c359589": "KB-20250306-006B",
+      "bbb6f05de955d79a": "KB-20250308-015",
       "3bb5bd50f4f3009f": "KB-20250309-005",
       "770a3f2138b3daaa": "KB-20250307-007B",
       "cdd4f890ada77c36": "KB-20250306-004",
       "7641534f6440d4fb": "KB-20250309-010",
+      "5581aceba22be4fa": "KB-20250308-013",
       "6000d141b0a2d2b1": "KB-20260308-001",
       "2f2107f5c869f068": "KB-20250309-002",
       "af8c5a79a96ed874": "KB-20260306-006",
       "e733528603b4ab43": "KB-20250309-008",
+      "b3dcf7aa3c7089b0": "KB-20250308-020",
       "dbc34cb0301f9c96": "KB-20250306-001",
+      "02c429f098dae0c6": "KB-20250308-023",
       "1b3f08303c5483c8": "KB-20250306-006C",
+      "c1f66ae3f04339b9": "KB-20250308-018",
+      "bdb64fdbadccd3b8": "KB-20250308-021",
       "0f80e5c19d8ab58f": "KB-20250309-009",
       "f43cf220811b9623": "KB-20250309-004",
       "d452c1c43e5e0de6": "KB-20250306-006A",
