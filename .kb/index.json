@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-09T10:22:28.306870",
+  "updated": "2026-03-09T10:36:40.422726",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,9 +8,9 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 30,
+    "total_units": 35,
     "by_category": {
-      "llvm": 4,
+      "llvm": 9,
       "cuda": 16,
       "unknown": 4,
       "system-design": 1,
@@ -18,16 +18,16 @@
       "triton": 4
     },
     "by_level": {
-      "3": 6,
+      "3": 8,
       "1": 6,
-      "2": 18
+      "2": 21
     }
   },
   "categories": {
     "llvm": {
       "description": "llvm",
       "parent": null,
-      "count": 4
+      "count": 9
     },
     "llvm.backend": {
       "description": "backend",
@@ -98,6 +98,11 @@
       "description": "compiler",
       "parent": "cuda",
       "count": 1
+    },
+    "llvm.frontend": {
+      "description": "frontend",
+      "parent": "llvm",
+      "count": 5
     },
     "cuda.builtin": {
       "description": "builtin",
@@ -416,6 +421,29 @@
       "updated": "2026-03-08"
     },
     {
+      "id": "KB-20250309-007",
+      "file": "TOPICS/topic-clang-frontend-architecture.md",
+      "title": "Clang前端架构深度解析",
+      "summary": "Clang前端双重入口模式、Driver与-cc1执行流程、FrontendAction机制、完整编译调用链",
+      "category": "llvm.frontend",
+      "level": 3,
+      "tags": [
+        "llvm",
+        "clang",
+        "frontend",
+        "compiler",
+        "architecture"
+      ],
+      "hash": "7875667e7acfdedf",
+      "embedding_idx": 12,
+      "relations": [
+        "KB-20250309-008",
+        "KB-20250309-009"
+      ],
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
+    },
+    {
       "id": "KB-20250309-006",
       "file": "TOPICS/topic-cutlass-tuning.md",
       "title": "CUTLASS 性能调优实战",
@@ -431,7 +459,7 @@
         "optimization"
       ],
       "hash": "22f526afecfc79d0",
-      "embedding_idx": 12,
+      "embedding_idx": 13,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -455,7 +483,7 @@
         "feature-support"
       ],
       "hash": "861db3647e816a9c",
-      "embedding_idx": 13,
+      "embedding_idx": 14,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -479,7 +507,7 @@
         "reference"
       ],
       "hash": "8ab3bef1c2fd5efd",
-      "embedding_idx": 14,
+      "embedding_idx": 15,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -504,7 +532,7 @@
         "optimization"
       ],
       "hash": "85226ffa4eb98ff5",
-      "embedding_idx": 15,
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -528,7 +556,7 @@
         "atomic"
       ],
       "hash": "b3d2ab88c2bc343a",
-      "embedding_idx": 16,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -553,7 +581,7 @@
         "managed"
       ],
       "hash": "23fc1c01fddbc4d1",
-      "embedding_idx": 17,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -578,7 +606,7 @@
         "python"
       ],
       "hash": "0941c6806a5bbe6b",
-      "embedding_idx": 18,
+      "embedding_idx": 19,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -602,7 +630,7 @@
         "optimization"
       ],
       "hash": "023e1ac77c359589",
-      "embedding_idx": 19,
+      "embedding_idx": 20,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -627,7 +655,7 @@
         "pipeline"
       ],
       "hash": "3bb5bd50f4f3009f",
-      "embedding_idx": 20,
+      "embedding_idx": 21,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -651,7 +679,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 21,
+      "embedding_idx": 22,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -676,7 +704,7 @@
         "ssa"
       ],
       "hash": "cdd4f890ada77c36",
-      "embedding_idx": 22,
+      "embedding_idx": 23,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -684,6 +712,30 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250309-010",
+      "file": "TOPICS/topic-clang-sema.md",
+      "title": "Clang Sema语义分析详解",
+      "summary": "Clang语义分析器、类型检查、名称查找、作用域管理、Sema关键类与语义检查流程",
+      "category": "llvm.frontend",
+      "level": 2,
+      "tags": [
+        "llvm",
+        "clang",
+        "frontend",
+        "sema",
+        "type-checking",
+        "scope"
+      ],
+      "hash": "7641534f6440d4fb",
+      "embedding_idx": 24,
+      "relations": [
+        "KB-20250309-007",
+        "KB-20250309-009"
+      ],
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20260308-001",
@@ -702,7 +754,7 @@
         "GPU编译"
       ],
       "hash": "6000d141b0a2d2b1",
-      "embedding_idx": 23,
+      "embedding_idx": 25,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -728,7 +780,7 @@
         "optimization"
       ],
       "hash": "2f2107f5c869f068",
-      "embedding_idx": 24,
+      "embedding_idx": 26,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -754,7 +806,7 @@
         "deep-learning"
       ],
       "hash": "af8c5a79a96ed874",
-      "embedding_idx": 25,
+      "embedding_idx": 27,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -762,6 +814,30 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250309-008",
+      "file": "TOPICS/topic-clang-lexer.md",
+      "title": "Clang Lexer词法分析详解",
+      "summary": "Clang词法分析器核心功能、Token种类、Lexer与Preprocessor关键类、Token创建流程",
+      "category": "llvm.frontend",
+      "level": 2,
+      "tags": [
+        "llvm",
+        "clang",
+        "frontend",
+        "lexer",
+        "token",
+        "preprocessor"
+      ],
+      "hash": "e733528603b4ab43",
+      "embedding_idx": 28,
+      "relations": [
+        "KB-20250309-007",
+        "KB-20250309-009"
+      ],
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20250306-001",
@@ -778,7 +854,7 @@
         "nvidia"
       ],
       "hash": "dbc34cb0301f9c96",
-      "embedding_idx": 26,
+      "embedding_idx": 29,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -802,7 +878,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 27,
+      "embedding_idx": 30,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -810,6 +886,31 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250309-009",
+      "file": "TOPICS/topic-clang-parser.md",
+      "title": "Clang Parser语法分析详解",
+      "summary": "Clang语法分析器、递归下降解析、AST构建、声明/语句/表达式解析关键文件",
+      "category": "llvm.frontend",
+      "level": 2,
+      "tags": [
+        "llvm",
+        "clang",
+        "frontend",
+        "parser",
+        "ast",
+        "parsing"
+      ],
+      "hash": "0f80e5c19d8ab58f",
+      "embedding_idx": 31,
+      "relations": [
+        "KB-20250309-007",
+        "KB-20250309-008",
+        "KB-20250309-010"
+      ],
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "KB-20250309-004",
@@ -828,7 +929,7 @@
         "epilogue"
       ],
       "hash": "f43cf220811b9623",
-      "embedding_idx": 28,
+      "embedding_idx": 32,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -852,7 +953,7 @@
         "padding"
       ],
       "hash": "d452c1c43e5e0de6",
-      "embedding_idx": 29,
+      "embedding_idx": 33,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -860,6 +961,31 @@
       },
       "created": "2026-03-06",
       "updated": "2026-03-06"
+    },
+    {
+      "id": "KB-20250309-011",
+      "file": "TOPICS/topic-clang-gpu-compilation.md",
+      "title": "Clang GPU编译架构详解",
+      "summary": "Clang对CUDA/HIP的编译支持、NVPTX/AMDGPU后端流程、GPU编译特有FrontendAction与ToolChain",
+      "category": "llvm.frontend",
+      "level": 3,
+      "tags": [
+        "llvm",
+        "clang",
+        "frontend",
+        "gpu",
+        "cuda",
+        "hip",
+        "nvptx",
+        "amdgpu"
+      ],
+      "hash": "248b674dcfcc5f05",
+      "embedding_idx": 34,
+      "relations": [
+        "KB-20250309-007"
+      ],
+      "created": "2026-03-09",
+      "updated": "2026-03-09"
     }
   ],
   "dedup": {
@@ -876,6 +1002,7 @@
       "e2bfc55e16fc47e6": "KB-20260307-002",
       "d6346e30a11b4812": "KB-20260308-003",
       "8d9e495921b5eab0": "KB-20260308-004",
+      "7875667e7acfdedf": "KB-20250309-007",
       "22f526afecfc79d0": "KB-20250309-006",
       "861db3647e816a9c": "KB-20260307-001",
       "8ab3bef1c2fd5efd": "KB-20260307-005",
@@ -887,13 +1014,17 @@
       "3bb5bd50f4f3009f": "KB-20250309-005",
       "770a3f2138b3daaa": "KB-20250307-007B",
       "cdd4f890ada77c36": "KB-20250306-004",
+      "7641534f6440d4fb": "KB-20250309-010",
       "6000d141b0a2d2b1": "KB-20260308-001",
       "2f2107f5c869f068": "KB-20250309-002",
       "af8c5a79a96ed874": "KB-20260306-006",
+      "e733528603b4ab43": "KB-20250309-008",
       "dbc34cb0301f9c96": "KB-20250306-001",
       "1b3f08303c5483c8": "KB-20250306-006C",
+      "0f80e5c19d8ab58f": "KB-20250309-009",
       "f43cf220811b9623": "KB-20250309-004",
-      "d452c1c43e5e0de6": "KB-20250306-006A"
+      "d452c1c43e5e0de6": "KB-20250306-006A",
+      "248b674dcfcc5f05": "KB-20250309-011"
     },
     "similar_pairs": []
   }

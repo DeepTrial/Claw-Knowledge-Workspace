@@ -11,14 +11,39 @@
       "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
     },
     {
+      "id": "KB-20250309-007",
+      "title": "Clang前端架构深度解析",
+      "file": "TOPICS/topic-clang-frontend-architecture.md"
+    },
+    {
       "id": "KB-20250306-004",
       "title": "LLVM 架构设计深度解析",
       "file": "TOPICS/topic-llvm-architecture.md"
     },
     {
+      "id": "KB-20250309-010",
+      "title": "Clang Sema语义分析详解",
+      "file": "TOPICS/topic-clang-sema.md"
+    },
+    {
+      "id": "KB-20250309-008",
+      "title": "Clang Lexer词法分析详解",
+      "file": "TOPICS/topic-clang-lexer.md"
+    },
+    {
       "id": "KB-20250306-006C",
       "title": "LLVM 类型系统",
       "file": "TOPICS/topic-llvm-type-system.md"
+    },
+    {
+      "id": "KB-20250309-009",
+      "title": "Clang Parser语法分析详解",
+      "file": "TOPICS/topic-clang-parser.md"
+    },
+    {
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
     }
   ],
   "cuda": [

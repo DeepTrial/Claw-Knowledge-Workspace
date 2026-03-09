@@ -1,7 +1,7 @@
 # 知识库索引
 
-> 自动生成于：2026-03-09 10:22:28  
-> 知识点总数：30
+> 自动生成于：2026-03-09 10:36:40  
+> 知识点总数：35
 
 ---
 
@@ -73,7 +73,7 @@
   - 分类: `cuda.syntax` | 等级: 1
   - 摘要: 基于 NVIDIA 官方文档的 CUDA C++ 语言扩展完整框架，涵盖函数/变量限定符、内建类型、同步原语等
 
-### LLVM (4)
+### LLVM (9)
 
 - **[KB-20250306-004]** LLVM 架构设计深度解析
   - 分类: `llvm.basics` | 等级: 1
@@ -86,6 +86,26 @@
 - **[KB-20250307-007C]** LLVM SSA 形式与编译器优化
   - 分类: `llvm.optimization` | 等级: 2
   - 摘要: 详解 SSA（Static Single Assignment）形式：每个变量只赋值一次、Phi 函数、数据流分析
+
+- **[KB-20250309-007]** Clang前端架构深度解析
+  - 分类: `llvm.frontend` | 等级: 3
+  - 摘要: Clang前端双重入口模式、Driver与-cc1执行流程、FrontendAction机制、完整编译调用链
+
+- **[KB-20250309-008]** Clang Lexer词法分析详解
+  - 分类: `llvm.frontend` | 等级: 2
+  - 摘要: Clang词法分析器核心功能、Token种类、Lexer与Preprocessor关键类、Token创建流程
+
+- **[KB-20250309-009]** Clang Parser语法分析详解
+  - 分类: `llvm.frontend` | 等级: 2
+  - 摘要: Clang语法分析器、递归下降解析、AST构建、声明/语句/表达式解析关键文件
+
+- **[KB-20250309-010]** Clang Sema语义分析详解
+  - 分类: `llvm.frontend` | 等级: 2
+  - 摘要: Clang语义分析器、类型检查、名称查找、作用域管理、Sema关键类与语义检查流程
+
+- **[KB-20250309-011]** Clang GPU编译架构详解
+  - 分类: `llvm.frontend` | 等级: 3
+  - 摘要: Clang对CUDA/HIP的编译支持、NVPTX/AMDGPU后端流程、GPU编译特有FrontendAction与ToolChain
 
 - **[KB-20260308-001]** LLVM Backend 注册与 TargetMachine 创建深度解析
   - 分类: `llvm.backend` | 等级: 3
