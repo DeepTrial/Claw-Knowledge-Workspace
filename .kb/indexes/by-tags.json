@@ -1,164 +1,9 @@
 {
-  "llvm": [
-    {
-      "id": "KB-20260308-001",
-      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
-      "file": "TOPICS/topic-llvm-backend-registration.md"
-    },
-    {
-      "id": "KB-20250307-007C",
-      "title": "LLVM SSA 形式与编译器优化",
-      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
-    },
-    {
-      "id": "KB-20250309-007",
-      "title": "Clang前端架构深度解析",
-      "file": "TOPICS/topic-clang-frontend-architecture.md"
-    },
-    {
-      "id": "KB-20250306-004",
-      "title": "LLVM 架构设计深度解析",
-      "file": "TOPICS/topic-llvm-architecture.md"
-    },
-    {
-      "id": "KB-20250309-010",
-      "title": "Clang Sema语义分析详解",
-      "file": "TOPICS/topic-clang-sema.md"
-    },
-    {
-      "id": "KB-20250309-008",
-      "title": "Clang Lexer词法分析详解",
-      "file": "TOPICS/topic-clang-lexer.md"
-    },
-    {
-      "id": "KB-20250306-006C",
-      "title": "LLVM 类型系统",
-      "file": "TOPICS/topic-llvm-type-system.md"
-    },
-    {
-      "id": "KB-20250309-009",
-      "title": "Clang Parser语法分析详解",
-      "file": "TOPICS/topic-clang-parser.md"
-    },
-    {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
-    }
-  ],
-  "backend": [
-    {
-      "id": "KB-20260308-001",
-      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
-      "file": "TOPICS/topic-llvm-backend-registration.md"
-    }
-  ],
-  "target-machine": [
-    {
-      "id": "KB-20260308-001",
-      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
-      "file": "TOPICS/topic-llvm-backend-registration.md"
-    }
-  ],
-  "registration": [
-    {
-      "id": "KB-20260308-001",
-      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
-      "file": "TOPICS/topic-llvm-backend-registration.md"
-    }
-  ],
-  "codegen": [
-    {
-      "id": "KB-20260308-001",
-      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
-      "file": "TOPICS/topic-llvm-backend-registration.md"
-    }
-  ],
   "cuda": [
-    {
-      "id": "KB-20250306-002",
-      "title": "CUDA 内存层次结构深度解析",
-      "file": "TOPICS/topic-cuda-memory-hierarchy.md"
-    },
-    {
-      "id": "KB-20260307-006",
-      "title": "CUDA C++ 语言扩展完整框架",
-      "file": "TOPICS/topic-cuda-cpp-language-extensions.md"
-    },
-    {
-      "id": "KB-20250309-003",
-      "title": "CuTe 核心抽象详解",
-      "file": "TOPICS/topic-cute-core-abstraction.md"
-    },
-    {
-      "id": "KB-20260307-002",
-      "title": "NVCC 编译流程与分离编译",
-      "file": "TOPICS/topic-nvcc-compilation-flow.md"
-    },
-    {
-      "id": "KB-20250308-019",
-      "title": "CUDA Graph内存节点",
-      "file": "TOPICS/topic-cuda-graph-memory.md"
-    },
-    {
-      "id": "KB-20250309-006",
-      "title": "CUTLASS 性能调优实战",
-      "file": "TOPICS/topic-cutlass-tuning.md"
-    },
-    {
-      "id": "KB-20250308-022",
-      "title": "CUDA Cluster Launch Control",
-      "file": "TOPICS/topic-cuda-cluster-launch.md"
-    },
-    {
-      "id": "KB-20260307-001",
-      "title": "CUDA Device Code C++ 特性支持与限制",
-      "file": "TOPICS/topic-cuda-device-code-features.md"
-    },
-    {
-      "id": "KB-20260307-005",
-      "title": "CUDA 内建变量与函数速查",
-      "file": "TOPICS/topic-cuda-builtin-functions.md"
-    },
-    {
-      "id": "KB-20250309-001",
-      "title": "CUTLASS CuTe 系统性学习计划",
-      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
-    },
     {
       "id": "KB-20250308-024",
       "title": "CUDA支持GPU架构与查询",
       "file": "TOPICS/topic-cuda-enabled-gpus.md"
-    },
-    {
-      "id": "KB-20250308-017",
-      "title": "CUDA虚拟内存管理VMM",
-      "file": "TOPICS/topic-cuda-virtual-memory.md"
-    },
-    {
-      "id": "KB-20250308-014",
-      "title": "CUDA硬件实现与SIMT架构",
-      "file": "TOPICS/topic-cuda-hardware-simt.md"
-    },
-    {
-      "id": "KB-20250308-016",
-      "title": "CUDA Cooperative Groups协作组",
-      "file": "TOPICS/topic-cuda-cooperative-groups.md"
-    },
-    {
-      "id": "KB-20260307-004",
-      "title": "CUDA 同步与内存屏障函数",
-      "file": "TOPICS/topic-cuda-sync-functions.md"
-    },
-    {
-      "id": "KB-20260307-003",
-      "title": "CUDA 内存空间限定符详解",
-      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
-    },
-    {
-      "id": "KB-20250308-012",
-      "title": "CUDA编程指南概述与GPU优势",
-      "file": "TOPICS/topic-cuda-overview.md"
     },
     {
       "id": "KB-20250306-006B",
@@ -166,24 +11,19 @@
       "file": "TOPICS/topic-cuda-constant-memory.md"
     },
     {
-      "id": "KB-20250308-015",
-      "title": "CUDA性能优化指南",
-      "file": "TOPICS/topic-cuda-performance-guide.md"
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
     },
     {
-      "id": "KB-20250309-005",
-      "title": "Gemm 实现原理与优化",
-      "file": "TOPICS/topic-gemm-implementation.md"
+      "id": "KB-20260307-006",
+      "title": "CUDA C++ 语言扩展完整框架",
+      "file": "TOPICS/topic-cuda-cpp-language-extensions.md"
     },
     {
-      "id": "KB-20250307-007B",
-      "title": "CUDA 全局内存与合并访问优化",
-      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
-    },
-    {
-      "id": "KB-20250308-013",
-      "title": "CUDA编程接口详解",
-      "file": "TOPICS/topic-cuda-programming-interface.md"
+      "id": "KB-20250309-006",
+      "title": "CUTLASS 性能调优实战",
+      "file": "TOPICS/topic-cutlass-tuning.md"
     },
     {
       "id": "KB-20250309-002",
@@ -191,14 +31,89 @@
       "file": "TOPICS/topic-cuda-tile-basics.md"
     },
     {
+      "id": "KB-20250309-005",
+      "title": "Gemm 实现原理与优化",
+      "file": "TOPICS/topic-gemm-implementation.md"
+    },
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    },
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    },
+    {
+      "id": "KB-20260307-004",
+      "title": "CUDA 同步与内存屏障函数",
+      "file": "TOPICS/topic-cuda-sync-functions.md"
+    },
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    },
+    {
+      "id": "KB-20260307-003",
+      "title": "CUDA 内存空间限定符详解",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+    },
+    {
+      "id": "KB-20250309-001",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
+    },
+    {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
+    },
+    {
+      "id": "KB-20260307-002",
+      "title": "NVCC 编译流程与分离编译",
+      "file": "TOPICS/topic-nvcc-compilation-flow.md"
+    },
+    {
       "id": "KB-20250308-020",
       "title": "CUDA C++语言扩展",
       "file": "TOPICS/topic-cuda-cpp-extensions.md"
     },
     {
+      "id": "KB-20260307-001",
+      "title": "CUDA Device Code C++ 特性支持与限制",
+      "file": "TOPICS/topic-cuda-device-code-features.md"
+    },
+    {
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
+    },
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    },
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    },
+    {
+      "id": "KB-20250309-003",
+      "title": "CuTe 核心抽象详解",
+      "file": "TOPICS/topic-cute-core-abstraction.md"
+    },
+    {
       "id": "KB-20250306-001",
       "title": "CUDA 线程层次结构深度解析",
       "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    },
+    {
+      "id": "KB-20260307-005",
+      "title": "CUDA 内建变量与函数速查",
+      "file": "TOPICS/topic-cuda-builtin-functions.md"
     },
     {
       "id": "KB-20250308-023",
@@ -211,27 +126,32 @@
       "file": "TOPICS/topic-cuda-stream-ordered-allocator.md"
     },
     {
-      "id": "KB-20250308-021",
-      "title": "CUDA计算能力与架构特性",
-      "file": "TOPICS/topic-cuda-compute-capabilities.md"
-    },
-    {
       "id": "KB-20250309-004",
       "title": "CUTLASS 架构设计详解",
       "file": "TOPICS/topic-cutlass-architecture.md"
     },
     {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
-    }
-  ],
-  "gpu": [
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
+    },
     {
       "id": "KB-20250306-002",
       "title": "CUDA 内存层次结构深度解析",
       "file": "TOPICS/topic-cuda-memory-hierarchy.md"
     },
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    },
+    {
+      "id": "KB-20250307-007B",
+      "title": "CUDA 全局内存与合并访问优化",
+      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
+    }
+  ],
+  "gpu": [
     {
       "id": "KB-20250308-024",
       "title": "CUDA支持GPU架构与查询",
@@ -243,14 +163,19 @@
       "file": "TOPICS/topic-cuda-overview.md"
     },
     {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
+    },
+    {
       "id": "KB-20250306-003",
       "title": "Triton @triton.jit Decorator 原理深度解析",
       "file": "TOPICS/topic-triton-jit-decorator.md"
     },
     {
-      "id": "KB-20260306-006",
-      "title": "Triton 编程语言深度调研",
-      "file": "TOPICS/topic-triton-programming-language.md"
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
     },
     {
       "id": "KB-20250306-001",
@@ -258,24 +183,119 @@
       "file": "TOPICS/topic-cuda-thread-hierarchy.md"
     },
     {
+      "id": "KB-20250306-002",
+      "title": "CUDA 内存层次结构深度解析",
+      "file": "TOPICS/topic-cuda-memory-hierarchy.md"
+    },
+    {
+      "id": "KB-20260306-006",
+      "title": "Triton 编程语言深度调研",
+      "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "architecture": [
+    {
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    },
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    },
+    {
       "id": "KB-20250308-021",
       "title": "CUDA计算能力与架构特性",
       "file": "TOPICS/topic-cuda-compute-capabilities.md"
     },
     {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
+      "id": "KB-20250309-007",
+      "title": "Clang前端架构深度解析",
+      "file": "TOPICS/topic-clang-frontend-architecture.md"
+    },
+    {
+      "id": "KB-20250306-004",
+      "title": "LLVM 架构设计深度解析",
+      "file": "TOPICS/topic-llvm-architecture.md"
+    },
+    {
+      "id": "KB-20250309-004",
+      "title": "CUTLASS 架构设计详解",
+      "file": "TOPICS/topic-cutlass-architecture.md"
     }
   ],
-  "memory-hierarchy": [
+  "compute-capability": [
     {
-      "id": "KB-20250306-002",
-      "title": "CUDA 内存层次结构深度解析",
-      "file": "TOPICS/topic-cuda-memory-hierarchy.md"
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    },
+    {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
+    }
+  ],
+  "query": [
+    {
+      "id": "KB-20250308-024",
+      "title": "CUDA支持GPU架构与查询",
+      "file": "TOPICS/topic-cuda-enabled-gpus.md"
+    }
+  ],
+  "constant-memory": [
+    {
+      "id": "KB-20250306-006B",
+      "title": "CUDA 常量内存 (Constant Memory)",
+      "file": "TOPICS/topic-cuda-constant-memory.md"
+    }
+  ],
+  "broadcast": [
+    {
+      "id": "KB-20250306-006B",
+      "title": "CUDA 常量内存 (Constant Memory)",
+      "file": "TOPICS/topic-cuda-constant-memory.md"
+    }
+  ],
+  "cache": [
+    {
+      "id": "KB-20250306-006B",
+      "title": "CUDA 常量内存 (Constant Memory)",
+      "file": "TOPICS/topic-cuda-constant-memory.md"
     }
   ],
   "optimization": [
+    {
+      "id": "KB-20250306-006B",
+      "title": "CUDA 常量内存 (Constant Memory)",
+      "file": "TOPICS/topic-cuda-constant-memory.md"
+    },
+    {
+      "id": "KB-20250309-006",
+      "title": "CUTLASS 性能调优实战",
+      "file": "TOPICS/topic-cutlass-tuning.md"
+    },
+    {
+      "id": "KB-20250309-002",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "file": "TOPICS/topic-cuda-tile-basics.md"
+    },
+    {
+      "id": "KB-20250309-005",
+      "title": "Gemm 实现原理与优化",
+      "file": "TOPICS/topic-gemm-implementation.md"
+    },
+    {
+      "id": "KB-20250309-001",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
+    },
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
+    },
     {
       "id": "KB-20250306-002",
       "title": "CUDA 内存层次结构深度解析",
@@ -287,99 +307,171 @@
       "file": "TOPICS/topic-triton-load-store-optimization.md"
     },
     {
-      "id": "KB-20250309-006",
-      "title": "CUTLASS 性能调优实战",
-      "file": "TOPICS/topic-cutlass-tuning.md"
-    },
-    {
-      "id": "KB-20250309-001",
-      "title": "CUTLASS CuTe 系统性学习计划",
-      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
-    },
-    {
-      "id": "KB-20250306-006B",
-      "title": "CUDA 常量内存 (Constant Memory)",
-      "file": "TOPICS/topic-cuda-constant-memory.md"
-    },
-    {
-      "id": "KB-20250308-015",
-      "title": "CUDA性能优化指南",
-      "file": "TOPICS/topic-cuda-performance-guide.md"
-    },
-    {
-      "id": "KB-20250309-005",
-      "title": "Gemm 实现原理与优化",
-      "file": "TOPICS/topic-gemm-implementation.md"
-    },
-    {
       "id": "KB-20250307-007B",
       "title": "CUDA 全局内存与合并访问优化",
       "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
-    },
-    {
-      "id": "KB-20250309-002",
-      "title": "CUDA Tile 基础概念与编程模型",
-      "file": "TOPICS/topic-cuda-tile-basics.md"
     }
   ],
-  "shared-memory": [
+  "hardware": [
     {
-      "id": "KB-20250306-002",
-      "title": "CUDA 内存层次结构深度解析",
-      "file": "TOPICS/topic-cuda-memory-hierarchy.md"
-    },
-    {
-      "id": "KB-20250307-007B",
-      "title": "CUDA 全局内存与合并访问优化",
-      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
-    },
-    {
-      "id": "KB-20250309-002",
-      "title": "CUDA Tile 基础概念与编程模型",
-      "file": "TOPICS/topic-cuda-tile-basics.md"
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
     }
   ],
-  "ssa": [
+  "simt": [
     {
-      "id": "KB-20250307-007C",
-      "title": "LLVM SSA 形式与编译器优化",
-      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    }
+  ],
+  "warp": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    }
+  ],
+  "sm": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    },
+    {
+      "id": "KB-20250308-021",
+      "title": "CUDA计算能力与架构特性",
+      "file": "TOPICS/topic-cuda-compute-capabilities.md"
+    }
+  ],
+  "multithreading": [
+    {
+      "id": "KB-20250308-014",
+      "title": "CUDA硬件实现与SIMT架构",
+      "file": "TOPICS/topic-cuda-hardware-simt.md"
+    }
+  ],
+  "llvm": [
+    {
+      "id": "KB-20250309-009",
+      "title": "Clang Parser语法分析详解",
+      "file": "TOPICS/topic-clang-parser.md"
+    },
+    {
+      "id": "KB-20250309-008",
+      "title": "Clang Lexer词法分析详解",
+      "file": "TOPICS/topic-clang-lexer.md"
+    },
+    {
+      "id": "KB-20260308-001",
+      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
+      "file": "TOPICS/topic-llvm-backend-registration.md"
+    },
+    {
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
+    },
+    {
+      "id": "KB-20250309-007",
+      "title": "Clang前端架构深度解析",
+      "file": "TOPICS/topic-clang-frontend-architecture.md"
     },
     {
       "id": "KB-20250306-004",
       "title": "LLVM 架构设计深度解析",
       "file": "TOPICS/topic-llvm-architecture.md"
-    }
-  ],
-  "compiler-optimization": [
-    {
-      "id": "KB-20250307-007C",
-      "title": "LLVM SSA 形式与编译器优化",
-      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
-    }
-  ],
-  "phi-function": [
-    {
-      "id": "KB-20250307-007C",
-      "title": "LLVM SSA 形式与编译器优化",
-      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
-    }
-  ],
-  "ir": [
+    },
     {
       "id": "KB-20250307-007C",
       "title": "LLVM SSA 形式与编译器优化",
       "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
     },
     {
-      "id": "KB-20250306-004",
-      "title": "LLVM 架构设计深度解析",
-      "file": "TOPICS/topic-llvm-architecture.md"
+      "id": "KB-20250309-010",
+      "title": "Clang Sema语义分析详解",
+      "file": "TOPICS/topic-clang-sema.md"
     },
     {
       "id": "KB-20250306-006C",
       "title": "LLVM 类型系统",
       "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
+  "clang": [
+    {
+      "id": "KB-20250309-009",
+      "title": "Clang Parser语法分析详解",
+      "file": "TOPICS/topic-clang-parser.md"
+    },
+    {
+      "id": "KB-20250309-008",
+      "title": "Clang Lexer词法分析详解",
+      "file": "TOPICS/topic-clang-lexer.md"
+    },
+    {
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
+    },
+    {
+      "id": "KB-20250309-007",
+      "title": "Clang前端架构深度解析",
+      "file": "TOPICS/topic-clang-frontend-architecture.md"
+    },
+    {
+      "id": "KB-20250309-010",
+      "title": "Clang Sema语义分析详解",
+      "file": "TOPICS/topic-clang-sema.md"
+    }
+  ],
+  "frontend": [
+    {
+      "id": "KB-20250309-009",
+      "title": "Clang Parser语法分析详解",
+      "file": "TOPICS/topic-clang-parser.md"
+    },
+    {
+      "id": "KB-20250309-008",
+      "title": "Clang Lexer词法分析详解",
+      "file": "TOPICS/topic-clang-lexer.md"
+    },
+    {
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
+    },
+    {
+      "id": "KB-20250309-007",
+      "title": "Clang前端架构深度解析",
+      "file": "TOPICS/topic-clang-frontend-architecture.md"
+    },
+    {
+      "id": "KB-20250309-010",
+      "title": "Clang Sema语义分析详解",
+      "file": "TOPICS/topic-clang-sema.md"
+    }
+  ],
+  "parser": [
+    {
+      "id": "KB-20250309-009",
+      "title": "Clang Parser语法分析详解",
+      "file": "TOPICS/topic-clang-parser.md"
+    }
+  ],
+  "ast": [
+    {
+      "id": "KB-20250309-009",
+      "title": "Clang Parser语法分析详解",
+      "file": "TOPICS/topic-clang-parser.md"
+    }
+  ],
+  "parsing": [
+    {
+      "id": "KB-20250309-009",
+      "title": "Clang Parser语法分析详解",
+      "file": "TOPICS/topic-clang-parser.md"
     }
   ],
   "cpp": [
@@ -389,14 +481,14 @@
       "file": "TOPICS/topic-cuda-cpp-language-extensions.md"
     },
     {
-      "id": "KB-20260307-001",
-      "title": "CUDA Device Code C++ 特性支持与限制",
-      "file": "TOPICS/topic-cuda-device-code-features.md"
-    },
-    {
       "id": "KB-20250308-020",
       "title": "CUDA C++语言扩展",
       "file": "TOPICS/topic-cuda-cpp-extensions.md"
+    },
+    {
+      "id": "KB-20260307-001",
+      "title": "CUDA Device Code C++ 特性支持与限制",
+      "file": "TOPICS/topic-cuda-device-code-features.md"
     }
   ],
   "language-extensions": [
@@ -435,40 +527,616 @@
       "file": "TOPICS/topic-cuda-builtin-functions.md"
     }
   ],
-  "Triton": [
+  "cutlass": [
     {
-      "id": "KB-20260308-002",
-      "title": "Triton MLIR 架构深度调研",
-      "file": "TOPICS/Triton-MLIR-Architecture.md"
+      "id": "KB-20250309-006",
+      "title": "CUTLASS 性能调优实战",
+      "file": "TOPICS/topic-cutlass-tuning.md"
+    },
+    {
+      "id": "KB-20250309-001",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
+    },
+    {
+      "id": "KB-20250309-003",
+      "title": "CuTe 核心抽象详解",
+      "file": "TOPICS/topic-cute-core-abstraction.md"
+    },
+    {
+      "id": "KB-20250309-004",
+      "title": "CUTLASS 架构设计详解",
+      "file": "TOPICS/topic-cutlass-architecture.md"
+    }
+  ],
+  "profiling": [
+    {
+      "id": "KB-20250309-006",
+      "title": "CUTLASS 性能调优实战",
+      "file": "TOPICS/topic-cutlass-tuning.md"
+    }
+  ],
+  "tuning": [
+    {
+      "id": "KB-20250309-006",
+      "title": "CUTLASS 性能调优实战",
+      "file": "TOPICS/topic-cutlass-tuning.md"
+    }
+  ],
+  "nsight-compute": [
+    {
+      "id": "KB-20250309-006",
+      "title": "CUTLASS 性能调优实战",
+      "file": "TOPICS/topic-cutlass-tuning.md"
+    }
+  ],
+  "tile": [
+    {
+      "id": "KB-20250309-002",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "file": "TOPICS/topic-cuda-tile-basics.md"
+    }
+  ],
+  "gemm": [
+    {
+      "id": "KB-20250309-002",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "file": "TOPICS/topic-cuda-tile-basics.md"
+    },
+    {
+      "id": "KB-20250309-005",
+      "title": "Gemm 实现原理与优化",
+      "file": "TOPICS/topic-gemm-implementation.md"
+    },
+    {
+      "id": "KB-20250309-001",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
+    },
+    {
+      "id": "KB-20250309-004",
+      "title": "CUTLASS 架构设计详解",
+      "file": "TOPICS/topic-cutlass-architecture.md"
+    }
+  ],
+  "shared-memory": [
+    {
+      "id": "KB-20250309-002",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "file": "TOPICS/topic-cuda-tile-basics.md"
+    },
+    {
+      "id": "KB-20250306-002",
+      "title": "CUDA 内存层次结构深度解析",
+      "file": "TOPICS/topic-cuda-memory-hierarchy.md"
+    },
+    {
+      "id": "KB-20250307-007B",
+      "title": "CUDA 全局内存与合并访问优化",
+      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
+    }
+  ],
+  "bank-conflict": [
+    {
+      "id": "KB-20250309-002",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "file": "TOPICS/topic-cuda-tile-basics.md"
+    }
+  ],
+  "swizzle": [
+    {
+      "id": "KB-20250309-002",
+      "title": "CUDA Tile 基础概念与编程模型",
+      "file": "TOPICS/topic-cuda-tile-basics.md"
+    }
+  ],
+  "implementation": [
+    {
+      "id": "KB-20250309-005",
+      "title": "Gemm 实现原理与优化",
+      "file": "TOPICS/topic-gemm-implementation.md"
+    }
+  ],
+  "tensor-core": [
+    {
+      "id": "KB-20250309-005",
+      "title": "Gemm 实现原理与优化",
+      "file": "TOPICS/topic-gemm-implementation.md"
+    },
+    {
+      "id": "KB-20250309-001",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
+    },
+    {
+      "id": "KB-20250309-004",
+      "title": "CUTLASS 架构设计详解",
+      "file": "TOPICS/topic-cutlass-architecture.md"
+    }
+  ],
+  "pipeline": [
+    {
+      "id": "KB-20250309-005",
+      "title": "Gemm 实现原理与优化",
+      "file": "TOPICS/topic-gemm-implementation.md"
+    }
+  ],
+  "graph": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    },
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    }
+  ],
+  "memory-node": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    }
+  ],
+  "cuda-graph": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    }
+  ],
+  "memory-management": [
+    {
+      "id": "KB-20250308-019",
+      "title": "CUDA Graph内存节点",
+      "file": "TOPICS/topic-cuda-graph-memory.md"
+    },
+    {
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "lexer": [
+    {
+      "id": "KB-20250309-008",
+      "title": "Clang Lexer词法分析详解",
+      "file": "TOPICS/topic-clang-lexer.md"
+    }
+  ],
+  "token": [
+    {
+      "id": "KB-20250309-008",
+      "title": "Clang Lexer词法分析详解",
+      "file": "TOPICS/topic-clang-lexer.md"
+    }
+  ],
+  "preprocessor": [
+    {
+      "id": "KB-20250309-008",
+      "title": "Clang Lexer词法分析详解",
+      "file": "TOPICS/topic-clang-lexer.md"
+    }
+  ],
+  "cluster": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    }
+  ],
+  "hopper": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    }
+  ],
+  "launch-control": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    }
+  ],
+  "block-cancellation": [
+    {
+      "id": "KB-20250308-022",
+      "title": "CUDA Cluster Launch Control",
+      "file": "TOPICS/topic-cuda-cluster-launch.md"
+    }
+  ],
+  "synchronization": [
+    {
+      "id": "KB-20260307-004",
+      "title": "CUDA 同步与内存屏障函数",
+      "file": "TOPICS/topic-cuda-sync-functions.md"
+    }
+  ],
+  "barrier": [
+    {
+      "id": "KB-20260307-004",
+      "title": "CUDA 同步与内存屏障函数",
+      "file": "TOPICS/topic-cuda-sync-functions.md"
+    }
+  ],
+  "fence": [
+    {
+      "id": "KB-20260307-004",
+      "title": "CUDA 同步与内存屏障函数",
+      "file": "TOPICS/topic-cuda-sync-functions.md"
+    }
+  ],
+  "atomic": [
+    {
+      "id": "KB-20260307-004",
+      "title": "CUDA 同步与内存屏障函数",
+      "file": "TOPICS/topic-cuda-sync-functions.md"
+    }
+  ],
+  "overview": [
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    }
+  ],
+  "introduction": [
+    {
+      "id": "KB-20250308-012",
+      "title": "CUDA编程指南概述与GPU优势",
+      "file": "TOPICS/topic-cuda-overview.md"
+    }
+  ],
+  "backend": [
+    {
+      "id": "KB-20260308-001",
+      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
+      "file": "TOPICS/topic-llvm-backend-registration.md"
+    }
+  ],
+  "target-machine": [
+    {
+      "id": "KB-20260308-001",
+      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
+      "file": "TOPICS/topic-llvm-backend-registration.md"
+    }
+  ],
+  "registration": [
+    {
+      "id": "KB-20260308-001",
+      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
+      "file": "TOPICS/topic-llvm-backend-registration.md"
+    }
+  ],
+  "codegen": [
+    {
+      "id": "KB-20260308-001",
+      "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
+      "file": "TOPICS/topic-llvm-backend-registration.md"
     }
   ],
   "MLIR": [
     {
-      "id": "KB-20260308-002",
-      "title": "Triton MLIR 架构深度调研",
-      "file": "TOPICS/Triton-MLIR-Architecture.md"
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
     },
     {
       "id": "KB-20260308-003",
       "title": "MLIR LLVM IR Target 深度调研",
       "file": "TOPICS/MLIR-LLVM-IR-Target.md"
     },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    }
+  ],
+  "编译器基础设施": [
     {
       "id": "KB-20260308-001",
       "title": "MLIR 技术领域全景图谱",
       "file": "TOPICS/MLIR-Technical-Landscape.md"
     }
   ],
-  "编译器": [
+  "Dialect系统": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "深度学习编译": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "硬件综合": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "多面体优化": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    }
+  ],
+  "GPU编译": [
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    },
     {
       "id": "KB-20260308-002",
       "title": "Triton MLIR 架构深度调研",
       "file": "TOPICS/Triton-MLIR-Architecture.md"
+    }
+  ],
+  "memory": [
+    {
+      "id": "KB-20260307-003",
+      "title": "CUDA 内存空间限定符详解",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
     },
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    },
+    {
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
+    },
+    {
+      "id": "KB-20250307-007A",
+      "title": "Triton tl.load/tl.store 内存操作与优化",
+      "file": "TOPICS/topic-triton-load-store-optimization.md"
+    }
+  ],
+  "qualifiers": [
+    {
+      "id": "KB-20260307-003",
+      "title": "CUDA 内存空间限定符详解",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+    }
+  ],
+  "shared": [
+    {
+      "id": "KB-20260307-003",
+      "title": "CUDA 内存空间限定符详解",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+    }
+  ],
+  "constant": [
+    {
+      "id": "KB-20260307-003",
+      "title": "CUDA 内存空间限定符详解",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+    }
+  ],
+  "managed": [
+    {
+      "id": "KB-20260307-003",
+      "title": "CUDA 内存空间限定符详解",
+      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+    }
+  ],
+  "cute": [
+    {
+      "id": "KB-20250309-001",
+      "title": "CUTLASS CuTe 系统性学习计划",
+      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
+    },
+    {
+      "id": "KB-20250309-003",
+      "title": "CuTe 核心抽象详解",
+      "file": "TOPICS/topic-cute-core-abstraction.md"
+    }
+  ],
+  "compilation": [
+    {
+      "id": "KB-20260307-002",
+      "title": "NVCC 编译流程与分离编译",
+      "file": "TOPICS/topic-nvcc-compilation-flow.md"
+    }
+  ],
+  "rdc": [
+    {
+      "id": "KB-20260307-002",
+      "title": "NVCC 编译流程与分离编译",
+      "file": "TOPICS/topic-nvcc-compilation-flow.md"
+    }
+  ],
+  "separate-compilation": [
+    {
+      "id": "KB-20260307-002",
+      "title": "NVCC 编译流程与分离编译",
+      "file": "TOPICS/topic-nvcc-compilation-flow.md"
+    }
+  ],
+  "language-extension": [
+    {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
+    }
+  ],
+  "specifier": [
+    {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
+    }
+  ],
+  "builtin": [
+    {
+      "id": "KB-20250308-020",
+      "title": "CUDA C++语言扩展",
+      "file": "TOPICS/topic-cuda-cpp-extensions.md"
+    },
+    {
+      "id": "KB-20260307-005",
+      "title": "CUDA 内建变量与函数速查",
+      "file": "TOPICS/topic-cuda-builtin-functions.md"
+    }
+  ],
+  "triton": [
+    {
+      "id": "KB-20250306-003",
+      "title": "Triton @triton.jit Decorator 原理深度解析",
+      "file": "TOPICS/topic-triton-jit-decorator.md"
+    },
+    {
+      "id": "KB-20250306-006A",
+      "title": "Triton mask 与边界处理",
+      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
+    },
+    {
+      "id": "KB-20250307-007A",
+      "title": "Triton tl.load/tl.store 内存操作与优化",
+      "file": "TOPICS/topic-triton-load-store-optimization.md"
+    },
+    {
+      "id": "KB-20260306-006",
+      "title": "Triton 编程语言深度调研",
+      "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "jit": [
+    {
+      "id": "KB-20250306-003",
+      "title": "Triton @triton.jit Decorator 原理深度解析",
+      "file": "TOPICS/topic-triton-jit-decorator.md"
+    }
+  ],
+  "compiler": [
+    {
+      "id": "KB-20250306-003",
+      "title": "Triton @triton.jit Decorator 原理深度解析",
+      "file": "TOPICS/topic-triton-jit-decorator.md"
+    },
+    {
+      "id": "KB-20250309-007",
+      "title": "Clang前端架构深度解析",
+      "file": "TOPICS/topic-clang-frontend-architecture.md"
+    },
+    {
+      "id": "KB-20250306-004",
+      "title": "LLVM 架构设计深度解析",
+      "file": "TOPICS/topic-llvm-architecture.md"
+    },
+    {
+      "id": "KB-20260306-006",
+      "title": "Triton 编程语言深度调研",
+      "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "mlir": [
+    {
+      "id": "KB-20250306-003",
+      "title": "Triton @triton.jit Decorator 原理深度解析",
+      "file": "TOPICS/topic-triton-jit-decorator.md"
+    },
+    {
+      "id": "KB-20250306-004",
+      "title": "LLVM 架构设计深度解析",
+      "file": "TOPICS/topic-llvm-architecture.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "MLIR Bufferization 一致性保证深度解析",
+      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
+    },
+    {
+      "id": "KB-20260306-006",
+      "title": "Triton 编程语言深度调研",
+      "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "python": [
+    {
+      "id": "KB-20250306-003",
+      "title": "Triton @triton.jit Decorator 原理深度解析",
+      "file": "TOPICS/topic-triton-jit-decorator.md"
+    }
+  ],
+  "restrictions": [
+    {
+      "id": "KB-20260307-001",
+      "title": "CUDA Device Code C++ 特性支持与限制",
+      "file": "TOPICS/topic-cuda-device-code-features.md"
+    }
+  ],
+  "device-code": [
+    {
+      "id": "KB-20260307-001",
+      "title": "CUDA Device Code C++ 特性支持与限制",
+      "file": "TOPICS/topic-cuda-device-code-features.md"
+    }
+  ],
+  "feature-support": [
+    {
+      "id": "KB-20260307-001",
+      "title": "CUDA Device Code C++ 特性支持与限制",
+      "file": "TOPICS/topic-cuda-device-code-features.md"
+    }
+  ],
+  "LLVM IR": [
     {
       "id": "KB-20260308-003",
       "title": "MLIR LLVM IR Target 深度调研",
       "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "编译器": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    }
+  ],
+  "Target": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "Dialect转换": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "数据布局": [
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    }
+  ],
+  "Triton": [
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
   "Dialect": [
@@ -485,126 +1153,107 @@
       "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
-  "GPU编译": [
+  "hip": [
     {
-      "id": "KB-20260308-002",
-      "title": "Triton MLIR 架构深度调研",
-      "file": "TOPICS/Triton-MLIR-Architecture.md"
-    },
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
     }
   ],
-  "collaboration": [
+  "nvptx": [
     {
-      "id": "KB-20260306-003",
-      "title": "多 Agent 协作调研",
-      "file": "TOPICS/topic-multi-agent-collaboration.md"
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
     }
   ],
-  "multi-agent": [
+  "amdgpu": [
     {
-      "id": "KB-20260306-003",
-      "title": "多 Agent 协作调研",
-      "file": "TOPICS/topic-multi-agent-collaboration.md"
+      "id": "KB-20250309-011",
+      "title": "Clang GPU编译架构详解",
+      "file": "TOPICS/topic-clang-gpu-compilation.md"
     }
   ],
-  "research": [
-    {
-      "id": "KB-20260306-003",
-      "title": "多 Agent 协作调研",
-      "file": "TOPICS/topic-multi-agent-collaboration.md"
-    }
-  ],
-  "mlir": [
-    {
-      "id": "KB-20260308-002",
-      "title": "MLIR Bufferization 一致性保证深度解析",
-      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
-    },
-    {
-      "id": "KB-20250306-003",
-      "title": "Triton @triton.jit Decorator 原理深度解析",
-      "file": "TOPICS/topic-triton-jit-decorator.md"
-    },
-    {
-      "id": "KB-20250306-004",
-      "title": "LLVM 架构设计深度解析",
-      "file": "TOPICS/topic-llvm-architecture.md"
-    },
-    {
-      "id": "KB-20260306-006",
-      "title": "Triton 编程语言深度调研",
-      "file": "TOPICS/topic-triton-programming-language.md"
-    }
-  ],
-  "bufferization": [
-    {
-      "id": "KB-20260308-002",
-      "title": "MLIR Bufferization 一致性保证深度解析",
-      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
-    }
-  ],
-  "memory-safety": [
-    {
-      "id": "KB-20260308-002",
-      "title": "MLIR Bufferization 一致性保证深度解析",
-      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
-    },
+  "mask": [
     {
       "id": "KB-20250306-006A",
       "title": "Triton mask 与边界处理",
       "file": "TOPICS/topic-triton-mask-boundary-handling.md"
     }
   ],
-  "alias-analysis": [
+  "boundary-handling": [
+    {
+      "id": "KB-20250306-006A",
+      "title": "Triton mask 与边界处理",
+      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
+    }
+  ],
+  "memory-safety": [
+    {
+      "id": "KB-20250306-006A",
+      "title": "Triton mask 与边界处理",
+      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
+    },
     {
       "id": "KB-20260308-002",
       "title": "MLIR Bufferization 一致性保证深度解析",
       "file": "TOPICS/topic-mlir-bufferization-consistency.md"
     }
   ],
-  "in-place": [
+  "padding": [
     {
-      "id": "KB-20260308-002",
-      "title": "MLIR Bufferization 一致性保证深度解析",
-      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
+      "id": "KB-20250306-006A",
+      "title": "Triton mask 与边界处理",
+      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
     }
   ],
-  "cute": [
+  "vmm": [
     {
-      "id": "KB-20250309-003",
-      "title": "CuTe 核心抽象详解",
-      "file": "TOPICS/topic-cute-core-abstraction.md"
-    },
-    {
-      "id": "KB-20250309-001",
-      "title": "CUTLASS CuTe 系统性学习计划",
-      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
     }
   ],
-  "cutlass": [
+  "virtual-memory": [
     {
-      "id": "KB-20250309-003",
-      "title": "CuTe 核心抽象详解",
-      "file": "TOPICS/topic-cute-core-abstraction.md"
-    },
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "fabric": [
     {
-      "id": "KB-20250309-006",
-      "title": "CUTLASS 性能调优实战",
-      "file": "TOPICS/topic-cutlass-tuning.md"
-    },
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "multicast": [
     {
-      "id": "KB-20250309-001",
-      "title": "CUTLASS CuTe 系统性学习计划",
-      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
-    },
+      "id": "KB-20250308-017",
+      "title": "CUDA虚拟内存管理VMM",
+      "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "runtime": [
     {
-      "id": "KB-20250309-004",
-      "title": "CUTLASS 架构设计详解",
-      "file": "TOPICS/topic-cutlass-architecture.md"
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    }
+  ],
+  "api": [
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
+    }
+  ],
+  "stream": [
+    {
+      "id": "KB-20250308-013",
+      "title": "CUDA编程接口详解",
+      "file": "TOPICS/topic-cuda-programming-interface.md"
     }
   ],
   "layout": [
@@ -635,111 +1284,73 @@
       "file": "TOPICS/topic-cute-core-abstraction.md"
     }
   ],
-  "triton": [
+  "thread-hierarchy": [
     {
-      "id": "KB-20250307-007A",
-      "title": "Triton tl.load/tl.store 内存操作与优化",
-      "file": "TOPICS/topic-triton-load-store-optimization.md"
-    },
+      "id": "KB-20250306-001",
+      "title": "CUDA 线程层次结构深度解析",
+      "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    }
+  ],
+  "parallel-computing": [
     {
-      "id": "KB-20250306-003",
-      "title": "Triton @triton.jit Decorator 原理深度解析",
-      "file": "TOPICS/topic-triton-jit-decorator.md"
+      "id": "KB-20250306-001",
+      "title": "CUDA 线程层次结构深度解析",
+      "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+    }
+  ],
+  "nvidia": [
+    {
+      "id": "KB-20250306-001",
+      "title": "CUDA 线程层次结构深度解析",
+      "file": "TOPICS/topic-cuda-thread-hierarchy.md"
     },
     {
       "id": "KB-20260306-006",
       "title": "Triton 编程语言深度调研",
       "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "functions": [
+    {
+      "id": "KB-20260307-005",
+      "title": "CUDA 内建变量与函数速查",
+      "file": "TOPICS/topic-cuda-builtin-functions.md"
+    }
+  ],
+  "variables": [
+    {
+      "id": "KB-20260307-005",
+      "title": "CUDA 内建变量与函数速查",
+      "file": "TOPICS/topic-cuda-builtin-functions.md"
+    }
+  ],
+  "ir": [
+    {
+      "id": "KB-20250306-004",
+      "title": "LLVM 架构设计深度解析",
+      "file": "TOPICS/topic-llvm-architecture.md"
     },
     {
-      "id": "KB-20250306-006A",
-      "title": "Triton mask 与边界处理",
-      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
-    }
-  ],
-  "memory": [
-    {
-      "id": "KB-20250307-007A",
-      "title": "Triton tl.load/tl.store 内存操作与优化",
-      "file": "TOPICS/topic-triton-load-store-optimization.md"
+      "id": "KB-20250307-007C",
+      "title": "LLVM SSA 形式与编译器优化",
+      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
     },
     {
-      "id": "KB-20260307-003",
-      "title": "CUDA 内存空间限定符详解",
-      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
+      "id": "KB-20250306-006C",
+      "title": "LLVM 类型系统",
+      "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
+  "ssa": [
+    {
+      "id": "KB-20250306-004",
+      "title": "LLVM 架构设计深度解析",
+      "file": "TOPICS/topic-llvm-architecture.md"
     },
     {
-      "id": "KB-20250308-015",
-      "title": "CUDA性能优化指南",
-      "file": "TOPICS/topic-cuda-performance-guide.md"
-    },
-    {
-      "id": "KB-20250308-013",
-      "title": "CUDA编程接口详解",
-      "file": "TOPICS/topic-cuda-programming-interface.md"
-    }
-  ],
-  "load-store": [
-    {
-      "id": "KB-20250307-007A",
-      "title": "Triton tl.load/tl.store 内存操作与优化",
-      "file": "TOPICS/topic-triton-load-store-optimization.md"
-    }
-  ],
-  "swizzling": [
-    {
-      "id": "KB-20250307-007A",
-      "title": "Triton tl.load/tl.store 内存操作与优化",
-      "file": "TOPICS/topic-triton-load-store-optimization.md"
-    }
-  ],
-  "compilation": [
-    {
-      "id": "KB-20260307-002",
-      "title": "NVCC 编译流程与分离编译",
-      "file": "TOPICS/topic-nvcc-compilation-flow.md"
-    }
-  ],
-  "rdc": [
-    {
-      "id": "KB-20260307-002",
-      "title": "NVCC 编译流程与分离编译",
-      "file": "TOPICS/topic-nvcc-compilation-flow.md"
-    }
-  ],
-  "separate-compilation": [
-    {
-      "id": "KB-20260307-002",
-      "title": "NVCC 编译流程与分离编译",
-      "file": "TOPICS/topic-nvcc-compilation-flow.md"
-    }
-  ],
-  "LLVM IR": [
-    {
-      "id": "KB-20260308-003",
-      "title": "MLIR LLVM IR Target 深度调研",
-      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
-    }
-  ],
-  "Target": [
-    {
-      "id": "KB-20260308-003",
-      "title": "MLIR LLVM IR Target 深度调研",
-      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
-    }
-  ],
-  "Dialect转换": [
-    {
-      "id": "KB-20260308-003",
-      "title": "MLIR LLVM IR Target 深度调研",
-      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
-    }
-  ],
-  "数据布局": [
-    {
-      "id": "KB-20260308-003",
-      "title": "MLIR LLVM IR Target 深度调研",
-      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+      "id": "KB-20250307-007C",
+      "title": "LLVM SSA 形式与编译器优化",
+      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
     }
   ],
   "LLVM": [
@@ -784,727 +1395,25 @@
       "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
     }
   ],
-  "clang": [
+  "collaboration": [
     {
-      "id": "KB-20250309-007",
-      "title": "Clang前端架构深度解析",
-      "file": "TOPICS/topic-clang-frontend-architecture.md"
-    },
-    {
-      "id": "KB-20250309-010",
-      "title": "Clang Sema语义分析详解",
-      "file": "TOPICS/topic-clang-sema.md"
-    },
-    {
-      "id": "KB-20250309-008",
-      "title": "Clang Lexer词法分析详解",
-      "file": "TOPICS/topic-clang-lexer.md"
-    },
-    {
-      "id": "KB-20250309-009",
-      "title": "Clang Parser语法分析详解",
-      "file": "TOPICS/topic-clang-parser.md"
-    },
-    {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
-    }
-  ],
-  "frontend": [
-    {
-      "id": "KB-20250309-007",
-      "title": "Clang前端架构深度解析",
-      "file": "TOPICS/topic-clang-frontend-architecture.md"
-    },
-    {
-      "id": "KB-20250309-010",
-      "title": "Clang Sema语义分析详解",
-      "file": "TOPICS/topic-clang-sema.md"
-    },
-    {
-      "id": "KB-20250309-008",
-      "title": "Clang Lexer词法分析详解",
-      "file": "TOPICS/topic-clang-lexer.md"
-    },
-    {
-      "id": "KB-20250309-009",
-      "title": "Clang Parser语法分析详解",
-      "file": "TOPICS/topic-clang-parser.md"
-    },
-    {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
-    }
-  ],
-  "compiler": [
-    {
-      "id": "KB-20250309-007",
-      "title": "Clang前端架构深度解析",
-      "file": "TOPICS/topic-clang-frontend-architecture.md"
-    },
-    {
-      "id": "KB-20250306-003",
-      "title": "Triton @triton.jit Decorator 原理深度解析",
-      "file": "TOPICS/topic-triton-jit-decorator.md"
-    },
-    {
-      "id": "KB-20250306-004",
-      "title": "LLVM 架构设计深度解析",
-      "file": "TOPICS/topic-llvm-architecture.md"
-    },
-    {
-      "id": "KB-20260306-006",
-      "title": "Triton 编程语言深度调研",
-      "file": "TOPICS/topic-triton-programming-language.md"
-    }
-  ],
-  "architecture": [
-    {
-      "id": "KB-20250309-007",
-      "title": "Clang前端架构深度解析",
-      "file": "TOPICS/topic-clang-frontend-architecture.md"
-    },
-    {
-      "id": "KB-20250308-024",
-      "title": "CUDA支持GPU架构与查询",
-      "file": "TOPICS/topic-cuda-enabled-gpus.md"
-    },
-    {
-      "id": "KB-20250308-012",
-      "title": "CUDA编程指南概述与GPU优势",
-      "file": "TOPICS/topic-cuda-overview.md"
-    },
-    {
-      "id": "KB-20250306-004",
-      "title": "LLVM 架构设计深度解析",
-      "file": "TOPICS/topic-llvm-architecture.md"
-    },
-    {
-      "id": "KB-20250308-021",
-      "title": "CUDA计算能力与架构特性",
-      "file": "TOPICS/topic-cuda-compute-capabilities.md"
-    },
-    {
-      "id": "KB-20250309-004",
-      "title": "CUTLASS 架构设计详解",
-      "file": "TOPICS/topic-cutlass-architecture.md"
-    }
-  ],
-  "graph": [
-    {
-      "id": "KB-20250308-019",
-      "title": "CUDA Graph内存节点",
-      "file": "TOPICS/topic-cuda-graph-memory.md"
-    },
-    {
-      "id": "KB-20250308-013",
-      "title": "CUDA编程接口详解",
-      "file": "TOPICS/topic-cuda-programming-interface.md"
-    }
-  ],
-  "memory-node": [
-    {
-      "id": "KB-20250308-019",
-      "title": "CUDA Graph内存节点",
-      "file": "TOPICS/topic-cuda-graph-memory.md"
-    }
-  ],
-  "cuda-graph": [
-    {
-      "id": "KB-20250308-019",
-      "title": "CUDA Graph内存节点",
-      "file": "TOPICS/topic-cuda-graph-memory.md"
-    }
-  ],
-  "memory-management": [
-    {
-      "id": "KB-20250308-019",
-      "title": "CUDA Graph内存节点",
-      "file": "TOPICS/topic-cuda-graph-memory.md"
-    },
-    {
-      "id": "KB-20250308-017",
-      "title": "CUDA虚拟内存管理VMM",
-      "file": "TOPICS/topic-cuda-virtual-memory.md"
-    }
-  ],
-  "profiling": [
-    {
-      "id": "KB-20250309-006",
-      "title": "CUTLASS 性能调优实战",
-      "file": "TOPICS/topic-cutlass-tuning.md"
-    }
-  ],
-  "tuning": [
-    {
-      "id": "KB-20250309-006",
-      "title": "CUTLASS 性能调优实战",
-      "file": "TOPICS/topic-cutlass-tuning.md"
-    }
-  ],
-  "nsight-compute": [
-    {
-      "id": "KB-20250309-006",
-      "title": "CUTLASS 性能调优实战",
-      "file": "TOPICS/topic-cutlass-tuning.md"
-    }
-  ],
-  "cluster": [
-    {
-      "id": "KB-20250308-022",
-      "title": "CUDA Cluster Launch Control",
-      "file": "TOPICS/topic-cuda-cluster-launch.md"
-    }
-  ],
-  "hopper": [
-    {
-      "id": "KB-20250308-022",
-      "title": "CUDA Cluster Launch Control",
-      "file": "TOPICS/topic-cuda-cluster-launch.md"
-    }
-  ],
-  "launch-control": [
-    {
-      "id": "KB-20250308-022",
-      "title": "CUDA Cluster Launch Control",
-      "file": "TOPICS/topic-cuda-cluster-launch.md"
-    }
-  ],
-  "block-cancellation": [
-    {
-      "id": "KB-20250308-022",
-      "title": "CUDA Cluster Launch Control",
-      "file": "TOPICS/topic-cuda-cluster-launch.md"
-    }
-  ],
-  "restrictions": [
-    {
-      "id": "KB-20260307-001",
-      "title": "CUDA Device Code C++ 特性支持与限制",
-      "file": "TOPICS/topic-cuda-device-code-features.md"
-    }
-  ],
-  "device-code": [
-    {
-      "id": "KB-20260307-001",
-      "title": "CUDA Device Code C++ 特性支持与限制",
-      "file": "TOPICS/topic-cuda-device-code-features.md"
-    }
-  ],
-  "feature-support": [
-    {
-      "id": "KB-20260307-001",
-      "title": "CUDA Device Code C++ 特性支持与限制",
-      "file": "TOPICS/topic-cuda-device-code-features.md"
-    }
-  ],
-  "builtin": [
-    {
-      "id": "KB-20260307-005",
-      "title": "CUDA 内建变量与函数速查",
-      "file": "TOPICS/topic-cuda-builtin-functions.md"
-    },
-    {
-      "id": "KB-20250308-020",
-      "title": "CUDA C++语言扩展",
-      "file": "TOPICS/topic-cuda-cpp-extensions.md"
-    }
-  ],
-  "functions": [
-    {
-      "id": "KB-20260307-005",
-      "title": "CUDA 内建变量与函数速查",
-      "file": "TOPICS/topic-cuda-builtin-functions.md"
-    }
-  ],
-  "variables": [
-    {
-      "id": "KB-20260307-005",
-      "title": "CUDA 内建变量与函数速查",
-      "file": "TOPICS/topic-cuda-builtin-functions.md"
-    }
-  ],
-  "gemm": [
-    {
-      "id": "KB-20250309-001",
-      "title": "CUTLASS CuTe 系统性学习计划",
-      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
-    },
-    {
-      "id": "KB-20250309-005",
-      "title": "Gemm 实现原理与优化",
-      "file": "TOPICS/topic-gemm-implementation.md"
-    },
-    {
-      "id": "KB-20250309-002",
-      "title": "CUDA Tile 基础概念与编程模型",
-      "file": "TOPICS/topic-cuda-tile-basics.md"
-    },
-    {
-      "id": "KB-20250309-004",
-      "title": "CUTLASS 架构设计详解",
-      "file": "TOPICS/topic-cutlass-architecture.md"
-    }
-  ],
-  "tensor-core": [
-    {
-      "id": "KB-20250309-001",
-      "title": "CUTLASS CuTe 系统性学习计划",
-      "file": "TOPICS/topic-cutlass-cute-study-plan.md"
-    },
-    {
-      "id": "KB-20250309-005",
-      "title": "Gemm 实现原理与优化",
-      "file": "TOPICS/topic-gemm-implementation.md"
-    },
-    {
-      "id": "KB-20250309-004",
-      "title": "CUTLASS 架构设计详解",
-      "file": "TOPICS/topic-cutlass-architecture.md"
-    }
-  ],
-  "compute-capability": [
-    {
-      "id": "KB-20250308-024",
-      "title": "CUDA支持GPU架构与查询",
-      "file": "TOPICS/topic-cuda-enabled-gpus.md"
-    },
-    {
-      "id": "KB-20250308-021",
-      "title": "CUDA计算能力与架构特性",
-      "file": "TOPICS/topic-cuda-compute-capabilities.md"
-    }
-  ],
-  "query": [
-    {
-      "id": "KB-20250308-024",
-      "title": "CUDA支持GPU架构与查询",
-      "file": "TOPICS/topic-cuda-enabled-gpus.md"
-    }
-  ],
-  "vmm": [
-    {
-      "id": "KB-20250308-017",
-      "title": "CUDA虚拟内存管理VMM",
-      "file": "TOPICS/topic-cuda-virtual-memory.md"
-    }
-  ],
-  "virtual-memory": [
-    {
-      "id": "KB-20250308-017",
-      "title": "CUDA虚拟内存管理VMM",
-      "file": "TOPICS/topic-cuda-virtual-memory.md"
-    }
-  ],
-  "fabric": [
-    {
-      "id": "KB-20250308-017",
-      "title": "CUDA虚拟内存管理VMM",
-      "file": "TOPICS/topic-cuda-virtual-memory.md"
-    }
-  ],
-  "multicast": [
-    {
-      "id": "KB-20250308-017",
-      "title": "CUDA虚拟内存管理VMM",
-      "file": "TOPICS/topic-cuda-virtual-memory.md"
-    }
-  ],
-  "hardware": [
-    {
-      "id": "KB-20250308-014",
-      "title": "CUDA硬件实现与SIMT架构",
-      "file": "TOPICS/topic-cuda-hardware-simt.md"
-    }
-  ],
-  "simt": [
-    {
-      "id": "KB-20250308-014",
-      "title": "CUDA硬件实现与SIMT架构",
-      "file": "TOPICS/topic-cuda-hardware-simt.md"
-    }
-  ],
-  "warp": [
-    {
-      "id": "KB-20250308-014",
-      "title": "CUDA硬件实现与SIMT架构",
-      "file": "TOPICS/topic-cuda-hardware-simt.md"
-    }
-  ],
-  "sm": [
-    {
-      "id": "KB-20250308-014",
-      "title": "CUDA硬件实现与SIMT架构",
-      "file": "TOPICS/topic-cuda-hardware-simt.md"
-    },
-    {
-      "id": "KB-20250308-021",
-      "title": "CUDA计算能力与架构特性",
-      "file": "TOPICS/topic-cuda-compute-capabilities.md"
-    }
-  ],
-  "multithreading": [
-    {
-      "id": "KB-20250308-014",
-      "title": "CUDA硬件实现与SIMT架构",
-      "file": "TOPICS/topic-cuda-hardware-simt.md"
-    }
-  ],
-  "cooperative-groups": [
-    {
-      "id": "KB-20250308-016",
-      "title": "CUDA Cooperative Groups协作组",
-      "file": "TOPICS/topic-cuda-cooperative-groups.md"
-    }
-  ],
-  "sync": [
-    {
-      "id": "KB-20250308-016",
-      "title": "CUDA Cooperative Groups协作组",
-      "file": "TOPICS/topic-cuda-cooperative-groups.md"
-    }
-  ],
-  "thread-group": [
-    {
-      "id": "KB-20250308-016",
-      "title": "CUDA Cooperative Groups协作组",
-      "file": "TOPICS/topic-cuda-cooperative-groups.md"
-    }
-  ],
-  "collective": [
-    {
-      "id": "KB-20250308-016",
-      "title": "CUDA Cooperative Groups协作组",
-      "file": "TOPICS/topic-cuda-cooperative-groups.md"
-    }
-  ],
-  "synchronization": [
-    {
-      "id": "KB-20260307-004",
-      "title": "CUDA 同步与内存屏障函数",
-      "file": "TOPICS/topic-cuda-sync-functions.md"
-    }
-  ],
-  "barrier": [
-    {
-      "id": "KB-20260307-004",
-      "title": "CUDA 同步与内存屏障函数",
-      "file": "TOPICS/topic-cuda-sync-functions.md"
-    }
-  ],
-  "fence": [
-    {
-      "id": "KB-20260307-004",
-      "title": "CUDA 同步与内存屏障函数",
-      "file": "TOPICS/topic-cuda-sync-functions.md"
-    }
-  ],
-  "atomic": [
-    {
-      "id": "KB-20260307-004",
-      "title": "CUDA 同步与内存屏障函数",
-      "file": "TOPICS/topic-cuda-sync-functions.md"
-    }
-  ],
-  "qualifiers": [
-    {
-      "id": "KB-20260307-003",
-      "title": "CUDA 内存空间限定符详解",
-      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
-    }
-  ],
-  "shared": [
-    {
-      "id": "KB-20260307-003",
-      "title": "CUDA 内存空间限定符详解",
-      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
-    }
-  ],
-  "constant": [
-    {
-      "id": "KB-20260307-003",
-      "title": "CUDA 内存空间限定符详解",
-      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
-    }
-  ],
-  "managed": [
-    {
-      "id": "KB-20260307-003",
-      "title": "CUDA 内存空间限定符详解",
-      "file": "TOPICS/topic-cuda-memory-qualifiers.md"
-    }
-  ],
-  "overview": [
-    {
-      "id": "KB-20250308-012",
-      "title": "CUDA编程指南概述与GPU优势",
-      "file": "TOPICS/topic-cuda-overview.md"
-    }
-  ],
-  "introduction": [
-    {
-      "id": "KB-20250308-012",
-      "title": "CUDA编程指南概述与GPU优势",
-      "file": "TOPICS/topic-cuda-overview.md"
-    }
-  ],
-  "jit": [
-    {
-      "id": "KB-20250306-003",
-      "title": "Triton @triton.jit Decorator 原理深度解析",
-      "file": "TOPICS/topic-triton-jit-decorator.md"
-    }
-  ],
-  "python": [
-    {
-      "id": "KB-20250306-003",
-      "title": "Triton @triton.jit Decorator 原理深度解析",
-      "file": "TOPICS/topic-triton-jit-decorator.md"
-    }
-  ],
-  "constant-memory": [
-    {
-      "id": "KB-20250306-006B",
-      "title": "CUDA 常量内存 (Constant Memory)",
-      "file": "TOPICS/topic-cuda-constant-memory.md"
-    }
-  ],
-  "broadcast": [
-    {
-      "id": "KB-20250306-006B",
-      "title": "CUDA 常量内存 (Constant Memory)",
-      "file": "TOPICS/topic-cuda-constant-memory.md"
-    }
-  ],
-  "cache": [
-    {
-      "id": "KB-20250306-006B",
-      "title": "CUDA 常量内存 (Constant Memory)",
-      "file": "TOPICS/topic-cuda-constant-memory.md"
-    }
-  ],
-  "performance": [
-    {
-      "id": "KB-20250308-015",
-      "title": "CUDA性能优化指南",
-      "file": "TOPICS/topic-cuda-performance-guide.md"
-    }
-  ],
-  "throughput": [
-    {
-      "id": "KB-20250308-015",
-      "title": "CUDA性能优化指南",
-      "file": "TOPICS/topic-cuda-performance-guide.md"
-    }
-  ],
-  "occupancy": [
-    {
-      "id": "KB-20250308-015",
-      "title": "CUDA性能优化指南",
-      "file": "TOPICS/topic-cuda-performance-guide.md"
-    }
-  ],
-  "implementation": [
-    {
-      "id": "KB-20250309-005",
-      "title": "Gemm 实现原理与优化",
-      "file": "TOPICS/topic-gemm-implementation.md"
-    }
-  ],
-  "pipeline": [
-    {
-      "id": "KB-20250309-005",
-      "title": "Gemm 实现原理与优化",
-      "file": "TOPICS/topic-gemm-implementation.md"
-    }
-  ],
-  "global-memory": [
-    {
-      "id": "KB-20250307-007B",
-      "title": "CUDA 全局内存与合并访问优化",
-      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
-    }
-  ],
-  "coalesced-access": [
-    {
-      "id": "KB-20250307-007B",
-      "title": "CUDA 全局内存与合并访问优化",
-      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
-    }
-  ],
-  "sema": [
-    {
-      "id": "KB-20250309-010",
-      "title": "Clang Sema语义分析详解",
-      "file": "TOPICS/topic-clang-sema.md"
-    }
-  ],
-  "type-checking": [
-    {
-      "id": "KB-20250309-010",
-      "title": "Clang Sema语义分析详解",
-      "file": "TOPICS/topic-clang-sema.md"
-    }
-  ],
-  "scope": [
-    {
-      "id": "KB-20250309-010",
-      "title": "Clang Sema语义分析详解",
-      "file": "TOPICS/topic-clang-sema.md"
-    }
-  ],
-  "runtime": [
-    {
-      "id": "KB-20250308-013",
-      "title": "CUDA编程接口详解",
-      "file": "TOPICS/topic-cuda-programming-interface.md"
-    }
-  ],
-  "api": [
-    {
-      "id": "KB-20250308-013",
-      "title": "CUDA编程接口详解",
-      "file": "TOPICS/topic-cuda-programming-interface.md"
-    }
-  ],
-  "stream": [
-    {
-      "id": "KB-20250308-013",
-      "title": "CUDA编程接口详解",
-      "file": "TOPICS/topic-cuda-programming-interface.md"
-    }
-  ],
-  "编译器基础设施": [
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
-    }
-  ],
-  "Dialect系统": [
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
-    }
-  ],
-  "深度学习编译": [
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
-    }
-  ],
-  "硬件综合": [
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
-    }
-  ],
-  "多面体优化": [
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
-    }
-  ],
-  "tile": [
-    {
-      "id": "KB-20250309-002",
-      "title": "CUDA Tile 基础概念与编程模型",
-      "file": "TOPICS/topic-cuda-tile-basics.md"
-    }
-  ],
-  "bank-conflict": [
-    {
-      "id": "KB-20250309-002",
-      "title": "CUDA Tile 基础概念与编程模型",
-      "file": "TOPICS/topic-cuda-tile-basics.md"
-    }
-  ],
-  "swizzle": [
-    {
-      "id": "KB-20250309-002",
-      "title": "CUDA Tile 基础概念与编程模型",
-      "file": "TOPICS/topic-cuda-tile-basics.md"
-    }
-  ],
-  "nvidia": [
-    {
-      "id": "KB-20260306-006",
-      "title": "Triton 编程语言深度调研",
-      "file": "TOPICS/topic-triton-programming-language.md"
-    },
-    {
-      "id": "KB-20250306-001",
-      "title": "CUDA 线程层次结构深度解析",
-      "file": "TOPICS/topic-cuda-thread-hierarchy.md"
-    }
-  ],
-  "amd": [
-    {
-      "id": "KB-20260306-006",
-      "title": "Triton 编程语言深度调研",
-      "file": "TOPICS/topic-triton-programming-language.md"
-    }
-  ],
-  "deep-learning": [
-    {
-      "id": "KB-20260306-006",
-      "title": "Triton 编程语言深度调研",
-      "file": "TOPICS/topic-triton-programming-language.md"
-    }
-  ],
-  "lexer": [
-    {
-      "id": "KB-20250309-008",
-      "title": "Clang Lexer词法分析详解",
-      "file": "TOPICS/topic-clang-lexer.md"
-    }
-  ],
-  "token": [
-    {
-      "id": "KB-20250309-008",
-      "title": "Clang Lexer词法分析详解",
-      "file": "TOPICS/topic-clang-lexer.md"
-    }
-  ],
-  "preprocessor": [
-    {
-      "id": "KB-20250309-008",
-      "title": "Clang Lexer词法分析详解",
-      "file": "TOPICS/topic-clang-lexer.md"
-    }
-  ],
-  "language-extension": [
-    {
-      "id": "KB-20250308-020",
-      "title": "CUDA C++语言扩展",
-      "file": "TOPICS/topic-cuda-cpp-extensions.md"
-    }
-  ],
-  "specifier": [
-    {
-      "id": "KB-20250308-020",
-      "title": "CUDA C++语言扩展",
-      "file": "TOPICS/topic-cuda-cpp-extensions.md"
+      "id": "KB-20260306-003",
+      "title": "多 Agent 协作调研",
+      "file": "TOPICS/topic-multi-agent-collaboration.md"
     }
   ],
-  "thread-hierarchy": [
+  "multi-agent": [
     {
-      "id": "KB-20250306-001",
-      "title": "CUDA 线程层次结构深度解析",
-      "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+      "id": "KB-20260306-003",
+      "title": "多 Agent 协作调研",
+      "file": "TOPICS/topic-multi-agent-collaboration.md"
     }
   ],
-  "parallel-computing": [
+  "research": [
     {
-      "id": "KB-20250306-001",
-      "title": "CUDA 线程层次结构深度解析",
-      "file": "TOPICS/topic-cuda-thread-hierarchy.md"
+      "id": "KB-20260306-003",
+      "title": "多 Agent 协作调研",
+      "file": "TOPICS/topic-multi-agent-collaboration.md"
     }
   ],
   "cdp": [
@@ -1535,25 +1444,18 @@
       "file": "TOPICS/topic-cuda-dynamic-parallelism.md"
     }
   ],
-  "type-system": [
+  "compiler-optimization": [
     {
-      "id": "KB-20250306-006C",
-      "title": "LLVM 类型系统",
-      "file": "TOPICS/topic-llvm-type-system.md"
+      "id": "KB-20250307-007C",
+      "title": "LLVM SSA 形式与编译器优化",
+      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
     }
   ],
-  "aggregate-types": [
+  "phi-function": [
     {
-      "id": "KB-20250306-006C",
-      "title": "LLVM 类型系统",
-      "file": "TOPICS/topic-llvm-type-system.md"
-    }
-  ],
-  "vector": [
-    {
-      "id": "KB-20250306-006C",
-      "title": "LLVM 类型系统",
-      "file": "TOPICS/topic-llvm-type-system.md"
+      "id": "KB-20250307-007C",
+      "title": "LLVM SSA 形式与编译器优化",
+      "file": "TOPICS/topic-llvm-ssa-form-optimization.md"
     }
   ],
   "memory-allocator": [
@@ -1584,27 +1486,6 @@
       "file": "TOPICS/topic-cuda-stream-ordered-allocator.md"
     }
   ],
-  "parser": [
-    {
-      "id": "KB-20250309-009",
-      "title": "Clang Parser语法分析详解",
-      "file": "TOPICS/topic-clang-parser.md"
-    }
-  ],
-  "ast": [
-    {
-      "id": "KB-20250309-009",
-      "title": "Clang Parser语法分析详解",
-      "file": "TOPICS/topic-clang-parser.md"
-    }
-  ],
-  "parsing": [
-    {
-      "id": "KB-20250309-009",
-      "title": "Clang Parser语法分析详解",
-      "file": "TOPICS/topic-clang-parser.md"
-    }
-  ],
   "mma": [
     {
       "id": "KB-20250309-004",
@@ -1619,46 +1500,165 @@
       "file": "TOPICS/topic-cutlass-architecture.md"
     }
   ],
-  "mask": [
+  "performance": [
     {
-      "id": "KB-20250306-006A",
-      "title": "Triton mask 与边界处理",
-      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
     }
   ],
-  "boundary-handling": [
+  "throughput": [
     {
-      "id": "KB-20250306-006A",
-      "title": "Triton mask 与边界处理",
-      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
     }
   ],
-  "padding": [
+  "occupancy": [
     {
-      "id": "KB-20250306-006A",
-      "title": "Triton mask 与边界处理",
-      "file": "TOPICS/topic-triton-mask-boundary-handling.md"
+      "id": "KB-20250308-015",
+      "title": "CUDA性能优化指南",
+      "file": "TOPICS/topic-cuda-performance-guide.md"
     }
   ],
-  "hip": [
+  "memory-hierarchy": [
     {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
+      "id": "KB-20250306-002",
+      "title": "CUDA 内存层次结构深度解析",
+      "file": "TOPICS/topic-cuda-memory-hierarchy.md"
     }
   ],
-  "nvptx": [
+  "cooperative-groups": [
     {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
     }
   ],
-  "amdgpu": [
+  "sync": [
     {
-      "id": "KB-20250309-011",
-      "title": "Clang GPU编译架构详解",
-      "file": "TOPICS/topic-clang-gpu-compilation.md"
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    }
+  ],
+  "thread-group": [
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    }
+  ],
+  "collective": [
+    {
+      "id": "KB-20250308-016",
+      "title": "CUDA Cooperative Groups协作组",
+      "file": "TOPICS/topic-cuda-cooperative-groups.md"
+    }
+  ],
+  "sema": [
+    {
+      "id": "KB-20250309-010",
+      "title": "Clang Sema语义分析详解",
+      "file": "TOPICS/topic-clang-sema.md"
+    }
+  ],
+  "type-checking": [
+    {
+      "id": "KB-20250309-010",
+      "title": "Clang Sema语义分析详解",
+      "file": "TOPICS/topic-clang-sema.md"
+    }
+  ],
+  "scope": [
+    {
+      "id": "KB-20250309-010",
+      "title": "Clang Sema语义分析详解",
+      "file": "TOPICS/topic-clang-sema.md"
+    }
+  ],
+  "type-system": [
+    {
+      "id": "KB-20250306-006C",
+      "title": "LLVM 类型系统",
+      "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
+  "aggregate-types": [
+    {
+      "id": "KB-20250306-006C",
+      "title": "LLVM 类型系统",
+      "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
+  "vector": [
+    {
+      "id": "KB-20250306-006C",
+      "title": "LLVM 类型系统",
+      "file": "TOPICS/topic-llvm-type-system.md"
+    }
+  ],
+  "bufferization": [
+    {
+      "id": "KB-20260308-002",
+      "title": "MLIR Bufferization 一致性保证深度解析",
+      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
+    }
+  ],
+  "alias-analysis": [
+    {
+      "id": "KB-20260308-002",
+      "title": "MLIR Bufferization 一致性保证深度解析",
+      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
+    }
+  ],
+  "in-place": [
+    {
+      "id": "KB-20260308-002",
+      "title": "MLIR Bufferization 一致性保证深度解析",
+      "file": "TOPICS/topic-mlir-bufferization-consistency.md"
+    }
+  ],
+  "load-store": [
+    {
+      "id": "KB-20250307-007A",
+      "title": "Triton tl.load/tl.store 内存操作与优化",
+      "file": "TOPICS/topic-triton-load-store-optimization.md"
+    }
+  ],
+  "swizzling": [
+    {
+      "id": "KB-20250307-007A",
+      "title": "Triton tl.load/tl.store 内存操作与优化",
+      "file": "TOPICS/topic-triton-load-store-optimization.md"
+    }
+  ],
+  "amd": [
+    {
+      "id": "KB-20260306-006",
+      "title": "Triton 编程语言深度调研",
+      "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "deep-learning": [
+    {
+      "id": "KB-20260306-006",
+      "title": "Triton 编程语言深度调研",
+      "file": "TOPICS/topic-triton-programming-language.md"
+    }
+  ],
+  "global-memory": [
+    {
+      "id": "KB-20250307-007B",
+      "title": "CUDA 全局内存与合并访问优化",
+      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
+    }
+  ],
+  "coalesced-access": [
+    {
+      "id": "KB-20250307-007B",
+      "title": "CUDA 全局内存与合并访问优化",
+      "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
     }
   ]
 }
