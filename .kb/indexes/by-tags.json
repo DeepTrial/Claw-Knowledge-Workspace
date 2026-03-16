@@ -312,6 +312,52 @@
       "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
     }
   ],
+  "MLIR": [
+    {
+      "id": "KB-20260308-004",
+      "title": "Linalg Dialect 深度调研",
+      "file": "TOPICS/Linalg-Dialect-Deep-Dive.md"
+    },
+    {
+      "id": "KB-20260308-006",
+      "title": "自定义 Dialect 定义深度调研",
+      "file": "TOPICS/Custom-Dialect-Definition.md"
+    },
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    },
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    },
+    {
+      "id": "KB-20260308-005",
+      "title": "MLIR Dialect Conversion 深度调研",
+      "file": "TOPICS/MLIR-Dialect-Conversion.md"
+    }
+  ],
+  "Linalg": [
+    {
+      "id": "KB-20260308-004",
+      "title": "Linalg Dialect 深度调研",
+      "file": "TOPICS/Linalg-Dialect-Deep-Dive.md"
+    }
+  ],
+  "结构化操作，高性能，GPU 编译": [
+    {
+      "id": "KB-20260308-004",
+      "title": "Linalg Dialect 深度调研",
+      "file": "TOPICS/Linalg-Dialect-Deep-Dive.md"
+    }
+  ],
   "hardware": [
     {
       "id": "KB-20250308-014",
@@ -630,6 +676,39 @@
       "file": "TOPICS/topic-cuda-tile-basics.md"
     }
   ],
+  "Dialect": [
+    {
+      "id": "KB-20260308-006",
+      "title": "自定义 Dialect 定义深度调研",
+      "file": "TOPICS/Custom-Dialect-Definition.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    }
+  ],
+  "ODS": [
+    {
+      "id": "KB-20260308-006",
+      "title": "自定义 Dialect 定义深度调研",
+      "file": "TOPICS/Custom-Dialect-Definition.md"
+    }
+  ],
+  "TableGen": [
+    {
+      "id": "KB-20260308-006",
+      "title": "自定义 Dialect 定义深度调研",
+      "file": "TOPICS/Custom-Dialect-Definition.md"
+    }
+  ],
+  "声明式规范": [
+    {
+      "id": "KB-20260308-006",
+      "title": "自定义 Dialect 定义深度调研",
+      "file": "TOPICS/Custom-Dialect-Definition.md"
+    }
+  ],
   "implementation": [
     {
       "id": "KB-20250309-005",
@@ -816,23 +895,6 @@
       "id": "KB-20260308-001",
       "title": "LLVM Backend 注册与 TargetMachine 创建深度解析",
       "file": "TOPICS/topic-llvm-backend-registration.md"
-    }
-  ],
-  "MLIR": [
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
-    },
-    {
-      "id": "KB-20260308-003",
-      "title": "MLIR LLVM IR Target 深度调研",
-      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
-    },
-    {
-      "id": "KB-20260308-002",
-      "title": "Triton MLIR 架构深度调研",
-      "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
   "编译器基础设施": [
@@ -1139,13 +1201,6 @@
       "file": "TOPICS/Triton-MLIR-Architecture.md"
     }
   ],
-  "Dialect": [
-    {
-      "id": "KB-20260308-002",
-      "title": "Triton MLIR 架构深度调研",
-      "file": "TOPICS/Triton-MLIR-Architecture.md"
-    }
-  ],
   "后端架构": [
     {
       "id": "KB-20260308-002",
@@ -1233,6 +1288,20 @@
       "id": "KB-20250308-017",
       "title": "CUDA虚拟内存管理VMM",
       "file": "TOPICS/topic-cuda-virtual-memory.md"
+    }
+  ],
+  "Dialect Conversion": [
+    {
+      "id": "KB-20260308-005",
+      "title": "MLIR Dialect Conversion 深度调研",
+      "file": "TOPICS/MLIR-Dialect-Conversion.md"
+    }
+  ],
+  "类型转换，模式重写": [
+    {
+      "id": "KB-20260308-005",
+      "title": "MLIR Dialect Conversion 深度调研",
+      "file": "TOPICS/MLIR-Dialect-Conversion.md"
     }
   ],
   "runtime": [

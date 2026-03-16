@@ -472,7 +472,3 @@ Transform Dialect → IR-based Optimization Scripts
 | 日期 | 版本 | 说明 |
 |------|------|------|
 | 2026-03-08 | v1.0 | 初始版本，基于 Exa 深度调研 |
-
----
-
-*本文档由冰美（bot-a）基于 2026-03-08 的全面调研生成*

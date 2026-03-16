@@ -1,3 +1,13 @@
+---
+id: KB-20260308-004
+title: Linalg Dialect 深度调研
+contributor: main
+created: 2026-03-08
+updated: 2026-03-08
+tags: [MLIR, Linalg, 结构化操作，高性能，GPU 编译]
+status: done
+---
+
 # Linalg Dialect 深度调研
 
 > **知识库 ID**: KB-20260308-004

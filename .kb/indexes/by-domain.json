@@ -146,6 +146,43 @@
       "file": "TOPICS/topic-cuda-global-memory-coalesced.md"
     }
   ],
+  "unknown": [
+    {
+      "id": "KB-20260308-004",
+      "title": "Linalg Dialect 深度调研",
+      "file": "TOPICS/Linalg-Dialect-Deep-Dive.md"
+    },
+    {
+      "id": "KB-20260308-006",
+      "title": "自定义 Dialect 定义深度调研",
+      "file": "TOPICS/Custom-Dialect-Definition.md"
+    },
+    {
+      "id": "KB-20260308-001",
+      "title": "MLIR 技术领域全景图谱",
+      "file": "TOPICS/MLIR-Technical-Landscape.md"
+    },
+    {
+      "id": "KB-20260308-003",
+      "title": "MLIR LLVM IR Target 深度调研",
+      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
+    },
+    {
+      "id": "KB-20260308-002",
+      "title": "Triton MLIR 架构深度调研",
+      "file": "TOPICS/Triton-MLIR-Architecture.md"
+    },
+    {
+      "id": "KB-20260308-005",
+      "title": "MLIR Dialect Conversion 深度调研",
+      "file": "TOPICS/MLIR-Dialect-Conversion.md"
+    },
+    {
+      "id": "KB-20260308-004",
+      "title": "自定义 LLVM Backend 集成深度调研",
+      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
+    }
+  ],
   "llvm": [
     {
       "id": "KB-20250309-009",
@@ -191,28 +228,6 @@
       "id": "KB-20250306-006C",
       "title": "LLVM 类型系统",
       "file": "TOPICS/topic-llvm-type-system.md"
-    }
-  ],
-  "unknown": [
-    {
-      "id": "KB-20260308-001",
-      "title": "MLIR 技术领域全景图谱",
-      "file": "TOPICS/MLIR-Technical-Landscape.md"
-    },
-    {
-      "id": "KB-20260308-003",
-      "title": "MLIR LLVM IR Target 深度调研",
-      "file": "TOPICS/MLIR-LLVM-IR-Target.md"
-    },
-    {
-      "id": "KB-20260308-002",
-      "title": "Triton MLIR 架构深度调研",
-      "file": "TOPICS/Triton-MLIR-Architecture.md"
-    },
-    {
-      "id": "KB-20260308-004",
-      "title": "自定义 LLVM Backend 集成深度调研",
-      "file": "TOPICS/Custom-LLVM-Backend-Integration.md"
     }
   ],
   "triton": [

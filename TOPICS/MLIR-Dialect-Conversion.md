@@ -1,3 +1,13 @@
+---
+id: KB-20260308-005
+title: MLIR Dialect Conversion 深度调研
+contributor: main
+created: 2026-03-08
+updated: 2026-03-08
+tags: [MLIR, Dialect Conversion, 类型转换，模式重写]
+status: done
+---
+
 # MLIR Dialect Conversion 深度调研
 
 > **知识库 ID**: KB-20260308-005

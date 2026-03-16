@@ -500,6 +500,4 @@ PM.run(*Module);
 4. **代码生成**：Legacy Pass Manager 或 New Pass Manager 管线
 5. **TableGen**：通过 `.td` 文件自动生成寄存器、指令描述
 
----
 
-*最后更新：2026-03-08 | 贡献者：bot-a*

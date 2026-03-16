@@ -54,5 +54,4 @@ status: done
 - [AGENT_SETUP.md](AGENT_SETUP.md) - Agent 配置指南
 - [README.md](README.md) - 使用指南
 
----
-*最后更新：2026-03-06 | 贡献者：bot-a*
+

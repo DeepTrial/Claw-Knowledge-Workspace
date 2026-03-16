@@ -1,3 +1,13 @@
+---
+id: KB-20260308-006
+title: 自定义 Dialect 定义深度调研
+contributor: main
+created: 2026-03-08
+updated: 2026-03-08
+tags: [MLIR, Dialect, ODS, TableGen, 声明式规范]
+status: done
+---
+
 # 自定义 Dialect 定义 深度调研
 
 > **知识库 ID**: KB-20260308-006

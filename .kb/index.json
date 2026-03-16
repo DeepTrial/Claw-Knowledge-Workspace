@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "updated": "2026-03-10T14:58:49.035786",
+  "updated": "2026-03-16T11:10:11.096663",
   "config": {
     "embedding_model": "all-MiniLM-L6-v2",
     "semantic_threshold": 0.85,
@@ -8,18 +8,18 @@
     "llm_enabled": false
   },
   "stats": {
-    "total_units": 48,
+    "total_units": 51,
     "by_category": {
       "cuda": 29,
+      "unknown": 7,
       "llvm": 9,
-      "unknown": 4,
       "triton": 4,
       "system-design": 1,
       "mlir": 1
     },
     "by_level": {
       "1": 10,
-      "2": 29,
+      "2": 32,
       "3": 9
     }
   },
@@ -38,6 +38,11 @@
       "description": "memory",
       "parent": "cuda",
       "count": 4
+    },
+    "unknown": {
+      "description": "unknown",
+      "parent": null,
+      "count": 7
     },
     "llvm": {
       "description": "llvm",
@@ -68,11 +73,6 @@
       "description": "backend",
       "parent": "llvm",
       "count": 1
-    },
-    "unknown": {
-      "description": "unknown",
-      "parent": null,
-      "count": 4
     },
     "cuda.compiler": {
       "description": "compiler",
@@ -185,6 +185,28 @@
       "updated": "2026-03-06"
     },
     {
+      "id": "KB-20260308-004",
+      "file": "TOPICS/Linalg-Dialect-Deep-Dive.md",
+      "title": "Linalg Dialect 深度调研",
+      "summary": "# Linalg Dialect 深度调研\n\n> **知识库 ID**: KB-20260308-004\n> **创建时间**: 2026-03-08\n> **优先级**: P1（高）\n> **状态**: 已完成\n> **贡献者**: main\n\n---\n\n## 📋 概述\n\nLinalg（Linear Algebra）Dialect 是 MLIR 中用于表示**结构化操作**的核心 Dialect",
+      "category": "unknown",
+      "level": 2,
+      "tags": [
+        "MLIR",
+        "Linalg",
+        "结构化操作，高性能，GPU 编译"
+      ],
+      "hash": "2159addb516b80a2",
+      "embedding_idx": 2,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
       "id": "KB-20250308-014",
       "file": "TOPICS/topic-cuda-hardware-simt.md",
       "title": "CUDA硬件实现与SIMT架构",
@@ -200,7 +222,7 @@
         "multithreading"
       ],
       "hash": "289c595ee8d43234",
-      "embedding_idx": 2,
+      "embedding_idx": 3,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -225,7 +247,7 @@
         "parsing"
       ],
       "hash": "0f80e5c19d8ab58f",
-      "embedding_idx": 3,
+      "embedding_idx": 4,
       "relations": [
         "KB-20250309-007",
         "KB-20250309-008",
@@ -249,7 +271,7 @@
         "reference"
       ],
       "hash": "b75b14982c592a13",
-      "embedding_idx": 4,
+      "embedding_idx": 5,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -274,7 +296,7 @@
         "optimization"
       ],
       "hash": "22f526afecfc79d0",
-      "embedding_idx": 5,
+      "embedding_idx": 6,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -300,7 +322,7 @@
         "optimization"
       ],
       "hash": "2f2107f5c869f068",
-      "embedding_idx": 6,
+      "embedding_idx": 7,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -308,6 +330,30 @@
       },
       "created": "2026-03-09",
       "updated": "2026-03-09"
+    },
+    {
+      "id": "KB-20260308-006",
+      "file": "TOPICS/Custom-Dialect-Definition.md",
+      "title": "自定义 Dialect 定义深度调研",
+      "summary": "# 自定义 Dialect 定义 深度调研\n\n> **知识库 ID**: KB-20260308-006\n> **创建时间**: 2026-03-08\n> **优先级**: P2（中）\n> **状态**: 已完成\n> **贡献者**: main\n\n---\n\n## 📋 概述\n\nMLIR 提供了强大的**声明式规范机制**（ODS - Operation Definition Specificatio",
+      "category": "unknown",
+      "level": 2,
+      "tags": [
+        "MLIR",
+        "Dialect",
+        "ODS",
+        "TableGen",
+        "声明式规范"
+      ],
+      "hash": "72cd1364ad824c70",
+      "embedding_idx": 8,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "KB-20250309-005",
@@ -325,7 +371,7 @@
         "pipeline"
       ],
       "hash": "3bb5bd50f4f3009f",
-      "embedding_idx": 7,
+      "embedding_idx": 9,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -349,7 +395,7 @@
         "memory-management"
       ],
       "hash": "9222cb24b04fdb62",
-      "embedding_idx": 8,
+      "embedding_idx": 10,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -374,7 +420,7 @@
         "preprocessor"
       ],
       "hash": "e733528603b4ab43",
-      "embedding_idx": 9,
+      "embedding_idx": 11,
       "relations": [
         "KB-20250309-007",
         "KB-20250309-009"
@@ -397,7 +443,7 @@
         "block-cancellation"
       ],
       "hash": "d3e66036f3af0120",
-      "embedding_idx": 10,
+      "embedding_idx": 12,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -421,7 +467,7 @@
         "atomic"
       ],
       "hash": "b3d2ab88c2bc343a",
-      "embedding_idx": 11,
+      "embedding_idx": 13,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -445,7 +491,7 @@
         "introduction"
       ],
       "hash": "a0fe0c9ffbd36069",
-      "embedding_idx": 12,
+      "embedding_idx": 14,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -468,8 +514,8 @@
         "registration",
         "codegen"
       ],
-      "hash": "d078fcc194396a9e",
-      "embedding_idx": 13,
+      "hash": "e48066ac16f80851",
+      "embedding_idx": 15,
       "relations": [
         "KB-20260306-007  # LLVM IR 基础",
         "KB-20260308-002  # Bufferization 一致性"
@@ -493,8 +539,8 @@
         "多面体优化",
         "GPU编译"
       ],
-      "hash": "6000d141b0a2d2b1",
-      "embedding_idx": 14,
+      "hash": "f528131e52699df5",
+      "embedding_idx": 16,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -519,7 +565,7 @@
         "managed"
       ],
       "hash": "23fc1c01fddbc4d1",
-      "embedding_idx": 15,
+      "embedding_idx": 17,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -544,7 +590,7 @@
         "optimization"
       ],
       "hash": "85226ffa4eb98ff5",
-      "embedding_idx": 16,
+      "embedding_idx": 18,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -568,7 +614,7 @@
         "gpu"
       ],
       "hash": "bdb64fdbadccd3b8",
-      "embedding_idx": 17,
+      "embedding_idx": 19,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -592,7 +638,7 @@
         "separate-compilation"
       ],
       "hash": "e2bfc55e16fc47e6",
-      "embedding_idx": 18,
+      "embedding_idx": 20,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -616,7 +662,7 @@
         "builtin"
       ],
       "hash": "b3dcf7aa3c7089b0",
-      "embedding_idx": 19,
+      "embedding_idx": 21,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -641,7 +687,7 @@
         "python"
       ],
       "hash": "0941c6806a5bbe6b",
-      "embedding_idx": 20,
+      "embedding_idx": 22,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -665,7 +711,7 @@
         "feature-support"
       ],
       "hash": "861db3647e816a9c",
-      "embedding_idx": 21,
+      "embedding_idx": 23,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -689,8 +735,8 @@
         "Dialect转换",
         "数据布局"
       ],
-      "hash": "d6346e30a11b4812",
-      "embedding_idx": 22,
+      "hash": "2e55cda105a7da73",
+      "embedding_idx": 24,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -714,8 +760,8 @@
         "后端架构",
         "GPU编译"
       ],
-      "hash": "35336687c018ea4b",
-      "embedding_idx": 23,
+      "hash": "e0d91cea4f8fc9de",
+      "embedding_idx": 25,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -742,7 +788,7 @@
         "amdgpu"
       ],
       "hash": "248b674dcfcc5f05",
-      "embedding_idx": 24,
+      "embedding_idx": 26,
       "relations": [
         "KB-20250309-007"
       ],
@@ -764,7 +810,7 @@
         "padding"
       ],
       "hash": "d452c1c43e5e0de6",
-      "embedding_idx": 25,
+      "embedding_idx": 27,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -789,7 +835,29 @@
         "multicast"
       ],
       "hash": "fc5f64035cb7df5d",
-      "embedding_idx": 26,
+      "embedding_idx": 28,
+      "relations": {
+        "supersedes": [],
+        "relates": [],
+        "cited_by": []
+      },
+      "created": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
+      "id": "KB-20260308-005",
+      "file": "TOPICS/MLIR-Dialect-Conversion.md",
+      "title": "MLIR Dialect Conversion 深度调研",
+      "summary": "# MLIR Dialect Conversion 深度调研\n\n> **知识库 ID**: KB-20260308-005\n> **创建时间**: 2026-03-08\n> **优先级**: P2（中）\n> **状态**: 已完成\n> **贡献者**: main\n\n---\n\n## 📋 概述\n\nDialect Conversion 是 MLIR 中用于在不同 Dialect 之间或同一 Dialec",
+      "category": "unknown",
+      "level": 2,
+      "tags": [
+        "MLIR",
+        "Dialect Conversion",
+        "类型转换，模式重写"
+      ],
+      "hash": "677439f3e5549923",
+      "embedding_idx": 29,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -815,7 +883,7 @@
         "graph"
       ],
       "hash": "5581aceba22be4fa",
-      "embedding_idx": 27,
+      "embedding_idx": 30,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -841,7 +909,7 @@
         "abstraction"
       ],
       "hash": "bde9fb42a9769465",
-      "embedding_idx": 28,
+      "embedding_idx": 31,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -865,7 +933,7 @@
         "nvidia"
       ],
       "hash": "dbc34cb0301f9c96",
-      "embedding_idx": 29,
+      "embedding_idx": 32,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -889,7 +957,7 @@
         "reference"
       ],
       "hash": "8ab3bef1c2fd5efd",
-      "embedding_idx": 30,
+      "embedding_idx": 33,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -913,7 +981,7 @@
         "architecture"
       ],
       "hash": "7875667e7acfdedf",
-      "embedding_idx": 31,
+      "embedding_idx": 34,
       "relations": [
         "KB-20250309-008",
         "KB-20250309-009"
@@ -937,7 +1005,7 @@
         "ssa"
       ],
       "hash": "cdd4f890ada77c36",
-      "embedding_idx": 32,
+      "embedding_idx": 35,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -961,8 +1029,8 @@
         "寄存器分配",
         "汇编生成"
       ],
-      "hash": "8d9e495921b5eab0",
-      "embedding_idx": 33,
+      "hash": "f872577f30fd8826",
+      "embedding_idx": 36,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -983,8 +1051,8 @@
         "multi-agent",
         "research"
       ],
-      "hash": "471be1a0d0255472",
-      "embedding_idx": 34,
+      "hash": "058067262266e29b",
+      "embedding_idx": 37,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1008,7 +1076,7 @@
         "nested"
       ],
       "hash": "02c429f098dae0c6",
-      "embedding_idx": 35,
+      "embedding_idx": 38,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1032,7 +1100,7 @@
         "ir"
       ],
       "hash": "87d60d70a8d64ca3",
-      "embedding_idx": 36,
+      "embedding_idx": 39,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1056,7 +1124,7 @@
         "async"
       ],
       "hash": "c1f66ae3f04339b9",
-      "embedding_idx": 37,
+      "embedding_idx": 40,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1082,7 +1150,7 @@
         "epilogue"
       ],
       "hash": "f43cf220811b9623",
-      "embedding_idx": 38,
+      "embedding_idx": 41,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1107,7 +1175,7 @@
         "occupancy"
       ],
       "hash": "bbb6f05de955d79a",
-      "embedding_idx": 39,
+      "embedding_idx": 42,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1131,7 +1199,7 @@
         "shared-memory"
       ],
       "hash": "c4a552b5d557efc1",
-      "embedding_idx": 40,
+      "embedding_idx": 43,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1155,7 +1223,7 @@
         "collective"
       ],
       "hash": "56a741ac985406f0",
-      "embedding_idx": 41,
+      "embedding_idx": 44,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1180,7 +1248,7 @@
         "scope"
       ],
       "hash": "7641534f6440d4fb",
-      "embedding_idx": 42,
+      "embedding_idx": 45,
       "relations": [
         "KB-20250309-007",
         "KB-20250309-009"
@@ -1203,7 +1271,7 @@
         "vector"
       ],
       "hash": "1b3f08303c5483c8",
-      "embedding_idx": 43,
+      "embedding_idx": 46,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1226,8 +1294,8 @@
         "alias-analysis",
         "in-place"
       ],
-      "hash": "e960034cb1063f5b",
-      "embedding_idx": 44,
+      "hash": "6787f6f4e06df8f5",
+      "embedding_idx": 47,
       "relations": [
         "KB-20260308-001  # LLVM Backend 注册",
         "KB-20260306-006  # MLIR 基础架构"
@@ -1250,7 +1318,7 @@
         "optimization"
       ],
       "hash": "ea995ab76f2b9191",
-      "embedding_idx": 45,
+      "embedding_idx": 48,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1275,8 +1343,8 @@
         "amd",
         "deep-learning"
       ],
-      "hash": "af8c5a79a96ed874",
-      "embedding_idx": 46,
+      "hash": "e2a4f3419db36f72",
+      "embedding_idx": 49,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1300,7 +1368,7 @@
         "optimization"
       ],
       "hash": "770a3f2138b3daaa",
-      "embedding_idx": 47,
+      "embedding_idx": 50,
       "relations": {
         "supersedes": [],
         "relates": [],
@@ -1314,19 +1382,21 @@
     "hash_index": {
       "dac856e6fb922bfd": "KB-20250308-024",
       "023e1ac77c359589": "KB-20250306-006B",
+      "2159addb516b80a2": "KB-20260308-004",
       "289c595ee8d43234": "KB-20250308-014",
       "0f80e5c19d8ab58f": "KB-20250309-009",
       "b75b14982c592a13": "KB-20260307-006",
       "22f526afecfc79d0": "KB-20250309-006",
       "2f2107f5c869f068": "KB-20250309-002",
+      "72cd1364ad824c70": "KB-20260308-006",
       "3bb5bd50f4f3009f": "KB-20250309-005",
       "9222cb24b04fdb62": "KB-20250308-019",
       "e733528603b4ab43": "KB-20250309-008",
       "d3e66036f3af0120": "KB-20250308-022",
       "b3d2ab88c2bc343a": "KB-20260307-004",
       "a0fe0c9ffbd36069": "KB-20250308-012",
-      "d078fcc194396a9e": "KB-20260308-001",
-      "6000d141b0a2d2b1": "KB-20260308-001",
+      "e48066ac16f80851": "KB-20260308-001",
+      "f528131e52699df5": "KB-20260308-001",
       "23fc1c01fddbc4d1": "KB-20260307-003",
       "85226ffa4eb98ff5": "KB-20250309-001",
       "bdb64fdbadccd3b8": "KB-20250308-021",
@@ -1334,19 +1404,20 @@
       "b3dcf7aa3c7089b0": "KB-20250308-020",
       "0941c6806a5bbe6b": "KB-20250306-003",
       "861db3647e816a9c": "KB-20260307-001",
-      "d6346e30a11b4812": "KB-20260308-003",
-      "35336687c018ea4b": "KB-20260308-002",
+      "2e55cda105a7da73": "KB-20260308-003",
+      "e0d91cea4f8fc9de": "KB-20260308-002",
       "248b674dcfcc5f05": "KB-20250309-011",
       "d452c1c43e5e0de6": "KB-20250306-006A",
       "fc5f64035cb7df5d": "KB-20250308-017",
+      "677439f3e5549923": "KB-20260308-005",
       "5581aceba22be4fa": "KB-20250308-013",
       "bde9fb42a9769465": "KB-20250309-003",
       "dbc34cb0301f9c96": "KB-20250306-001",
       "8ab3bef1c2fd5efd": "KB-20260307-005",
       "7875667e7acfdedf": "KB-20250309-007",
       "cdd4f890ada77c36": "KB-20250306-004",
-      "8d9e495921b5eab0": "KB-20260308-004",
-      "471be1a0d0255472": "KB-20260306-003",
+      "f872577f30fd8826": "KB-20260308-004",
+      "058067262266e29b": "KB-20260306-003",
       "02c429f098dae0c6": "KB-20250308-023",
       "87d60d70a8d64ca3": "KB-20250307-007C",
       "c1f66ae3f04339b9": "KB-20250308-018",
@@ -1356,9 +1427,9 @@
       "56a741ac985406f0": "KB-20250308-016",
       "7641534f6440d4fb": "KB-20250309-010",
       "1b3f08303c5483c8": "KB-20250306-006C",
-      "e960034cb1063f5b": "KB-20260308-002",
+      "6787f6f4e06df8f5": "KB-20260308-002",
       "ea995ab76f2b9191": "KB-20250307-007A",
-      "af8c5a79a96ed874": "KB-20260306-006",
+      "e2a4f3419db36f72": "KB-20260306-006",
       "770a3f2138b3daaa": "KB-20250307-007B"
     },
     "similar_pairs": []
